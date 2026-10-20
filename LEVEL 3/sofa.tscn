@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://4we7kagrvm6u"]
+
+[ext_resource type="Script" uid="uid://ba72caks6ri35" path="res://LEVEL 3/sofa.gd" id="1_rlhdr"]
+[ext_resource type="Texture2D" uid="uid://uo3c1cb2mavo" path="res://LEVEL 3/sofa punched.png" id="2_lg4ee"]
+[ext_resource type="Texture2D" uid="uid://bgnutu0lpdako" path="res://LEVEL 3/sofa idle.png" id="3_u6mhi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjlgi"]
+atlas = ExtResource("2_lg4ee")
+region = Rect2(0, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sll2h"]
+atlas = ExtResource("2_lg4ee")
+region = Rect2(350, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fxc0"]
+atlas = ExtResource("2_lg4ee")
+region = Rect2(0, 350, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl5am"]
+atlas = ExtResource("2_lg4ee")
+region = Rect2(350, 350, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3rxk"]
+atlas = ExtResource("3_u6mhi")
+region = Rect2(0, 0, 350, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxm0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjlgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sll2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fxc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl5am")
+}],
+"loop": false,
+"name": &"dummy1_hurt3",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3rxk")
+}],
+"loop": true,
+"name": &"dummy1_idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qyehq"]
+
+[node name="Sofa" type="CharacterBody3D" unique_id=492130295]
+script = ExtResource("1_rlhdr")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=114142297]
+transform = Transform3D(5, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0)
+pixel_size = 0.0009
+billboard = 1
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rxm0m")
+animation = &"dummy1_hurt3"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1112751476]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.042554915, 0.006690979, -0.026741534)
+shape = SubResource("CapsuleShape3D_qyehq")

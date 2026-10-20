@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://cxjacq1xouwxu"]
+
+[ext_resource type="Texture2D" uid="uid://bsroui6wiwcxk" path="res://LEVEL1/meowfrutiger.png" id="1_580l0"]
+[ext_resource type="AudioStream" uid="uid://c3efp70oihuv0" path="res://sonidos/mapsong.mp3" id="1_s4mbb"]
+[ext_resource type="Script" uid="uid://d5y2mss13hc8" path="res://scripts/frutigerdialogos.gd" id="1_vptng"]
+[ext_resource type="Texture2D" uid="uid://denkfy47odlu5" path="res://LEVEL1/arboles.png" id="2_2hsh3"]
+[ext_resource type="Shader" uid="uid://bw6mtbnkusm2l" path="res://addons/frutigeraqua.gdshader" id="2_uj52c"]
+[ext_resource type="Texture2D" uid="uid://31g4x5mdhp6q" path="res://LEVEL1/Chestclosed.png" id="3_665i6"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="4_7hdln"]
+[ext_resource type="Shader" uid="uid://doogxfkldggvn" path="res://addons/bubbles.gdshader" id="5_rdvdo"]
+[ext_resource type="AudioStream" uid="uid://dc40r718pcyno" path="res://sonidos/aquabubbles.mp3" id="7_2hsh3"]
+[ext_resource type="PackedScene" uid="uid://bek0jqxnh6v6x" path="res://scenes/MenuPausa.tscn" id="7_665i6"]
+[ext_resource type="AudioStream" uid="uid://cgd33k7la68ss" path="res://voices/meowvoice.wav" id="11_syrgs"]
+[ext_resource type="PackedScene" uid="uid://dq78s70w0i4j3" path="res://scenes/NotificadorLogros.tscn" id="12_7hdln"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_580l0"]
+shader = ExtResource("2_uj52c")
+shader_parameter/intensity = 1.0
+shader_parameter/base_water_color = Color(0.14866716, 0.22416298, 0.27449355, 1)
+shader_parameter/highlight_scale = 1.04800004652012
+shader_parameter/clarity = 0.2890000137275
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knach"]
+atlas = ExtResource("1_580l0")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0edg"]
+atlas = ExtResource("1_580l0")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdvdo"]
+atlas = ExtResource("1_580l0")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hsh3"]
+atlas = ExtResource("1_580l0")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_665i6"]
+atlas = ExtResource("1_580l0")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd76w"]
+atlas = ExtResource("1_580l0")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4g27"]
+atlas = ExtResource("1_580l0")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vptng"]
+atlas = ExtResource("1_580l0")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7hdln"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knach")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0edg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdvdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hsh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_665i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd76w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4g27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vptng")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hsh3"]
+shader = ExtResource("5_rdvdo")
+shader_parameter/color_burbuja_bordes = Color(0, 0.6313726, 0.72156864, 1)
+shader_parameter/color_burbuja_centro = Color(1, 1, 1, 0.9)
+shader_parameter/tamano_base = 0.07500000286398
+shader_parameter/velocidad = 0.12600000272512002
+shader_parameter/cantidad = 10.410000256975
+
+[node name="Node2D" type="Control" unique_id=1845466617]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vptng")
+
+[node name="Arboles2" type="Sprite2D" parent="." unique_id=907866485]
+modulate = Color(3.85046e-06, 0.94946903, 0.70066124, 0.47058824)
+position = Vector2(556, 517)
+texture = ExtResource("2_2hsh3")
+
+[node name="aqua2" type="ColorRect" parent="." unique_id=706066121]
+material = SubResource("ShaderMaterial_580l0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 1, 1)
+
+[node name="Arboles" type="Sprite2D" parent="." unique_id=1549998743]
+modulate = Color(3.85046e-06, 0.94946903, 0.70066124, 0.47058824)
+position = Vector2(1025, 517)
+texture = ExtResource("2_2hsh3")
+
+[node name="Arboles3" type="Sprite2D" parent="Arboles" unique_id=299552288]
+modulate = Color(3.85046e-06, 0.94946903, 0.70066124, 0.47058824)
+position = Vector2(-910, 7)
+texture = ExtResource("2_2hsh3")
+
+[node name="Chestclosed" type="Sprite2D" parent="Arboles" unique_id=1418301480]
+position = Vector2(-860, -7)
+rotation = -0.5305801
+texture = ExtResource("3_665i6")
+
+[node name="Meow" type="AnimatedSprite2D" parent="." unique_id=1923493409]
+position = Vector2(632, 275)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_7hdln")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.15276732
+
+[node name="bubbles" type="ColorRect" parent="." unique_id=1987331030]
+material = SubResource("ShaderMaterial_2hsh3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 1, 1)
+
+[node name="theme" type="AudioStreamPlayer" parent="." unique_id=758362623]
+stream = ExtResource("1_s4mbb")
+volume_db = -12.156
+pitch_scale = 0.7
+autoplay = true
+bus = &"Musica"
+
+[node name="bubbles2" type="AudioStreamPlayer" parent="." unique_id=326285485]
+stream = ExtResource("7_2hsh3")
+volume_db = -5.402
+pitch_scale = 0.7
+autoplay = true
+bus = &"Efectos"
+
+[node name="MenuPausa" parent="." unique_id=563868198 instance=ExtResource("7_665i6")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1034016988]
+stream = ExtResource("11_syrgs")
+volume_db = -12.156
+bus = &"Efectos"
+
+[node name="Label" type="Label" parent="." unique_id=925846726]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.0
+offset_top = 190.0
+offset_right = 284.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_7hdln")
+theme_override_font_sizes/font_size = 30
+text = "ESTOY CANADA! HASRTA DE ODO ESTO!"
+
+[node name="NotificadorLogros" parent="." unique_id=1385048794 instance=ExtResource("12_7hdln")]

@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://c3rldsuuyjpuu"]
+
+[ext_resource type="Texture2D" uid="uid://bnq0w5nitq46j" path="res://Nubbetodo/New_Piskel.png" id="1_e1lw7"]
+[ext_resource type="Script" uid="uid://cdkb44a1glrm3" path="res://scripts/nubbe_rescatable.gd" id="2_e1lw7"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="3_m5o03"]
+[ext_resource type="Script" uid="uid://cht6qt1v3vuns" path="res://scripts/cuerpo_nubbe.gd" id="4_e1lw7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji6i6"]
+atlas = ExtResource("1_e1lw7")
+region = Rect2(0, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5o03"]
+atlas = ExtResource("1_e1lw7")
+region = Rect2(350, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h413y"]
+atlas = ExtResource("1_e1lw7")
+region = Rect2(700, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a0k0"]
+atlas = ExtResource("1_e1lw7")
+region = Rect2(0, 350, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijehn"]
+atlas = ExtResource("1_e1lw7")
+region = Rect2(350, 350, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw3tk"]
+atlas = ExtResource("1_e1lw7")
+region = Rect2(700, 350, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8f71"]
+atlas = ExtResource("1_e1lw7")
+region = Rect2(0, 700, 350, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2mgd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji6i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5o03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h413y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a0k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijehn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw3tk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8f71")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkt00"]
+size = Vector3(0.43113708, 1, 0.222229)
+
+[node name="Nubbe_NPC" type="AnimatedSprite3D" unique_id=721669094 groups=["enemies"]]
+pixel_size = 0.0007
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_c2mgd")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.36330888
+script = ExtResource("2_e1lw7")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1220101482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6822677, 0)
+visible = false
+modulate = Color(0.16862746, 0.7764706, 0.4627451, 1)
+text = "hit!"
+font = ExtResource("3_m5o03")
+
+[node name="CuerpoNubbe" type="StaticBody3D" parent="." unique_id=1412070994]
+script = ExtResource("4_e1lw7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CuerpoNubbe" unique_id=1725241836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07797447, 0, 0.011077881)
+shape = SubResource("BoxShape3D_mkt00")
+disabled = true

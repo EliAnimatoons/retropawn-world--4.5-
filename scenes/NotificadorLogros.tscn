@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dq78s70w0i4j3"]
+
+[ext_resource type="Script" uid="uid://dna16xywnotn0" path="res://scripts/NotificadorLogros.gd" id="1_1nuhn"]
+[ext_resource type="FontFile" uid="uid://dn1apt5akavrk" path="res://addons/KiriFont.ttf" id="2_8ekmx"]
+[ext_resource type="FontFile" uid="uid://3o7lgx4o7twd" path="res://addons/PeaberryMono.ttf" id="3_jdu7s"]
+[ext_resource type="AudioStream" uid="uid://bnoghih1lab6a" path="res://sonidos/LOGRO!!.mp3" id="4_jdu7s"]
+
+[node name="NotificadorLogros" type="CanvasLayer" unique_id=1385048794]
+script = ExtResource("1_1nuhn")
+
+[node name="PanelCartel" type="PanelContainer" parent="." unique_id=1157035072]
+custom_minimum_size = Vector2(570, 160)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -571.0
+offset_top = 6.0
+offset_right = -1.0
+offset_bottom = 166.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelCartel" unique_id=614846988]
+layout_mode = 2
+
+[node name="HBoxPrincipal" type="HBoxContainer" parent="PanelCartel/MarginContainer" unique_id=1267317238]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelCartel/MarginContainer/HBoxPrincipal" unique_id=502097153]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="TextureRect" type="TextureRect" parent="PanelCartel/MarginContainer/HBoxPrincipal/HBoxContainer" unique_id=1332729939]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelCartel/MarginContainer/HBoxPrincipal" unique_id=632742764]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="TituloLabel" type="Label" parent="PanelCartel/MarginContainer/HBoxPrincipal/VBoxContainer" unique_id=857008233]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8ekmx")
+theme_override_font_sizes/font_size = 40
+text = "El destripador"
+autowrap_mode = 3
+
+[node name="NombreLabel" type="Label" parent="PanelCartel/MarginContainer/HBoxPrincipal/VBoxContainer" unique_id=1161363589]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jdu7s")
+theme_override_font_sizes/font_size = 30
+text = "TUpac el logro"
+autowrap_mode = 3
+
+[node name="DescLabel" type="Label" parent="PanelCartel/MarginContainer/HBoxPrincipal/VBoxContainer" unique_id=641581641]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jdu7s")
+theme_override_font_sizes/font_size = 15
+text = "lograste matar al minion lider"
+autowrap_mode = 3
+
+[node name="SonidoLogro" type="AudioStreamPlayer" parent="." unique_id=510704890]
+stream = ExtResource("4_jdu7s")
+bus = &"Efectos"

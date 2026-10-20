@@ -1,0 +1,599 @@
+[gd_scene format=3 uid="uid://bemt05qfdtutp"]
+
+[ext_resource type="Script" uid="uid://beeelulxxyogb" path="res://LEVEL 3/mundo_3.gd" id="1_afd7u"]
+[ext_resource type="Shader" uid="uid://bprehwrqlhkt7" path="res://addons/realisticsky.gdshader" id="2_dkheh"]
+[ext_resource type="Script" uid="uid://b03b4vr18tmk7" path="res://scripts/camera_3d.gd" id="3_rq25v"]
+[ext_resource type="Texture2D" uid="uid://ctcd76e832t06" path="res://LEVEL 3/floor.png" id="3_tr7if"]
+[ext_resource type="Texture2D" uid="uid://ybsuxe1bg1a5" path="res://LEVEL 3/Wall5.png" id="4_ukq0v"]
+[ext_resource type="Texture2D" uid="uid://dkjh04y2ipt1s" path="res://LEVEL 3/Wall3.png" id="5_weigv"]
+[ext_resource type="Texture2D" uid="uid://dcc0k0yo7ap7g" path="res://LEVEL 3/Background.png" id="6_jd405"]
+[ext_resource type="PackedScene" uid="uid://d4ceewd5tnlc6" path="res://scenes/tacho.tscn" id="6_uxyp2"]
+[ext_resource type="PackedScene" uid="uid://dgk4dh3bfamao" path="res://scenes/hud.tscn" id="7_q3bbk"]
+[ext_resource type="Script" uid="uid://cqigmv8pt6wui" path="res://scripts/spawn_player.gd" id="9_wnh2w"]
+[ext_resource type="PackedScene" uid="uid://dyd343mg1aayi" path="res://scenes/JaulaRescate.tscn" id="12_fq0ja"]
+[ext_resource type="AudioStream" uid="uid://byfcxp4n2lkne" path="res://sonidos/Blizzard Breakout (Across)2.mp3" id="15_afd7u"]
+[ext_resource type="Texture2D" uid="uid://bmt61awd7lyah" path="res://sprites y dibujos/meowexestalker.png" id="15_dkheh"]
+[ext_resource type="Texture2D" uid="uid://bcvbabymsxfty" path="res://LEVEL 3/Floor1.png" id="20_ukq0v"]
+[ext_resource type="PackedScene" uid="uid://clco4tsmop677" path="res://ChosmixCharacter/chosmix_npc.tscn" id="21_dkheh"]
+[ext_resource type="PackedScene" uid="uid://bek0jqxnh6v6x" path="res://scenes/MenuPausa.tscn" id="22_s1fvm"]
+[ext_resource type="Script" uid="uid://i2ag5mh64qmi" path="res://LEVEL 3/ZonaPersecucion.gd" id="23_p80lp"]
+[ext_resource type="Texture2D" uid="uid://bmjoh6h40qpr5" path="res://LEVEL 3/killer bread sprite idle.png" id="23_vqoop"]
+[ext_resource type="Script" uid="uid://ct5bfeghpcwh8" path="res://LEVEL 3/killer_bread.gd" id="24_7dbno"]
+[ext_resource type="Script" uid="uid://dryrcedyi4mo" path="res://LEVEL 3/checkpoint.gd" id="26_7dbno"]
+[ext_resource type="Texture2D" uid="uid://b64dl4o1usaqn" path="res://sprites y dibujos/light.png" id="28_dkheh"]
+[ext_resource type="PackedScene" uid="uid://cqx7v7pjyjhqy" path="res://LEVEL 3/IceBread.tscn" id="33_7dbno"]
+[ext_resource type="PackedScene" uid="uid://b8n6h76ma2ec6" path="res://scenes/ComboUI.tscn" id="38_2yklo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6p1es"]
+shader = ExtResource("2_dkheh")
+shader_parameter/top_color = Color(0.85117996, 0.8735735, 0.8845558, 1)
+shader_parameter/bottom_color = Color(0.69277006, 0.76828, 0.9228985, 1)
+shader_parameter/sun_color = Color(1, 0.95, 0.8, 1)
+shader_parameter/sun_size = 0.03
+shader_parameter/sun_blur = 0.10000000149012
+shader_parameter/sun_intensity = 8.0
+shader_parameter/flare_color = Color(1, 0.7, 0.3, 1)
+shader_parameter/flare_intensity = 5.0
+shader_parameter/cloud_color = Color(1, 0.95, 0.9, 1)
+shader_parameter/cloud_shadow = Color(0.4, 0.45, 0.55, 1)
+shader_parameter/cloud_coverage = 1.0
+shader_parameter/cloud_speed = 0.0510000024225
+
+[sub_resource type="Sky" id="Sky_7dbno"]
+sky_material = SubResource("ShaderMaterial_6p1es")
+
+[sub_resource type="Environment" id="Environment_sxruw"]
+background_mode = 2
+sky = SubResource("Sky_7dbno")
+sky_custom_fov = 117.7
+ambient_light_color = Color(0.8862616, 0.88626146, 0.8862615, 1)
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.09
+glow_bloom = 0.35
+glow_hdr_luminance_cap = 146.34
+adjustment_enabled = true
+adjustment_brightness = 0.82
+adjustment_contrast = 1.05
+adjustment_saturation = 1.22
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqys"]
+transparency = 1
+albedo_texture = ExtResource("20_ukq0v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70yaf"]
+transparency = 1
+albedo_texture = ExtResource("6_jd405")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcwxx"]
+albedo_color = Color(0.7497799, 0.7497801, 0.74977994, 1)
+albedo_texture = ExtResource("3_tr7if")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vpw5n"]
+material = SubResource("StandardMaterial3D_rcwxx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fy66"]
+size = Vector3(1.1550293, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dbno"]
+atlas = ExtResource("15_dkheh")
+region = Rect2(0, 0, 350, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ukv3b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dbno")
+}],
+"loop": 1,
+"name": &"stalker",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dbno"]
+size = Vector3(6.5180664, 5.4155273, 13.640625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eo6q"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(0, 0, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eywy"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(1924, 0, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukv3b"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(3848, 0, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf7ts"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(5772, 0, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw3vy"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(7696, 0, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq25v"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(0, 1084, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xheim"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(1924, 1084, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k5e1"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(3848, 1084, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxyp2"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(5772, 1084, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3bbk"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(7696, 1084, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fij37"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(0, 2168, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnh2w"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(1924, 2168, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtuom"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(3848, 2168, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjook"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(5772, 2168, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq0ja"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(7696, 2168, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emsl4"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(0, 3252, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmuvx"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(1924, 3252, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jke5b"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(3848, 3252, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mimvc"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(5772, 3252, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvygo"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(7696, 3252, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hjhb"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(0, 4336, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rag0"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(1924, 4336, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aq0t"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(3848, 4336, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctewp"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(5772, 4336, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1fvm"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(7696, 4336, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arxyp"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(0, 5420, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np7t0"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(1924, 5420, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hlle"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(3848, 5420, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur6yi"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(5772, 5420, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts8bo"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(7696, 5420, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek8ek"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(0, 6504, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0fyq"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(1924, 6504, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44bxp"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(3848, 6504, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j437x"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(5772, 6504, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drdxb"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(7696, 6504, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5hbe"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(0, 7588, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db4na"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(1924, 7588, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fqn6"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(3848, 7588, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo07a"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(5772, 7588, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75eim"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(7696, 7588, 1924, 1084)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yklo"]
+atlas = ExtResource("23_vqoop")
+region = Rect2(0, 8672, 1924, 1084)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1f5j0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eo6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eywy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukv3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf7ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw3vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq25v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xheim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k5e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxyp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3bbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fij37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnh2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtuom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjook")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq0ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emsl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmuvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jke5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mimvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvygo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hjhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rag0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aq0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctewp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1fvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arxyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np7t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hlle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur6yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts8bo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek8ek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0fyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44bxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j437x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drdxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5hbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db4na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fqn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo07a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75eim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yklo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 26.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkheh"]
+size = Vector3(6.952759, 25.229584, 27.146149)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxruw"]
+size = Vector3(10.83374, 1.376831, 13.118164)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxyy5"]
+size = Vector3(1, 3.475586, 14.939102)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_rcwxx"]
+vertices = PackedVector3Array(-0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_parsed_geometry_type = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rcwxx"]
+
+[node name="Mundo3" type="Node3D" unique_id=888561414 groups=["nivel_con_carrera"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.097816, 0)
+script = ExtResource("1_afd7u")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=872283901]
+environment = SubResource("Environment_sxruw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=104313317]
+transform = Transform3D(-0.8660254, -0.43301278, 0.24999997, -0.22927374, 0.78824544, 0.571054, -0.444335, 0.43722874, -0.781919, 1.3038116, 10.028099, 0)
+shadow_enabled = true
+
+[node name="wall1" type="CSGBox3D" parent="." unique_id=352691796]
+transform = Transform3D(19.80755, 0, 0, 0, 9.689659, 0, 0, 0, 5.318401, 43.2096, 4.299999, 3.677)
+size = Vector3(4.9141235, 1.2163086, 0.1640625)
+material = SubResource("StandardMaterial3D_riqys")
+
+[node name="wallback3" type="CSGBox3D" parent="." unique_id=1602797896]
+transform = Transform3D(19.80755, 0, 0, 0, 9.689659, 0, 0, 0, 5.318401, 41.69977, 3.751793, -10.317219)
+size = Vector3(5.5615673, 1.6759949, 0.1640625)
+material = SubResource("StandardMaterial3D_70yaf")
+
+[node name="wall2" type="Sprite3D" parent="." unique_id=1894420237]
+transform = Transform3D(0.36239856, 0, 0, 0, 0.42395622, 0, 0, 0, 1, -2.583248, 2.9103584, -1.0215125)
+texture = ExtResource("4_ukq0v")
+
+[node name="wall3" type="Sprite3D" parent="." unique_id=1067701587]
+transform = Transform3D(0.37230438, 0, 0, 0, 0.36248988, 0, 0, 0, 1, 9.025274, 2.6946526, -1.0215125)
+texture = ExtResource("5_weigv")
+
+[node name="wall4" type="Sprite3D" parent="." unique_id=1800751396]
+transform = Transform3D(0.36239856, 0, 0, 0, 0.42395622, 0, 0, 0, 1, 16.285007, 2.9103584, -1.0215125)
+texture = ExtResource("4_ukq0v")
+
+[node name="wall5" type="Sprite3D" parent="." unique_id=1039082820]
+transform = Transform3D(0.37230438, 0, 0, 0, 0.36248988, 0, 0, 0, 1, 27.89353, 2.6946526, -1.0215125)
+texture = ExtResource("5_weigv")
+
+[node name="wall6" type="Sprite3D" parent="." unique_id=1772240489]
+transform = Transform3D(0.36239856, 0, 0, 0, 0.42395622, 0, 0, 0, 1, 35.048046, 2.9103584, -1.0215125)
+texture = ExtResource("4_ukq0v")
+
+[node name="wall7" type="Sprite3D" parent="." unique_id=429233069]
+transform = Transform3D(0.37230438, 0, 0, 0, 0.36248988, 0, 0, 0, 1, 46.65657, 2.6946526, -1.0215125)
+texture = ExtResource("5_weigv")
+
+[node name="wall8" type="Sprite3D" parent="." unique_id=1537922980]
+transform = Transform3D(0.36239856, 0, 0, 0, 0.42395622, 0, 0, 0, 1, 53.9163, 2.9103584, -1.0215125)
+texture = ExtResource("4_ukq0v")
+
+[node name="wall9" type="Sprite3D" parent="." unique_id=1887491303]
+transform = Transform3D(0.37230438, 0, 0, 0, 0.36248988, 0, 0, 0, 1, 65.524826, 2.6946526, -1.0215125)
+texture = ExtResource("5_weigv")
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=1511995777]
+transform = Transform3D(9.189454, 0, 0, 0, 1, 0, 0, 0, 0.4919868, 47.730743, 0, 1.3620257)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=2030383331]
+transform = Transform3D(5.4953094, 0, 0, 0, 1, 0, 0, 0, 5.4769397, -0.63014936, 0, 0)
+mesh = SubResource("PlaneMesh_vpw5n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1590195065]
+transform = Transform3D(9.437257, 0, 0, 0, 0.40869832, 0, 0, 0, 10.189519, -0.73142195, 0, -0.012022972)
+shape = SubResource("BoxShape3D_6fy66")
+debug_color = Color(0.5568628, 0.5254902, 0, 1)
+
+[node name="Stalker" type="AnimatedSprite3D" parent="." unique_id=16041146]
+transform = Transform3D(0.2, 0, 0, 0, 0.25, 0, 0, 0, 0.2, 66.209145, 0.4804306, -16.67796)
+flip_h = true
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_ukv3b")
+animation = &"stalker"
+autoplay = "stalker"
+frame_progress = 0.7871898
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=371985612]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 1.9057631, 6.037525)
+fov = 50.0
+script = ExtResource("3_rq25v")
+
+[node name="InterfazFinal" type="CanvasLayer" parent="Camera3D" unique_id=1757363052]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/InterfazFinal" unique_id=525593367]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Tacho" parent="." unique_id=1339037962 groups=["tachos"] instance=ExtResource("6_uxyp2")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.3935547, 0.44395494, -1.2356783)
+
+[node name="HUD" parent="." unique_id=1291446182 instance=ExtResource("7_q3bbk")]
+
+[node name="SpawnPlayer" type="Marker3D" parent="." unique_id=762051704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8139844, 0.62498474, 1.873538)
+script = ExtResource("9_wnh2w")
+
+[node name="jaula" parent="." unique_id=1524846406 instance=ExtResource("12_fq0ja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.813454, 1.0119514, 0.3340125)
+
+[node name="Chosmix_NPC" parent="jaula" unique_id=97192441 instance=ExtResource("21_dkheh")]
+
+[node name="killer bread" type="Area3D" parent="." unique_id=867834945]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 195.20149, -35.65671, -0.9123645)
+script = ExtResource("24_7dbno")
+velocidad = 3.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="killer bread" unique_id=978826085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61450195, 2.2077637, 2.9541016)
+shape = SubResource("BoxShape3D_7dbno")
+debug_color = Color(0.9764706, 0, 0.40784314, 1)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="killer bread" unique_id=568825061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9500728, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_1f5j0")
+autoplay = "default"
+frame_progress = 0.16320434
+
+[node name="run" type="Area3D" parent="." unique_id=1943035655 node_paths=PackedStringArray("enemigo_pan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.41705, -35.44666, 0)
+script = ExtResource("23_p80lp")
+enemigo_pan = NodePath("../killer bread")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="run" unique_id=1539485958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41326904, -1.2260284, -0.5860443)
+shape = SubResource("BoxShape3D_dkheh")
+debug_color = Color(0.44313726, 0.6, 0, 1)
+
+[node name="Checkpoint" type="Area3D" parent="." unique_id=1290477469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.17888, -35.149372, 0)
+script = ExtResource("26_7dbno")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint" unique_id=1718974809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6234131, 0.18841553, 0.84814453)
+shape = SubResource("BoxShape3D_sxruw")
+debug_color = Color(0.22745098, 0.6392157, 0, 1)
+
+[node name="TriggerFinal" type="Area3D" parent="." unique_id=1311478287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.813427, -0.37828827, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerFinal" unique_id=1586673324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1406631, 1.0105972)
+shape = SubResource("BoxShape3D_kxyy5")
+debug_color = Color(0.83167154, 0.0013815451, 0.94038326, 1)
+
+[node name="MenuPausa" parent="." unique_id=919757636 instance=ExtResource("22_s1fvm")]
+
+[node name="soundtrack background" type="AudioStreamPlayer" parent="." unique_id=526676687]
+stream = ExtResource("15_afd7u")
+autoplay = true
+bus = &"Musica"
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1736872702]
+transform = Transform3D(20.692133, 0, 0, 0, 1, 0, 0, 0, 1.6668905, 18.855133, 0.00048065186, 0.13527763)
+navigation_mesh = SubResource("NavigationMesh_rcwxx")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=239861894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4027697, 0, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_rcwxx")
+skeleton = NodePath("../..")
+
+[node name="Luciernagas" type="CPUParticles2D" parent="." unique_id=1404492960]
+position = Vector2(637, 359)
+amount = 30
+texture = ExtResource("28_dkheh")
+emission_shape = 3
+emission_rect_extents = Vector2(650, 400)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+hue_variation_min = 0.1
+hue_variation_max = 0.1
+
+[node name="CanvasLayer2" parent="." unique_id=1734408748 instance=ExtResource("38_2yklo")]
+layer = 100
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1591585687]
+transform = Transform3D(0.31920344, 0, 0, 0, 0.29655603, 0, 0, 0, 1, -0.33105946, 2.0916252, -2.7364855)
+
+[node name="IceBread" parent="." unique_id=1209372405 instance=ExtResource("33_7dbno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.970353, 0.3493271, 0)
+
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="TriggerFinal" to="." method="_on_trigger_final_body_entered"]

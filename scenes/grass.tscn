@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bryo7cf3tmber"]
+
+[ext_resource type="PlaneMesh" uid="uid://b07n4e148riqy" path="res://addons/pasto.tres" id="1_kl2qe"]
+
+[node name="grass" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.64278764, -0.76604444, 0, 0.76604444, 0.64278764, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("1_kl2qe")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.17364812, 0.9848078, 0, -0.9848078, -0.17364812, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("1_kl2qe")
+skeleton = NodePath("../..")

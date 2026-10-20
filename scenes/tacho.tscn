@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://d4ceewd5tnlc6"]
+
+[ext_resource type="Script" uid="uid://bhhv0ol6pv2nb" path="res://scripts/tacho.gd" id="1_bfj6w"]
+[ext_resource type="Texture2D" uid="uid://b1kmn5wi38qnf" path="res://sprites y dibujos/trash.png" id="2_bfj6w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfj6w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceubk"]
+atlas = ExtResource("2_bfj6w")
+region = Rect2(0, 0, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk4mu"]
+atlas = ExtResource("2_bfj6w")
+region = Rect2(0, 1088, 1088, 1088)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkydm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceubk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wk4mu")
+}],
+"loop": 1,
+"name": &"idletacho",
+"speed": 12.0
+}]
+
+[node name="Tacho" type="CharacterBody3D" unique_id=88318657]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+disable_mode = 2
+script = ExtResource("1_bfj6w")
+dano_impacto = 4
+dano_critico_max = 10
+radio_espacio_libre = 0.35
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=265580934]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_bfj6w")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=527559401]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_mkydm")
+animation = &"idletacho"
+autoplay = "idletacho"
+frame_progress = 0.30916816

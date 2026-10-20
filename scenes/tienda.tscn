@@ -1,0 +1,1059 @@
+[gd_scene format=3 uid="uid://casctxsyy0k1j"]
+
+[ext_resource type="Script" uid="uid://cwbagxu5ob6th" path="res://scripts/tienda.gd" id="1_2puif"]
+[ext_resource type="Texture2D" uid="uid://bkqry6rv7c51v" path="res://max character/shopbatz.png" id="2_3a5gv"]
+[ext_resource type="Texture2D" uid="uid://dqqb7ody0yewg" path="res://LEVEL1/arrow.png" id="3_jxyx4"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="4_4lx8e"]
+[ext_resource type="Texture2D" uid="uid://dgw61e0i61a2e" path="res://Jane anims/batz idle.png" id="6_c4go7"]
+[ext_resource type="AudioStream" uid="uid://duqgd3hg16mat" path="res://sonidos/Shop DELUXE EDITION.mp3" id="6_tr5yo"]
+[ext_resource type="Texture2D" uid="uid://bksvwswdgatu8" path="res://iconostienda/Papperbatz idle.png" id="7_cb0qv"]
+[ext_resource type="Texture2D" uid="uid://c6ca24uesmpkl" path="res://Jane anims/batz talk.png" id="7_nmus3"]
+[ext_resource type="FontFile" uid="uid://3o7lgx4o7twd" path="res://addons/PeaberryMono.ttf" id="8_1afbe"]
+[ext_resource type="Texture2D" uid="uid://v75qvywckmxd" path="res://iconostienda/124 sin título_20260329090202.png" id="8_5njp6"]
+[ext_resource type="Texture2D" uid="uid://c2uebe1v7s8dm" path="res://Jane anims/batz touch.png" id="8_bhyba"]
+[ext_resource type="Texture2D" uid="uid://beraubvksg7eo" path="res://iconostienda/Papperbatz talk.png" id="8_vvksi"]
+[ext_resource type="Texture2D" uid="uid://k6jtohpx5l35" path="res://iconostienda/Papperbatz touch.png" id="9_ausht"]
+[ext_resource type="Texture2D" uid="uid://b2v6nuwxvfhhr" path="res://iconostienda/Late Mike.png" id="9_hlcuo"]
+[ext_resource type="AudioStream" uid="uid://deiix22ts0iva" path="res://sonidos/buy.mp3" id="10_77gaw"]
+[ext_resource type="Texture2D" uid="uid://cssu8buouy2hc" path="res://iconostienda/Late ghost.png" id="10_ahx5p"]
+[ext_resource type="Texture2D" uid="uid://exygunqwcv5t" path="res://iconostienda/timeicon.png" id="12_l4l4x"]
+[ext_resource type="Texture2D" uid="uid://drc7rufkb4foy" path="res://iconostienda/Late healt.png" id="13_bftsm"]
+[ext_resource type="Texture2D" uid="uid://b64dl4o1usaqn" path="res://sprites y dibujos/light.png" id="13_bhyba"]
+[ext_resource type="AudioStream" uid="uid://dcfrw2hwdaau8" path="res://sonidos/night.mp3" id="14_l4l4x"]
+[ext_resource type="Texture2D" uid="uid://o2qiros7wtb3" path="res://iconostienda/Late fuerza.png" id="14_ulnbo"]
+[ext_resource type="Texture2D" uid="uid://dh647p8o6xrlr" path="res://iconostienda/Late speed.png" id="16_tr5yo"]
+[ext_resource type="AudioStream" uid="uid://osi3qxq76ry4" path="res://voices/batzvoice.wav" id="21_2kswj"]
+[ext_resource type="Texture2D" uid="uid://d2c6yncvvpix7" path="res://iconostienda/MoneyJar.png" id="24_vvksi"]
+[ext_resource type="Texture2D" uid="uid://4llxgxovo7st" path="res://iconostienda/26 sin título_20260505175831.png" id="25_k2e08"]
+[ext_resource type="Shader" uid="uid://c7livdoxdi0ah" path="res://addons/lofiretro.gdshader" id="25_y15xd"]
+[ext_resource type="Texture2D" uid="uid://cnikt8lb0yvci" path="res://iconostienda/ExtraMoney.png" id="26_nmqm3"]
+[ext_resource type="Script" uid="uid://u4q3uqouo1pw" path="res://scripts/shaderscript.gd" id="26_vh2rl"]
+[ext_resource type="Texture2D" uid="uid://b5mvjrefrij7o" path="res://iconostienda/Shield.png" id="27_d63wj"]
+[ext_resource type="Texture2D" uid="uid://c2gpaeyvwfde4" path="res://iconostienda/bubblegum forerat.png" id="27_gldjl"]
+[ext_resource type="Shader" uid="uid://ft6ts15o4w1g" path="res://addons/shader2.gdshader" id="27_tr5yo"]
+[ext_resource type="Texture2D" uid="uid://kyjd3ker002j" path="res://iconostienda/Poison.png" id="28_gldjl"]
+[ext_resource type="Shader" uid="uid://bw6mtbnkusm2l" path="res://addons/frutigeraqua.gdshader" id="28_k2e08"]
+[ext_resource type="Texture2D" uid="uid://cin4k6ib7qneg" path="res://iconostienda/138 sin título_20260401183619.png" id="29_1kwyl"]
+[ext_resource type="Texture2D" uid="uid://dkdydbuikq8u1" path="res://iconostienda/maid sketch skin.png" id="31_3cv5i"]
+[ext_resource type="Texture2D" uid="uid://0kpy0scf7pml" path="res://iconostienda/batz skin.png" id="31_gldjl"]
+[ext_resource type="Texture2D" uid="uid://cj4mdjoe5jpph" path="res://iconostienda/max skin.png" id="32_jpe71"]
+[ext_resource type="Texture2D" uid="uid://c4vh1lipccb3e" path="res://iconostienda/leonskin.png" id="33_fsq1d"]
+[ext_resource type="Texture2D" uid="uid://i4wllmg601bw" path="res://iconostienda/26 sin título_20260505180339.png" id="34_1kwyl"]
+[ext_resource type="Texture2D" uid="uid://0cjd5u162blu" path="res://iconostienda/138 sin título_20260401183612.png" id="34_4rkg5"]
+[ext_resource type="PackedScene" uid="uid://dq78s70w0i4j3" path="res://scenes/NotificadorLogros.tscn" id="41_3cv5i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4l4x"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(0, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrlqo"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(2040, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmw26"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(4080, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bftsm"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(0, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulnbo"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(2040, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcj26"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(4080, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kswj"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(0, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id20v"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(2040, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxyx4"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(4080, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dubyl"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(0, 4029, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y15xd"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(2040, 4029, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh2rl"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(4080, 4029, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr5yo"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(0, 5372, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5njp6"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(2040, 5372, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfxs6"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(4080, 5372, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33a00"]
+atlas = ExtResource("6_c4go7")
+region = Rect2(0, 6715, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb0qv"]
+atlas = ExtResource("7_nmus3")
+region = Rect2(0, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvksi"]
+atlas = ExtResource("7_nmus3")
+region = Rect2(2040, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ausht"]
+atlas = ExtResource("7_nmus3")
+region = Rect2(0, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g70vv"]
+atlas = ExtResource("7_nmus3")
+region = Rect2(2040, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsl8c"]
+atlas = ExtResource("7_nmus3")
+region = Rect2(0, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmqm3"]
+atlas = ExtResource("7_nmus3")
+region = Rect2(2040, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d63wj"]
+atlas = ExtResource("7_nmus3")
+region = Rect2(0, 4029, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gldjl"]
+atlas = ExtResource("8_bhyba")
+region = Rect2(0, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2e08"]
+atlas = ExtResource("8_bhyba")
+region = Rect2(2040, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kwyl"]
+atlas = ExtResource("8_bhyba")
+region = Rect2(4080, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cv5i"]
+atlas = ExtResource("8_bhyba")
+region = Rect2(0, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpe71"]
+atlas = ExtResource("8_bhyba")
+region = Rect2(2040, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsq1d"]
+atlas = ExtResource("8_bhyba")
+region = Rect2(4080, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rkg5"]
+atlas = ExtResource("8_bhyba")
+region = Rect2(0, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj85g"]
+atlas = ExtResource("8_bhyba")
+region = Rect2(2040, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ujbh"]
+atlas = ExtResource("8_bhyba")
+region = Rect2(4080, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s1ub"]
+atlas = ExtResource("8_bhyba")
+region = Rect2(0, 4029, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dumnq"]
+atlas = ExtResource("7_cb0qv")
+region = Rect2(0, 0, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onsig"]
+atlas = ExtResource("7_cb0qv")
+region = Rect2(1343, 0, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qfwg"]
+atlas = ExtResource("7_cb0qv")
+region = Rect2(2686, 0, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7smkq"]
+atlas = ExtResource("7_cb0qv")
+region = Rect2(4029, 0, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr2x7"]
+atlas = ExtResource("7_cb0qv")
+region = Rect2(0, 2040, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h67wb"]
+atlas = ExtResource("7_cb0qv")
+region = Rect2(1343, 2040, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qghh"]
+atlas = ExtResource("7_cb0qv")
+region = Rect2(2686, 2040, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cotf6"]
+atlas = ExtResource("7_cb0qv")
+region = Rect2(4029, 2040, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnlfe"]
+atlas = ExtResource("7_cb0qv")
+region = Rect2(0, 4080, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcn58"]
+atlas = ExtResource("8_vvksi")
+region = Rect2(0, 0, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkebh"]
+atlas = ExtResource("8_vvksi")
+region = Rect2(1343, 0, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5goxo"]
+atlas = ExtResource("8_vvksi")
+region = Rect2(0, 2040, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a75rb"]
+atlas = ExtResource("8_vvksi")
+region = Rect2(1343, 2040, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfcda"]
+atlas = ExtResource("9_ausht")
+region = Rect2(0, 0, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgbl6"]
+atlas = ExtResource("9_ausht")
+region = Rect2(1343, 0, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wh14"]
+atlas = ExtResource("9_ausht")
+region = Rect2(2686, 0, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plly8"]
+atlas = ExtResource("9_ausht")
+region = Rect2(0, 2040, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aufil"]
+atlas = ExtResource("9_ausht")
+region = Rect2(1343, 2040, 1343, 2040)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1l8l"]
+atlas = ExtResource("9_ausht")
+region = Rect2(2686, 2040, 1343, 2040)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmw26"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4l4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrlqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmw26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bftsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulnbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcj26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kswj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id20v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxyx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dubyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y15xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh2rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr5yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5njp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfxs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33a00")
+}],
+"loop": 1,
+"name": &"Batzidle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb0qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvksi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ausht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g70vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsl8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmqm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d63wj")
+}],
+"loop": 1,
+"name": &"Batztalk",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gldjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2e08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kwyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cv5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpe71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsq1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rkg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj85g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ujbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s1ub")
+}],
+"loop": 0,
+"name": &"Batztouch",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dumnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onsig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qfwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7smkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr2x7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h67wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qghh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cotf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnlfe")
+}],
+"loop": 1,
+"name": &"Papperidle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcn58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkebh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5goxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a75rb")
+}],
+"loop": 1,
+"name": &"Pappertalk",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfcda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgbl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wh14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plly8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aufil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1l8l")
+}],
+"loop": 0,
+"name": &"Pappertouch",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8wxw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4go7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nmus3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhyba"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4l4x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nrlqo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tj85g"]
+shader = ExtResource("28_k2e08")
+shader_parameter/intensity = 0.5010000237975
+shader_parameter/base_water_color = Color(0.21440959, 5.390644e-06, 0.16606998, 1)
+shader_parameter/highlight_scale = 3.0
+shader_parameter/clarity = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gldjl"]
+load_path = "res://.godot/imported/leonskin.png-12c1c6397a492a5efebca66209cd1e55.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k2e08"]
+load_path = "res://.godot/imported/leonskin.png-12c1c6397a492a5efebca66209cd1e55.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1kwyl"]
+load_path = "res://.godot/imported/leonskin.png-12c1c6397a492a5efebca66209cd1e55.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3cv5i"]
+load_path = "res://.godot/imported/leonskin.png-12c1c6397a492a5efebca66209cd1e55.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jpe71"]
+load_path = "res://.godot/imported/leonskin.png-12c1c6397a492a5efebca66209cd1e55.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fsq1d"]
+load_path = "res://.godot/imported/maid sketch skin.png-9b1b4fb9c1eb0f9d0eb8bf52b349649a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4rkg5"]
+load_path = "res://.godot/imported/maid sketch skin.png-9b1b4fb9c1eb0f9d0eb8bf52b349649a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tj85g"]
+load_path = "res://.godot/imported/maid sketch skin.png-9b1b4fb9c1eb0f9d0eb8bf52b349649a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ujbh"]
+load_path = "res://.godot/imported/maid sketch skin.png-9b1b4fb9c1eb0f9d0eb8bf52b349649a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2s1ub"]
+load_path = "res://.godot/imported/maid sketch skin.png-9b1b4fb9c1eb0f9d0eb8bf52b349649a.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tr5yo"]
+shader = ExtResource("25_y15xd")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 25.0
+shader_parameter/smear = 1.0
+shader_parameter/vhs_blur_samples = 15
+shader_parameter/chromatic_strength = 0.01
+shader_parameter/general_blur = 0.0
+shader_parameter/distortion_amount = 4.7499999933364734e-08
+shader_parameter/edge_falloff = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5njp6"]
+shader = ExtResource("27_tr5yo")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 2
+shader_parameter/crease_noise = 1.0
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.1
+shader_parameter/tape_crease_smear = 0.2
+shader_parameter/tape_crease_intensity = 0.2
+shader_parameter/tape_crease_jitter = 0.1
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.1
+
+[node name="Tienda" type="Control" unique_id=1530821288]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2puif")
+
+[node name="Pagina1" type="Control" parent="." unique_id=1777524578]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Pagina1" unique_id=1811274898]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -321.0
+offset_top = -159.0
+offset_right = 31838.996
+offset_bottom = 22960.998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_3a5gv")
+
+[node name="BatzSprite" type="AnimatedSprite2D" parent="Pagina1" unique_id=2096640938]
+texture_filter = 1
+position = Vector2(885, 341.00003)
+scale = Vector2(0.37, 0.37)
+sprite_frames = SubResource("SpriteFrames_gmw26")
+animation = &"Pappertalk"
+autoplay = "Batzidle"
+
+[node name="ShopStant" type="Sprite2D" parent="Pagina1" unique_id=174512618]
+position = Vector2(639.99994, 361)
+scale = Vector2(0.33697915, 0.3398148)
+texture = ExtResource("8_5njp6")
+
+[node name="BotonVolver" type="Button" parent="Pagina1" unique_id=1621522678]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 550.0
+offset_right = 555.0
+offset_bottom = 1028.0
+rotation = 1.5707964
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k8wxw")
+icon = ExtResource("3_jxyx4")
+flat = true
+
+[node name="BotonSoda" type="TextureButton" parent="Pagina1" unique_id=1448574056]
+texture_filter = 1
+layout_mode = 0
+offset_left = 260.0
+offset_top = 225.00002
+offset_right = 4356.0
+offset_bottom = 4321.0
+scale = Vector2(0.027, 0.027)
+texture_normal = ExtResource("9_hlcuo")
+texture_pressed = ExtResource("9_hlcuo")
+texture_hover = ExtResource("9_hlcuo")
+texture_disabled = ExtResource("9_hlcuo")
+texture_focused = ExtResource("9_hlcuo")
+
+[node name="BotonEcto" type="TextureButton" parent="Pagina1" unique_id=1591373321]
+texture_filter = 1
+layout_mode = 0
+offset_left = 124.0
+offset_top = 233.0
+offset_right = 4220.0
+offset_bottom = 4329.0
+scale = Vector2(0.027, 0.027)
+texture_normal = ExtResource("10_ahx5p")
+texture_pressed = ExtResource("10_ahx5p")
+texture_hover = ExtResource("10_ahx5p")
+texture_disabled = ExtResource("10_ahx5p")
+texture_focused = ExtResource("10_ahx5p")
+
+[node name="BotonReloj" type="TextureButton" parent="Pagina1" unique_id=2141991813]
+texture_filter = 1
+layout_mode = 0
+offset_left = 875.00006
+offset_top = 598.00006
+offset_right = 4971.0
+offset_bottom = 4694.0
+scale = Vector2(0.027, 0.027)
+texture_normal = ExtResource("12_l4l4x")
+texture_pressed = ExtResource("12_l4l4x")
+texture_hover = ExtResource("12_l4l4x")
+texture_disabled = ExtResource("12_l4l4x")
+texture_focused = ExtResource("12_l4l4x")
+
+[node name="BotonVida" type="TextureButton" parent="Pagina1" unique_id=699265033]
+texture_filter = 1
+layout_mode = 0
+offset_left = 125.0
+offset_top = 75.0
+offset_right = 4221.0
+offset_bottom = 4171.0
+scale = Vector2(0.027, 0.027)
+texture_normal = ExtResource("13_bftsm")
+texture_pressed = ExtResource("13_bftsm")
+texture_hover = ExtResource("13_bftsm")
+texture_disabled = ExtResource("13_bftsm")
+texture_focused = ExtResource("13_bftsm")
+
+[node name="BotonFuerza" type="TextureButton" parent="Pagina1" unique_id=1810195136]
+texture_filter = 1
+layout_mode = 0
+offset_left = 12.0
+offset_top = 407.0
+offset_right = 4108.0
+offset_bottom = 4503.0
+scale = Vector2(0.027, 0.027)
+texture_normal = ExtResource("14_ulnbo")
+texture_pressed = ExtResource("14_ulnbo")
+texture_hover = ExtResource("14_ulnbo")
+texture_disabled = ExtResource("14_ulnbo")
+texture_focused = ExtResource("14_ulnbo")
+
+[node name="BotonVelocidad" type="TextureButton" parent="Pagina1" unique_id=623669354]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 233.00003
+offset_right = 4116.0
+offset_bottom = 4329.0
+scale = Vector2(0.027, 0.027)
+texture_normal = ExtResource("16_tr5yo")
+texture_pressed = ExtResource("16_tr5yo")
+texture_hover = ExtResource("16_tr5yo")
+texture_disabled = ExtResource("16_tr5yo")
+texture_focused = ExtResource("16_tr5yo")
+
+[node name="BotonJar" type="TextureButton" parent="Pagina1" unique_id=437895345]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 347.0
+offset_right = 4557.0
+offset_bottom = 4443.0
+scale = Vector2(0.04, 0.04)
+texture_normal = ExtResource("24_vvksi")
+texture_pressed = ExtResource("24_vvksi")
+texture_hover = ExtResource("24_vvksi")
+texture_disabled = ExtResource("24_vvksi")
+texture_focused = ExtResource("24_vvksi")
+
+[node name="BotonExtraMoney" type="TextureButton" parent="Pagina1" unique_id=1544318448]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 80.00001
+offset_right = 4105.0
+offset_bottom = 4487.408
+scale = Vector2(0.027, 0.027)
+texture_normal = ExtResource("26_nmqm3")
+texture_pressed = ExtResource("26_nmqm3")
+texture_hover = ExtResource("26_nmqm3")
+texture_disabled = ExtResource("26_nmqm3")
+texture_focused = ExtResource("26_nmqm3")
+
+[node name="BotonShield" type="TextureButton" parent="Pagina1" unique_id=831373800]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 103.0
+offset_right = 4356.0
+offset_bottom = 4199.0
+scale = Vector2(0.027, 0.027)
+texture_normal = ExtResource("27_d63wj")
+texture_pressed = ExtResource("27_d63wj")
+texture_hover = ExtResource("27_d63wj")
+texture_disabled = ExtResource("27_d63wj")
+texture_focused = ExtResource("27_d63wj")
+
+[node name="BotonPoison" type="TextureButton" parent="Pagina1" unique_id=1781154910]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 406.0
+offset_right = 4219.0
+offset_bottom = 4502.0
+scale = Vector2(0.027, 0.027)
+texture_normal = ExtResource("28_gldjl")
+texture_pressed = ExtResource("28_gldjl")
+texture_hover = ExtResource("28_gldjl")
+texture_disabled = ExtResource("28_gldjl")
+texture_focused = ExtResource("28_gldjl")
+
+[node name="BotonPanza" type="Button" parent="Pagina1" unique_id=2080265500]
+layout_mode = 0
+offset_left = 788.0
+offset_top = 367.0
+offset_right = 976.0
+offset_bottom = 459.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_c4go7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nmus3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bhyba")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l4l4x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nrlqo")
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=85680299]
+stream = ExtResource("6_tr5yo")
+volume_db = -14.123
+autoplay = true
+bus = &"Musica"
+parameters/looping = true
+
+[node name="TimerTexto" type="Timer" parent="." unique_id=1035974850]
+wait_time = 0.05
+
+[node name="SonidoCompra" type="AudioStreamPlayer" parent="." unique_id=1461288923]
+stream = ExtResource("10_77gaw")
+bus = &"Efectos"
+
+[node name="MusicaTienda" type="AudioStreamPlayer" parent="." unique_id=1080648994]
+stream = ExtResource("14_l4l4x")
+volume_db = -11.556
+bus = &"Musica"
+parameters/looping = false
+
+[node name="SonidoVoz" type="AudioStreamPlayer" parent="." unique_id=201173070]
+stream = ExtResource("21_2kswj")
+volume_db = -11.556
+pitch_scale = 1.1
+bus = &"Efectos"
+
+[node name="Pagina2" type="Control" parent="." unique_id=1234431035]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopStant" type="Sprite2D" parent="Pagina2" unique_id=1974844237]
+position = Vector2(639.99994, 362.49997)
+scale = Vector2(0.5093749, 0.5243056)
+texture = ExtResource("25_k2e08")
+
+[node name="fondocolor2" type="ColorRect" parent="Pagina2" unique_id=439453630]
+material = SubResource("ShaderMaterial_tj85g")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9990073, 0.99999887, 0.44320035, 1)
+
+[node name="backgroundskins" type="Sprite2D" parent="Pagina2" unique_id=320033382]
+texture_filter = 1
+position = Vector2(610, 360)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("29_1kwyl")
+
+[node name="BotonDios" type="TextureButton" parent="Pagina2" unique_id=2070131209]
+texture_filter = 1
+layout_mode = 0
+offset_left = 767.0
+offset_top = 225.0
+offset_right = 1067.0
+offset_bottom = 525.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("27_gldjl")
+texture_pressed = ExtResource("27_gldjl")
+texture_hover = ExtResource("27_gldjl")
+texture_disabled = ExtResource("27_gldjl")
+texture_focused = ExtResource("27_gldjl")
+
+[node name="BotonSkinNeko" type="TextureButton" parent="Pagina2" unique_id=683258560]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 225.0
+offset_right = 1510.0
+offset_bottom = 2145.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("31_3cv5i")
+texture_pressed = ExtResource("31_3cv5i")
+texture_hover = ExtResource("31_3cv5i")
+texture_disabled = ExtResource("31_3cv5i")
+texture_focused = ExtResource("31_3cv5i")
+
+[node name="BotonSkinMax" type="TextureButton" parent="Pagina2" unique_id=384336515]
+texture_filter = 1
+layout_mode = 0
+offset_left = 160.0
+offset_top = 230.0
+offset_right = 1240.0
+offset_bottom = 2150.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("32_jpe71")
+texture_pressed = ExtResource("32_jpe71")
+texture_hover = ExtResource("32_jpe71")
+texture_disabled = ExtResource("32_jpe71")
+texture_focused = ExtResource("32_jpe71")
+
+[node name="BotonSkinLionel" type="TextureButton" parent="Pagina2" unique_id=1893059356]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 200.0
+offset_right = 1525.0
+offset_bottom = 2120.0
+scale = Vector2(0.23, 0.23)
+texture_normal = ExtResource("33_fsq1d")
+texture_pressed = ExtResource("33_fsq1d")
+texture_hover = ExtResource("33_fsq1d")
+texture_disabled = ExtResource("33_fsq1d")
+texture_focused = ExtResource("33_fsq1d")
+
+[node name="BotonSkinPapper" type="TextureButton" parent="Pagina2" unique_id=1014809537]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 180.0
+offset_right = 3162.0
+offset_bottom = 4276.0
+scale = Vector2(0.13, 0.13)
+texture_normal = ExtResource("31_gldjl")
+texture_pressed = ExtResource("31_gldjl")
+texture_hover = ExtResource("31_gldjl")
+texture_disabled = ExtResource("31_gldjl")
+texture_focused = ExtResource("31_gldjl")
+
+[node name="front skins" type="Sprite2D" parent="Pagina2" unique_id=669606578]
+position = Vector2(610, 360)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("34_4rkg5")
+
+[node name="Pagina3" type="Control" parent="." unique_id=111664853]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopStant" type="Sprite2D" parent="Pagina3" unique_id=490812001]
+position = Vector2(639.99994, 362.49997)
+scale = Vector2(0.5093749, 0.5243056)
+texture = ExtResource("34_1kwyl")
+
+[node name="fondocolor2" type="ColorRect" parent="Pagina3" unique_id=416773737]
+material = SubResource("ShaderMaterial_tj85g")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9990073, 0.99999887, 0.44320035, 1)
+
+[node name="VestidorLionel" type="TextureButton" parent="Pagina3" unique_id=964713038]
+layout_mode = 0
+offset_top = -42.999985
+offset_right = 1080.0
+offset_bottom = 1877.0
+scale = Vector2(0.2, 0.2)
+texture_normal = SubResource("CompressedTexture2D_gldjl")
+texture_pressed = SubResource("CompressedTexture2D_k2e08")
+texture_hover = SubResource("CompressedTexture2D_1kwyl")
+texture_disabled = SubResource("CompressedTexture2D_3cv5i")
+texture_focused = SubResource("CompressedTexture2D_jpe71")
+
+[node name="VestidorNeko" type="TextureButton" parent="Pagina3" unique_id=1714633560]
+layout_mode = 0
+offset_left = 216.99998
+offset_top = -20.999998
+offset_right = 1297.0
+offset_bottom = 1899.0
+scale = Vector2(0.18, 0.18)
+texture_normal = SubResource("CompressedTexture2D_fsq1d")
+texture_pressed = SubResource("CompressedTexture2D_4rkg5")
+texture_hover = SubResource("CompressedTexture2D_tj85g")
+texture_disabled = SubResource("CompressedTexture2D_7ujbh")
+texture_focused = SubResource("CompressedTexture2D_2s1ub")
+
+[node name="VestidorMax" type="TextureButton" parent="Pagina3" unique_id=828521317]
+layout_mode = 0
+offset_left = 437.0
+offset_top = -24.0
+offset_right = 1517.0
+offset_bottom = 1896.0
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("32_jpe71")
+texture_pressed = ExtResource("32_jpe71")
+texture_hover = ExtResource("32_jpe71")
+texture_disabled = ExtResource("32_jpe71")
+texture_focused = ExtResource("32_jpe71")
+
+[node name="VestidorPapper" type="TextureButton" parent="Pagina3" unique_id=300942806]
+layout_mode = 0
+offset_left = 618.0
+offset_top = -66.000015
+offset_right = 3690.0
+offset_bottom = 4030.0
+scale = Vector2(0.11, 0.11)
+texture_normal = ExtResource("31_gldjl")
+texture_pressed = ExtResource("31_gldjl")
+texture_hover = ExtResource("31_gldjl")
+texture_disabled = ExtResource("31_gldjl")
+texture_focused = ExtResource("31_gldjl")
+
+[node name="FiltroNoche" type="CanvasModulate" parent="." unique_id=811162164]
+visible = false
+color = Color(0.18023664, 0.3544366, 0.50991577, 1)
+
+[node name="LuzLampara" type="PointLight2D" parent="." unique_id=437841490]
+visible = false
+position = Vector2(637.5, 413.99997)
+scale = Vector2(13.530001, 9.47)
+color = Color(0.81561357, 0.6256839, 0.55503005, 1)
+energy = 3.52
+texture = ExtResource("13_bhyba")
+
+[node name="Luciernagas" type="CPUParticles2D" parent="." unique_id=458591323]
+visible = false
+position = Vector2(637, 359)
+amount = 12
+texture = ExtResource("13_bhyba")
+emission_shape = 3
+emission_rect_extents = Vector2(650, 400)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+color = Color(1, 1, 0.6431373, 1)
+hue_variation_min = 0.1
+hue_variation_max = 0.1
+
+[node name="LabelMonedas" type="Label" parent="." unique_id=1700951935]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 16.0
+offset_right = 1119.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(1, 1, 0.18431373, 1)
+theme_override_fonts/font = ExtResource("4_4lx8e")
+theme_override_font_sizes/font_size = 30
+text = "Retrorbes: 0"
+
+[node name="BotonCambiarPagina" type="Button" parent="." unique_id=1547929409]
+modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 0
+offset_left = 1068.0
+offset_top = 679.0
+offset_right = 1434.0
+offset_bottom = 1165.0
+rotation = -1.5707964
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("3_jxyx4")
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2093144280]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 622.0
+offset_right = 824.0
+offset_bottom = 724.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/normal_font = ExtResource("4_4lx8e")
+theme_override_fonts/bold_font = ExtResource("8_1afbe")
+theme_override_fonts/bold_italics_font = ExtResource("4_4lx8e")
+theme_override_fonts/italics_font = ExtResource("4_4lx8e")
+theme_override_fonts/mono_font = ExtResource("4_4lx8e")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+
+[node name="PostProcessLayer" type="CanvasLayer" parent="." unique_id=1113385637]
+layer = 100
+visible = false
+
+[node name="Tv" type="ColorRect" parent="PostProcessLayer" unique_id=430201221]
+material = SubResource("ShaderMaterial_tr5yo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("26_vh2rl")
+
+[node name="shader" type="ColorRect" parent="PostProcessLayer" unique_id=472072950]
+material = SubResource("ShaderMaterial_5njp6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("26_vh2rl")
+
+[node name="NotificadorLogros" parent="." unique_id=962184292 instance=ExtResource("41_3cv5i")]
+layout_mode = 1
+
+[connection signal="pressed" from="Pagina1/BotonVolver" to="." method="_on_boton_volver_pressed"]
+[connection signal="mouse_entered" from="Pagina1/BotonSoda" to="." method="_on_boton_soda_mouse_entered"]
+[connection signal="pressed" from="Pagina1/BotonSoda" to="." method="_on_boton_soda_pressed"]
+[connection signal="mouse_entered" from="Pagina1/BotonEcto" to="." method="_on_boton_ecto_mouse_entered"]
+[connection signal="pressed" from="Pagina1/BotonEcto" to="." method="_on_boton_ecto_pressed"]
+[connection signal="mouse_entered" from="Pagina1/BotonReloj" to="." method="_on_boton_reloj_mouse_entered"]
+[connection signal="pressed" from="Pagina1/BotonReloj" to="." method="_on_boton_reloj_pressed"]
+[connection signal="mouse_entered" from="Pagina1/BotonVida" to="." method="_on_boton_vida_mouse_entered"]
+[connection signal="pressed" from="Pagina1/BotonVida" to="." method="_on_boton_vida_pressed"]
+[connection signal="mouse_entered" from="Pagina1/BotonFuerza" to="." method="_on_boton_fuerza_mouse_entered"]
+[connection signal="pressed" from="Pagina1/BotonFuerza" to="." method="_on_boton_fuerza_pressed"]
+[connection signal="mouse_entered" from="Pagina1/BotonVelocidad" to="." method="_on_boton_velocidad_mouse_entered"]
+[connection signal="pressed" from="Pagina1/BotonVelocidad" to="." method="_on_boton_velocidad_pressed"]
+[connection signal="mouse_entered" from="Pagina1/BotonExtraMoney" to="." method="_on_boton_extra_money_mouse_entered"]
+[connection signal="pressed" from="Pagina1/BotonExtraMoney" to="." method="_on_boton_extra_money_pressed"]
+[connection signal="mouse_entered" from="Pagina1/BotonShield" to="." method="_on_boton_shield_mouse_entered"]
+[connection signal="pressed" from="Pagina1/BotonShield" to="." method="_on_boton_shield_pressed"]
+[connection signal="mouse_entered" from="Pagina1/BotonPoison" to="." method="_on_boton_poison_mouse_entered"]
+[connection signal="pressed" from="Pagina1/BotonPoison" to="." method="_on_boton_poison_pressed"]
+[connection signal="pressed" from="Pagina1/BotonPanza" to="." method="_on_boton_panza_pressed"]
+[connection signal="mouse_entered" from="Pagina2/BotonDios" to="." method="_on_boton_dios_mouse_entered"]
+[connection signal="pressed" from="Pagina2/BotonDios" to="." method="_on_boton_dios_pressed"]
+[connection signal="mouse_entered" from="Pagina2/BotonSkinNeko" to="." method="_on_boton_skin_neko_mouse_entered"]
+[connection signal="pressed" from="Pagina2/BotonSkinNeko" to="." method="_on_boton_skin_neko_pressed"]
+[connection signal="mouse_entered" from="Pagina2/BotonSkinMax" to="." method="_on_boton_skin_max_mouse_entered"]
+[connection signal="pressed" from="Pagina2/BotonSkinMax" to="." method="_on_boton_skin_max_pressed"]
+[connection signal="mouse_entered" from="Pagina2/BotonSkinLionel" to="." method="_on_boton_skin_lionel_mouse_entered"]
+[connection signal="pressed" from="Pagina2/BotonSkinLionel" to="." method="_on_boton_skin_lionel_pressed"]
+[connection signal="mouse_entered" from="Pagina2/BotonSkinPapper" to="." method="_on_boton_skin_papper_mouse_entered"]
+[connection signal="pressed" from="Pagina2/BotonSkinPapper" to="." method="_on_boton_skin_papper_pressed"]
+[connection signal="pressed" from="BotonCambiarPagina" to="." method="_on_boton_cambiar_pagina_pressed"]

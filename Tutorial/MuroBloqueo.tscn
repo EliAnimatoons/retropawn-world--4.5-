@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bljy1c1xaesrp"]
+
+[ext_resource type="Script" uid="uid://cvh21iwktvqhg" path="res://Tutorial/muro_bloqueo.gd" id="1_0onww"]
+[ext_resource type="PackedScene" uid="uid://3ji0jtal5c5l" path="res://models/rock wall.glb" id="1_xn865"]
+[ext_resource type="PackedScene" uid="uid://be3i4mbxk0stn" path="res://scenes/minion.tscn" id="2_4eejt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(1.7515869, 4.501129, 13.78244)
+
+[node name="MuroBloqueo" type="Node3D" unique_id=1144418257 node_paths=PackedStringArray("pared_fisica", "contenedor_minions")]
+script = ExtResource("1_0onww")
+pared_fisica = NodePath("ParedFisica")
+contenedor_minions = NodePath("ContenedorMinions")
+
+[node name="ParedFisica" type="StaticBody3D" parent="." unique_id=1213982834]
+
+[node name="rock wall" parent="ParedFisica" unique_id=1192741150 instance=ExtResource("1_xn865")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.080574274, 0, 0.57151103)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ParedFisica" unique_id=2083471061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16253662, 2.2057037, -0.7175751)
+shape = SubResource("BoxShape3D_bhunq")
+debug_color = Color(0.99607843, 0, 0.19215687, 1)
+
+[node name="ContenedorMinions" type="Node3D" parent="." unique_id=1419009644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43023002, 0, 0)
+
+[node name="Minion2" parent="ContenedorMinions" unique_id=202769989 instance=ExtResource("2_4eejt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.175, 0.285, 0.07631278)
+
+[node name="Minion5" parent="ContenedorMinions" unique_id=1042018396 instance=ExtResource("2_4eejt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0998063, 0.285, 0.07631278)
+
+[node name="Minion3" parent="ContenedorMinions" unique_id=23768970 instance=ExtResource("2_4eejt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.175, 0.285, 1.2388716)
+
+[node name="Minion4" parent="ContenedorMinions" unique_id=1871483168 instance=ExtResource("2_4eejt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.175, 0.285, -1.0684443)

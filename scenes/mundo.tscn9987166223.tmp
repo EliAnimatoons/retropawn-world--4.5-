@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3xchpb80meqd"]
+
+[ext_resource type="PackedScene" uid="uid://by27lhdwwxn6n" path="res://scenes/sketch.tscn" id="1_6ba58"]
+[ext_resource type="Script" uid="uid://b03b4vr18tmk7" path="res://scripts/camera_3d.gd" id="1_otwa2"]
+[ext_resource type="PackedScene" uid="uid://be3i4mbxk0stn" path="res://scenes/minion.tscn" id="2_lgngo"]
+[ext_resource type="PackedScene" uid="uid://d4ceewd5tnlc6" path="res://scenes/tacho.tscn" id="3_fw4w5"]
+[ext_resource type="PackedScene" uid="uid://dgk4dh3bfamao" path="res://scenes/hud.tscn" id="5_vwj67"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xwo6f"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_6ba58"]
+sky_material = SubResource("ProceduralSkyMaterial_xwo6f")
+
+[sub_resource type="Environment" id="Environment_lgngo"]
+background_mode = 2
+sky = SubResource("Sky_6ba58")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fw4w5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgngo"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_otwa2"]
+
+[node name="Mundo" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lgngo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(4.8237247, 0, 0, 0, 1, 0, 0, 0, 5.4769387, 0, 0, 0)
+mesh = SubResource("PlaneMesh_fw4w5")
+surface_material_override/0 = SubResource("StandardMaterial3D_lgngo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(9.437257, 0, 0, 0, 0.40869826, 0, 0, 0, 10.189499, 0, 0, 0)
+shape = SubResource("BoxShape3D_otwa2")
+debug_color = Color(0.5568628, 0.5254902, 0, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 1.9057631, 6.037525)
+fov = 40.0
+script = ExtResource("1_otwa2")
+
+[node name="Sketch" parent="." instance=ExtResource("1_6ba58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6784055, 2.3956895)
+
+[node name="Minion" parent="." instance=ExtResource("2_lgngo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.544494, 0.8278003, -5.197304)
+
+[node name="Minion2" parent="." instance=ExtResource("2_lgngo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23785639, 0.8278003, -5.197304)
+
+[node name="Minion3" parent="." instance=ExtResource("2_lgngo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5669296, 0.8278003, -5.197304)
+
+[node name="Minion4" parent="." instance=ExtResource("2_lgngo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1658287, 0.8278003, -2.7707157)
+
+[node name="Minion5" parent="." instance=ExtResource("2_lgngo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4883175, 0.8278003, -2.7707157)
+
+[node name="Tacho" parent="." instance=ExtResource("3_fw4w5")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 1.0763745, 0.77050257, 2.7845035)
+
+[node name="HUD" parent="." instance=ExtResource("5_vwj67")]

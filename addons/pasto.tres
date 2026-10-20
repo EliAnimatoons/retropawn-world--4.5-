@@ -1,0 +1,15 @@
+[gd_resource type="PlaneMesh" load_steps=3 format=3 uid="uid://b07n4e148riqy"]
+
+[ext_resource type="Shader" uid="uid://cx7xkp1ejgl3d" path="res://addons/grass.gdshader" id="1_dgic3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mw2ei"]
+render_priority = 0
+shader = ExtResource("1_dgic3")
+shader_parameter/grass_color = Color(0.2509804, 0.44313726, 0.45490196, 1)
+shader_parameter/wind_color = Color(0.2509804, 0.44313726, 0.45490196, 1)
+shader_parameter/wind_speed = 1.0470000497325
+shader_parameter/wind_strength = 0.3790000180025
+
+[resource]
+material = SubResource("ShaderMaterial_mw2ei")
+orientation = 2

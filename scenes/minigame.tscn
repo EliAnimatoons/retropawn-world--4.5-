@@ -1,0 +1,265 @@
+[gd_scene format=3 uid="uid://d2spfhks2ckui"]
+
+[ext_resource type="Script" uid="uid://csxwk6rifbjqb" path="res://scripts/minigame.gd" id="1_22ed1"]
+[ext_resource type="AudioStream" uid="uid://bcqynqrihho1r" path="res://sonidos/minigame1.mp3" id="2_0dp5x"]
+[ext_resource type="Texture2D" uid="uid://bfwmkaxj30ly7" path="res://evoluciones minion/background.png" id="2_02b5t"]
+[ext_resource type="Texture2D" uid="uid://bnvkm56b32i67" path="res://max character/box.png" id="3_qfvgk"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="4_0dp5x"]
+[ext_resource type="Texture2D" uid="uid://da68q1ixxxvwe" path="res://evoluciones minion/guantes pipones idle.png" id="5_jbh4e"]
+[ext_resource type="FontFile" uid="uid://3o7lgx4o7twd" path="res://addons/PeaberryMono.ttf" id="5_qfvgk"]
+[ext_resource type="Texture2D" uid="uid://dv65n8p1oh5ha" path="res://evoluciones minion/guantes pipones puño 1.png" id="6_02b5t"]
+[ext_resource type="Texture2D" uid="uid://bpx08dtbjdv77" path="res://evoluciones minion/guantes pipones puño 2.png" id="7_7ju2r"]
+[ext_resource type="Shader" uid="uid://co0u2rbny0cuv" path="res://addons/retroanim.gdshader" id="8_r0qu8"]
+[ext_resource type="Shader" uid="uid://cmsd5ly5y3rcw" path="res://addons/bitretro.gdshader" id="10_jbh4e"]
+[ext_resource type="AudioStream" uid="uid://deiix22ts0iva" path="res://sonidos/buy.mp3" id="12_7ju2r"]
+[ext_resource type="PackedScene" uid="uid://bek0jqxnh6v6x" path="res://scenes/MenuPausa.tscn" id="13_802es"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_02b5t"]
+shader = ExtResource("10_jbh4e")
+shader_parameter/wind_start_threshold = 0.0
+shader_parameter/wind_end_threshold = 0.0
+shader_parameter/wind_end_threshold_2 = 2.0
+shader_parameter/wind_strength = 0.1170000055575
+shader_parameter/wind_speed = 1.25000005285523
+shader_parameter/scale = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oemwr"]
+atlas = ExtResource("3_qfvgk")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_176e0"]
+atlas = ExtResource("3_qfvgk")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8igt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oemwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_176e0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_802es"]
+atlas = ExtResource("5_jbh4e")
+region = Rect2(0, 0, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e78p"]
+atlas = ExtResource("5_jbh4e")
+region = Rect2(0, 3400, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u4ns"]
+atlas = ExtResource("6_02b5t")
+region = Rect2(0, 0, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okghe"]
+atlas = ExtResource("6_02b5t")
+region = Rect2(3400, 0, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tumst"]
+atlas = ExtResource("6_02b5t")
+region = Rect2(0, 3400, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xbqi"]
+atlas = ExtResource("6_02b5t")
+region = Rect2(3400, 3400, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4spdj"]
+atlas = ExtResource("6_02b5t")
+region = Rect2(0, 6800, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0viv"]
+atlas = ExtResource("7_7ju2r")
+region = Rect2(0, 0, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mihh"]
+atlas = ExtResource("7_7ju2r")
+region = Rect2(3400, 0, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_havpp"]
+atlas = ExtResource("7_7ju2r")
+region = Rect2(0, 3400, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6g4n"]
+atlas = ExtResource("7_7ju2r")
+region = Rect2(3400, 3400, 3400, 3400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xdyt"]
+atlas = ExtResource("7_7ju2r")
+region = Rect2(0, 6800, 3400, 3400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r6g4n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_802es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e78p")
+}],
+"loop": true,
+"name": &"punch idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u4ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okghe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tumst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xbqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4spdj")
+}],
+"loop": false,
+"name": &"punch punch",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0viv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mihh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_havpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6g4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xdyt")
+}],
+"loop": false,
+"name": &"punch punch 2",
+"speed": 12.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3p8f"]
+bg_color = Color(1, 0.29803923, 0.5137255, 0.6)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbh4e"]
+shader = ExtResource("8_r0qu8")
+shader_parameter/jitter_strength = 2.9370001395075
+shader_parameter/jitter_speed = 20.0
+shader_parameter/jitter_frequency = 0.10000000149012
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 5.0
+shader_parameter/rotation_speed = 0.10000000149012
+shader_parameter/rotation_frequency = 8.66400040828012
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.1
+shader_parameter/scale_speed = 2.5
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.5
+shader_parameter/enable_pixelation = true
+shader_parameter/pixel_size = 4.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[node name="Node2D" type="Node2D" unique_id=1471460328]
+script = ExtResource("1_22ed1")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2104419236]
+position = Vector2(640, 357.5)
+scale = Vector2(0.648, 0.65511113)
+texture = ExtResource("2_02b5t")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1595041416]
+stream = ExtResource("2_0dp5x")
+autoplay = true
+bus = &"Musica"
+
+[node name="Saco" type="AnimatedSprite2D" parent="." unique_id=1252772886]
+texture_filter = 1
+material = SubResource("ShaderMaterial_02b5t")
+position = Vector2(640, 260)
+scale = Vector2(4.68, 5.26)
+sprite_frames = SubResource("SpriteFrames_g8igt")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.1397833
+
+[node name="Manos" type="AnimatedSprite2D" parent="." unique_id=1005902113]
+texture_filter = 1
+position = Vector2(649.25, 474.5)
+scale = Vector2(0.15, 0.144)
+sprite_frames = SubResource("SpriteFrames_r6g4n")
+animation = &"punch idle"
+frame_progress = 0.36969537
+
+[node name="ComboTimer" type="Timer" parent="." unique_id=1073798812]
+
+[node name="Label" type="Label" parent="." unique_id=398749716]
+offset_right = 40.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_fonts/font = ExtResource("4_0dp5x")
+theme_override_font_sizes/font_size = 50
+
+[node name="Vidas" type="Label" parent="." unique_id=1376211476]
+offset_left = 962.0
+offset_top = 9.0
+offset_right = 1002.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("4_0dp5x")
+theme_override_font_sizes/font_size = 50
+
+[node name="Guia" type="Panel" parent="." unique_id=1722634162]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 645.0
+offset_top = 227.0
+offset_right = 923.0
+offset_bottom = 514.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u3p8f")
+
+[node name="LabelCount" type="Label" parent="." unique_id=710218119]
+visible = false
+material = SubResource("ShaderMaterial_jbh4e")
+offset_left = 23.0
+offset_top = 187.0
+offset_right = 451.0
+offset_bottom = 387.0
+theme_override_fonts/font = ExtResource("5_qfvgk")
+theme_override_font_sizes/font_size = 100
+text = "CONTADOR DE NUMEROS
+DE MIRDA"
+
+[node name="SfxCoin" type="AudioStreamPlayer" parent="." unique_id=2097167644]
+stream = ExtResource("12_7ju2r")
+volume_db = 7.308
+bus = &"Efectos"
+
+[node name="MenuPausa" parent="." unique_id=544664131 instance=ExtResource("13_802es")]

@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://cadc2ushowc4q"]
+
+[ext_resource type="Script" uid="uid://davfaguqk1e3h" path="res://scripts/item_drop.gd" id="1_bo1jd"]
+[ext_resource type="Texture2D" uid="uid://bcwsgxle6l4mb" path="res://sprites y dibujos/coin.png" id="2_ahru7"]
+[ext_resource type="Texture2D" uid="uid://cvf58kjuk46r0" path="res://sprites y dibujos/vendaje pipon de prepucines cosmicos ekisde tengo sueño.png" id="3_0vgj4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slv7v"]
+atlas = ExtResource("2_ahru7")
+region = Rect2(1088, 0, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlvpj"]
+atlas = ExtResource("2_ahru7")
+region = Rect2(0, 1088, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3w8j"]
+atlas = ExtResource("2_ahru7")
+region = Rect2(1088, 1088, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pty63"]
+atlas = ExtResource("2_ahru7")
+region = Rect2(0, 2176, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbx68"]
+atlas = ExtResource("2_ahru7")
+region = Rect2(1088, 2176, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcgnl"]
+atlas = ExtResource("3_0vgj4")
+region = Rect2(0, 0, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjrfa"]
+atlas = ExtResource("3_0vgj4")
+region = Rect2(1088, 0, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdt58"]
+atlas = ExtResource("3_0vgj4")
+region = Rect2(2176, 0, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82krw"]
+atlas = ExtResource("3_0vgj4")
+region = Rect2(0, 1088, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tilcn"]
+atlas = ExtResource("3_0vgj4")
+region = Rect2(1088, 1088, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cssav"]
+atlas = ExtResource("3_0vgj4")
+region = Rect2(2176, 1088, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4m5m"]
+atlas = ExtResource("3_0vgj4")
+region = Rect2(0, 2176, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hlek"]
+atlas = ExtResource("3_0vgj4")
+region = Rect2(1088, 2176, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da58v"]
+atlas = ExtResource("3_0vgj4")
+region = Rect2(2176, 2176, 1088, 1088)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86aj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slv7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlvpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3w8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pty63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbx68")
+}],
+"loop": true,
+"name": &"Sprite Moneda",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcgnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjrfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdt58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82krw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tilcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cssav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4m5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hlek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da58v")
+}],
+"loop": true,
+"name": &"Sprite Vendaje",
+"speed": 10.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_slv7v"]
+
+[node name="ItemDrop" type="Area3D" unique_id=1132434293]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+script = ExtResource("1_bo1jd")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=532075993]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_86aj8")
+animation = &"Sprite Moneda"
+autoplay = "Sprite Vendaje"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1445408259]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.7450414, 0)
+shape = SubResource("BoxShape3D_slv7v")

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://di8fnb3ye4o20"]
+
+[ext_resource type="Script" uid="uid://q85h63r6ship" path="res://LEVEL 3/things.gd" id="1_ftr2n"]
+[ext_resource type="Texture2D" uid="uid://cc5w5j3rujx70" path="res://LEVEL 3/toilet punched.png" id="2_yufvt"]
+[ext_resource type="Texture2D" uid="uid://ch6dle8cflpqv" path="res://LEVEL 3/toilet idle.png" id="3_2v6ct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjddc"]
+atlas = ExtResource("2_yufvt")
+region = Rect2(0, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d808f"]
+atlas = ExtResource("2_yufvt")
+region = Rect2(350, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2amvq"]
+atlas = ExtResource("2_yufvt")
+region = Rect2(0, 350, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk1tq"]
+atlas = ExtResource("2_yufvt")
+region = Rect2(350, 350, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6qyu"]
+atlas = ExtResource("3_2v6ct")
+region = Rect2(0, 0, 350, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1u0ne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjddc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d808f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2amvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk1tq")
+}],
+"loop": false,
+"name": &"dummy1_hurt3",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6qyu")
+}],
+"loop": true,
+"name": &"dummy1_idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e3qpq"]
+
+[node name="Things" type="CharacterBody3D" unique_id=608306973]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+script = ExtResource("1_ftr2n")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=491764124]
+pixel_size = 0.0009
+billboard = 1
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1u0ne")
+animation = &"dummy1_hurt3"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1251574262]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.042554915, 0.006690979, -0.026741534)
+shape = SubResource("CapsuleShape3D_e3qpq")

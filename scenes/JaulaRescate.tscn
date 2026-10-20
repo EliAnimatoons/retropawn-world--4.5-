@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dyd343mg1aayi"]
+
+[ext_resource type="Script" uid="uid://bnybhu054kq5g" path="res://scripts/jaula_rescate.gd" id="1_rgvjs"]
+[ext_resource type="Texture2D" uid="uid://c7hqa45laj1se" path="res://sprites y dibujos/jail.png" id="2_0edv5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ik26u"]
+size = Vector3(1.2333374, 1.2441406, 0.19555664)
+
+[node name="jaula" type="StaticBody3D" unique_id=972046734 groups=["enemies"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8774101, 0)
+collision_mask = 15
+script = ExtResource("1_rgvjs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1620233310]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.006576538, 0.007478535, -0.0020141602)
+shape = SubResource("BoxShape3D_ik26u")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2011458436]
+texture = ExtResource("2_0edv5")
+
+[node name="PuntoAparicion" type="Marker3D" parent="." unique_id=1535336030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.87726974, -0.023660004)

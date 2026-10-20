@@ -1,0 +1,1126 @@
+[gd_scene format=3 uid="uid://dwq1oeyuofexy"]
+
+[ext_resource type="Script" uid="uid://oos61d5qxdd7" path="res://scripts/menu_inicio.gd" id="1_ylpju"]
+[ext_resource type="Texture2D" uid="uid://dxlvfw43aklgm" path="res://sprites y dibujos/play.png" id="2_aqwrv"]
+[ext_resource type="Texture2D" uid="uid://boqg3m0grtqrr" path="res://sprites y dibujos/options.png" id="3_gtu58"]
+[ext_resource type="Shader" uid="uid://d3jv7fx27pj3l" path="res://addons/sky.gdshader" id="3_pdrrq"]
+[ext_resource type="AudioStream" uid="uid://cx7b5fpwh6jst" path="res://sonidos/SonidoTrueno.mp3" id="4_cxoyd"]
+[ext_resource type="Texture2D" uid="uid://cm75uh5q7w7yd" path="res://sprites y dibujos/new game button.png" id="4_o7r3j"]
+[ext_resource type="Texture2D" uid="uid://dx2760yircvam" path="res://sprites y dibujos/minion pose.png" id="5_kt2nm"]
+[ext_resource type="Texture2D" uid="uid://dxbay5utiq82p" path="res://sprites y dibujos/shop.png" id="6_g8cyy"]
+[ext_resource type="AudioStream" uid="uid://dkc73uig7c53m" path="res://sonidos/hover-sound-effect.mp3" id="6_gtu58"]
+[ext_resource type="AudioStream" uid="uid://c8tyuhwvvaja5" path="res://sonidos/start.mp3" id="7_ht1qv"]
+[ext_resource type="Texture2D" uid="uid://c50h1oogsnaw7" path="res://sprites y dibujos/museum.png" id="8_ly0xk"]
+[ext_resource type="AudioStream" uid="uid://bkjfutfut64m1" path="res://sonidos/MusicaMenu.mp3" id="9_0qu60"]
+[ext_resource type="Texture2D" uid="uid://b6js4u3d8jwxr" path="res://sprites y dibujos/retrp icon.png" id="11_7rb1h"]
+[ext_resource type="PackedScene" uid="uid://dimvc7be5kuhb" path="res://scenes/arbol_base.tscn" id="11_qwn52"]
+[ext_resource type="Texture2D" uid="uid://b64dl4o1usaqn" path="res://sprites y dibujos/light.png" id="12_032re"]
+[ext_resource type="Shader" uid="uid://ce6n4xhufr4da" path="res://addons/water.gdshader" id="12_o2enq"]
+[ext_resource type="Texture2D" uid="uid://cs41tseopsyfg" path="res://sprites y dibujos/setting (1).png" id="13_o2enq"]
+[ext_resource type="Texture2D" uid="uid://v75qvywckmxd" path="res://iconostienda/124 sin título_20260329090202.png" id="15_0qu60"]
+[ext_resource type="Texture2D" uid="uid://bkqry6rv7c51v" path="res://max character/shopbatz.png" id="16_dpqr6"]
+[ext_resource type="Texture2D" uid="uid://dgw61e0i61a2e" path="res://Jane anims/batz idle.png" id="17_fwv8f"]
+[ext_resource type="Texture2D" uid="uid://2p831ymyki3r" path="res://sprites y dibujos/141 sin título_20260404150437.png" id="17_kturh"]
+[ext_resource type="Texture2D" uid="uid://rsc3kl3si4ih" path="res://sprites y dibujos/museum photo1.png" id="18_0qu60"]
+[ext_resource type="Shader" uid="uid://c7livdoxdi0ah" path="res://addons/lofiretro.gdshader" id="23_kturh"]
+[ext_resource type="Script" uid="uid://u4q3uqouo1pw" path="res://scripts/shaderscript.gd" id="24_0qu60"]
+[ext_resource type="Shader" uid="uid://ft6ts15o4w1g" path="res://addons/shader2.gdshader" id="25_0qu60"]
+
+[sub_resource type="Curve" id="Curve_ikrqh"]
+_data = [Vector2(0.23369567, 0.53307396), 0.0, 0.0, 0, 0, Vector2(0.5706522, 1), 0.0, 0.0, 0, 0, Vector2(0.9728262, 0.50194556), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gmpof"]
+curve = SubResource("Curve_ikrqh")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y8j3h"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qwn52"]
+noise = SubResource("FastNoiseLite_y8j3h")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2enq"]
+shader = ExtResource("3_pdrrq")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_qwn52")
+shader_parameter/cloud_curves = SubResource("CurveTexture_gmpof")
+shader_parameter/top_color = Color(1, 0.09411765, 0, 1)
+shader_parameter/bottom_color = Color(0.4421858, 0, 0.1219139, 1)
+shader_parameter/clouds_light_color = Color(0, 0, 0, 1)
+shader_parameter/clouds_density = 1.0
+shader_parameter/clouds_scale = 0.71100003051262
+shader_parameter/stars_intensity = 0.5570000264575
+shader_parameter/lightning_flash = 0.126000005985
+shader_parameter/is_night = true
+shader_parameter/sun_size = 0.00999999977648
+shader_parameter/sun_blur = 0.00999999977648
+
+[sub_resource type="Sky" id="Sky_x128n"]
+sky_material = SubResource("ShaderMaterial_o2enq")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_gjjk8"]
+background_mode = 2
+sky = SubResource("Sky_x128n")
+glow_enabled = true
+glow_intensity = 8.0
+glow_bloom = 0.07
+glow_hdr_threshold = 4.0
+glow_hdr_luminance_cap = 57.62
+adjustment_enabled = true
+adjustment_brightness = 0.96
+adjustment_contrast = 1.25
+adjustment_saturation = 0.88
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8tmke"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ly0xk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8j3h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwn52"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o2enq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2enq"]
+atlas = ExtResource("2_aqwrv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvtxh"]
+atlas = ExtResource("2_aqwrv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkv1p"]
+atlas = ExtResource("2_aqwrv")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts2ov"]
+atlas = ExtResource("2_aqwrv")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oim61"]
+atlas = ExtResource("2_aqwrv")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np3t2"]
+atlas = ExtResource("2_aqwrv")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb01l"]
+atlas = ExtResource("2_aqwrv")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_846mx"]
+atlas = ExtResource("2_aqwrv")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rhn62"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2enq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvtxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkv1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts2ov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oim61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np3t2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb01l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_846mx")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_032re"]
+atlas = ExtResource("3_gtu58")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdrrq"]
+atlas = ExtResource("3_gtu58")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikrqh"]
+atlas = ExtResource("3_gtu58")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmpof"]
+atlas = ExtResource("3_gtu58")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tmke"]
+atlas = ExtResource("3_gtu58")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly0xk"]
+atlas = ExtResource("3_gtu58")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8j3h"]
+atlas = ExtResource("3_gtu58")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwn52"]
+atlas = ExtResource("3_gtu58")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhn62"]
+atlas = ExtResource("3_gtu58")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6b6lf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_032re")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdrrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikrqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmpof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tmke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly0xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8j3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwn52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhn62")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x128n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjjk8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ysgp0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kturh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qu60"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x128n"]
+atlas = ExtResource("4_o7r3j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjjk8"]
+atlas = ExtResource("4_o7r3j")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysgp0"]
+atlas = ExtResource("4_o7r3j")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kturh"]
+atlas = ExtResource("4_o7r3j")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qu60"]
+atlas = ExtResource("4_o7r3j")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpqr6"]
+atlas = ExtResource("4_o7r3j")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwv8f"]
+atlas = ExtResource("4_o7r3j")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi5ua"]
+atlas = ExtResource("4_o7r3j")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvtxh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x128n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjjk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysgp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kturh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qu60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpqr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwv8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi5ua")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dpqr6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fwv8f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hi5ua"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvtxh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vkv1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b6lf"]
+atlas = ExtResource("6_g8cyy")
+region = Rect2(0, 0, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt1g5"]
+atlas = ExtResource("6_g8cyy")
+region = Rect2(1088, 0, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fieiy"]
+atlas = ExtResource("6_g8cyy")
+region = Rect2(2176, 0, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_faatk"]
+atlas = ExtResource("6_g8cyy")
+region = Rect2(0, 1088, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3afgt"]
+atlas = ExtResource("6_g8cyy")
+region = Rect2(1088, 1088, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1lir"]
+atlas = ExtResource("6_g8cyy")
+region = Rect2(2176, 1088, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61sr6"]
+atlas = ExtResource("6_g8cyy")
+region = Rect2(0, 2176, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5afd"]
+atlas = ExtResource("6_g8cyy")
+region = Rect2(1088, 2176, 1088, 1088)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ch2bb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b6lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt1g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fieiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_faatk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3afgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1lir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61sr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5afd")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch2bb"]
+atlas = ExtResource("8_ly0xk")
+region = Rect2(0, 0, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osfef"]
+atlas = ExtResource("8_ly0xk")
+region = Rect2(1088, 0, 1088, 1088)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6di3"]
+atlas = ExtResource("8_ly0xk")
+region = Rect2(0, 1088, 1088, 1088)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jmyyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch2bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osfef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6di3")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8cyy"]
+atlas = ExtResource("5_kt2nm")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rb1h"]
+atlas = ExtResource("5_kt2nm")
+region = Rect2(0, 500, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_032re"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8cyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rb1h")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aqwrv"]
+emission_shape_scale = Vector3(20, 1, 20)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, -1, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqwrv"]
+emission_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_cxoyd"]
+material = SubResource("StandardMaterial3D_aqwrv")
+size = Vector2(0.02, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcwxx"]
+albedo_color = Color(0.2509804, 0.44313726, 0.45490196, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ly0xk"]
+material = SubResource("StandardMaterial3D_rcwxx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0qu60"]
+size = Vector2(60, 20)
+center_offset = Vector3(0, 0.1, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_prwbo"]
+
+[sub_resource type="Gradient" id="Gradient_dpqr6"]
+offsets = PackedFloat32Array(0, 0.90909094)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fwv8f"]
+frequency = 0.0124
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1k5x7"]
+noise = SubResource("FastNoiseLite_fwv8f")
+color_ramp = SubResource("Gradient_dpqr6")
+seamless = true
+invert = true
+in_3d_space = true
+seamless_blend_skirt = 0.232
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hi5ua"]
+render_priority = 0
+shader = ExtResource("12_o2enq")
+shader_parameter/texture_normal1 = SubResource("NoiseTexture2D_prwbo")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_1k5x7")
+shader_parameter/albedo_deep = Color(0.8450949, 0.84533745, 0.86847264, 1)
+shader_parameter/albedo_shallow = Color(0.72085315, 0.6489633, 0.58134127, 1)
+shader_parameter/wave_speed1 = Vector2(0.03, 0.01)
+shader_parameter/wave_speed2 = Vector2(-0.02, 0.02)
+shader_parameter/wave_scale = 4.0
+shader_parameter/distortion_strength = 0.20000000298023
+shader_parameter/roughness = 0.7930000376675
+shader_parameter/wave_height = 0.10000000475
+shader_parameter/wave_frequency = 2.28800010542012
+shader_parameter/edge_fade_distance = 10.0
+shader_parameter/edge_distortion = 0.05
+shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader_parameter/foam_amount = 3.0
+shader_parameter/foam_cutoff = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x128n"]
+transparency = 1
+albedo_color = Color(0.50534403, 0.5053441, 0.50534385, 1)
+albedo_texture = ExtResource("13_o2enq")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjjk8"]
+transparency = 1
+albedo_color = Color(0.50534403, 0.5053441, 0.50534385, 1)
+albedo_texture = ExtResource("15_0qu60")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55r26"]
+transparency = 1
+albedo_color = Color(0.50534403, 0.5053441, 0.50534385, 1)
+albedo_texture = ExtResource("15_0qu60")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lc3m5"]
+transparency = 1
+albedo_color = Color(0.50534403, 0.5053441, 0.50534385, 1)
+albedo_texture = ExtResource("15_0qu60")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kph0d"]
+transparency = 1
+albedo_color = Color(0.50534403, 0.5053441, 0.50534385, 1)
+albedo_texture = ExtResource("16_dpqr6")
+texture_filter = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0k51"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(0, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iuc3"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(2040, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f604"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(4080, 0, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebity"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(0, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvt3y"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(2040, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82nhq"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(4080, 1343, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yppkc"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(0, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6e8a"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(2040, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgmh0"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(4080, 2686, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eriow"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(0, 4029, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd7g0"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(2040, 4029, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liyfe"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(4080, 4029, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtr5q"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(0, 5372, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5aot"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(2040, 5372, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtqkp"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(4080, 5372, 2040, 1343)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nwq6"]
+atlas = ExtResource("17_fwv8f")
+region = Rect2(0, 6715, 2040, 1343)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yvxa8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0k51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iuc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f604")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebity")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvt3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82nhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yppkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6e8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgmh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eriow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd7g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liyfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtr5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5aot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtqkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nwq6")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 11.0
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qu60"]
+transparency = 1
+albedo_color = Color(0.6431373, 0.63529414, 0.47058824, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpqr6"]
+transparency = 1
+albedo_color = Color(0.6431373, 0.63529414, 0.47058824, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwv8f"]
+transparency = 1
+albedo_color = Color(0.6431373, 0.63529414, 0.47058824, 1)
+albedo_texture = ExtResource("17_kturh")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hi5ua"]
+transparency = 1
+albedo_color = Color(0.6431373, 0.63529414, 0.47058824, 1)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvtxh"]
+transparency = 1
+albedo_color = Color(0.6431373, 0.63529414, 0.47058824, 1)
+albedo_texture = ExtResource("18_0qu60")
+texture_filter = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dpqr6"]
+shader = ExtResource("23_kturh")
+shader_parameter/strength = 0.01
+shader_parameter/edge_falloff = true
+shader_parameter/distortion_amount = 4.7499999933364734e-08
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fwv8f"]
+shader = ExtResource("25_0qu60")
+shader_parameter/rain_amount = 0.738000035055
+shader_parameter/blue_amount = 1.0
+shader_parameter/blur_amount = 0.0330000015675
+shader_parameter/low_pc_mode = true
+
+[node name="MenuInicio" type="Node3D" unique_id=1890343195]
+script = ExtResource("1_ylpju")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1744221979]
+environment = SubResource("Environment_gjjk8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1147948572]
+
+[node name="CamaraCentro" type="Camera3D" parent="." unique_id=1798381353]
+transform = Transform3D(1, 0, 0, 0, 0.76604444, -0.6427876, 0, 0.6427876, 0.76604444, 0, 0, 0)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1162010903]
+
+[node name="TituloJuego" type="TextureRect" parent="UI" unique_id=1370067625]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -441.0
+offset_top = -99.0
+offset_right = 409.0
+offset_bottom = 379.0
+grow_horizontal = 2
+texture = ExtResource("11_7rb1h")
+
+[node name="Contenedor" type="Control" parent="UI" unique_id=1798267882]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="BtnStart" type="Button" parent="UI/Contenedor" unique_id=809896257]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -88.0
+offset_right = 86.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8tmke")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ly0xk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y8j3h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qwn52")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o2enq")
+flat = true
+
+[node name="SpriteAnimado" type="AnimatedSprite2D" parent="UI/Contenedor/BtnStart" unique_id=537588791]
+texture_filter = 1
+position = Vector2(91, 28)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_rhn62")
+animation = &"idle"
+frame_progress = 0.95900387
+
+[node name="BtnOptions" type="Button" parent="UI/Contenedor" unique_id=868073979]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = 90.0
+offset_right = 86.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8tmke")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ly0xk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y8j3h")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qwn52")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o2enq")
+flat = true
+
+[node name="SpriteAnimado" type="AnimatedSprite2D" parent="UI/Contenedor/BtnOptions" unique_id=1182247248]
+texture_filter = 1
+position = Vector2(91, 28)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_6b6lf")
+animation = &"idle"
+
+[node name="BtnNewGame" type="Button" parent="UI/Contenedor" unique_id=1819479680]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = -320.0
+offset_right = -38.0
+offset_bottom = -258.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x128n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gjjk8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ysgp0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kturh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0qu60")
+flat = true
+
+[node name="SpriteAnimado" type="AnimatedSprite2D" parent="UI/Contenedor/BtnNewGame" unique_id=1271183159]
+texture_filter = 1
+position = Vector2(96, 28)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_uvtxh")
+animation = &"idle"
+
+[node name="BotonTienda" type="Button" parent="UI/Contenedor" unique_id=1492804296]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = 262.0
+offset_right = 88.0
+offset_bottom = 327.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dpqr6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fwv8f")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hi5ua")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uvtxh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vkv1p")
+flat = true
+
+[node name="SpriteAnimado" type="AnimatedSprite2D" parent="UI/Contenedor/BotonTienda" unique_id=1262436871]
+texture_filter = 1
+position = Vector2(92, 28)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_ch2bb")
+animation = &"idle"
+frame_progress = 0.027242333
+
+[node name="BtnMuseum" type="Button" parent="UI/Contenedor" unique_id=1128473325]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1234.0
+offset_top = -94.0
+offset_right = -1042.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x128n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gjjk8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ysgp0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kturh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0qu60")
+flat = true
+
+[node name="SpriteAnimado" type="AnimatedSprite2D" parent="UI/Contenedor/BtnMuseum" unique_id=610377198]
+texture_filter = 1
+position = Vector2(99, 28)
+scale = Vector2(0.16911766, 0.17187496)
+sprite_frames = SubResource("SpriteFrames_jmyyf")
+animation = &"idle"
+frame_progress = 0.54353046
+
+[node name="MusicaMenu" type="AudioStreamPlayer" parent="." unique_id=1200465550]
+stream = ExtResource("9_0qu60")
+pitch_scale = 1.01
+autoplay = true
+bus = &"Musica"
+
+[node name="LuzRelampago" type="DirectionalLight3D" parent="." unique_id=1989909070]
+visible = false
+
+[node name="Timer" type="Timer" parent="LuzRelampago" unique_id=1226098511]
+
+[node name="TimerSiguienteRayo" type="Timer" parent="LuzRelampago" unique_id=395342382]
+autostart = true
+
+[node name="DECORACION_3D" type="Node3D" parent="." unique_id=2097772054]
+
+[node name="ZonaCentro" type="Node3D" parent="DECORACION_3D" unique_id=1518710574]
+
+[node name="minion" type="AnimatedSprite3D" parent="DECORACION_3D/ZonaCentro" unique_id=1512422555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1810681, -0.75666887)
+pixel_size = 0.001
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_032re")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="minion" type="AnimatedSprite3D" parent="DECORACION_3D/ZonaCentro/minion" unique_id=1690838133]
+transform = Transform3D(0.95099175, 0, 0.30921617, 0, 1, 0, -0.30921617, 0, 0.95099175, -0.37761837, 0.0034339726, -0.13319081)
+pixel_size = 0.001
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_032re")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="minion2" type="AnimatedSprite3D" parent="DECORACION_3D/ZonaCentro/minion" unique_id=1499653340]
+transform = Transform3D(0.9593041, 0, -0.28237495, 0, 1, 0, 0.28237495, 0, 0.9593041, 0.4561926, 0.0034339726, -0.13319081)
+pixel_size = 0.001
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_032re")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="minion1" type="AnimatedSprite3D" parent="DECORACION_3D/ZonaCentro/minion" unique_id=741391550]
+transform = Transform3D(0.62029934, 0, 0.7843651, 0, 1, 0, -0.7843651, 0, 0.62029934, -0.7663183, 0, 0.11189765)
+pixel_size = 0.001
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_032re")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="minion3" type="AnimatedSprite3D" parent="DECORACION_3D/ZonaCentro/minion" unique_id=1016981150]
+transform = Transform3D(0.66701376, 0, -0.7450454, 0, 1, 0, 0.7450454, 0, 0.66701376, 0.6871972, 0, 0.11189765)
+pixel_size = 0.001
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_032re")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="DECORACION_3D/ZonaCentro" unique_id=1909560770]
+transform = Transform3D(0.42403808, 0, 0, 0, 0.15457404, 0, 0, 0, 0.35798386, -0.24484313, 5.077713, -1.4155465)
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_aqwrv")
+draw_pass_1 = SubResource("QuadMesh_cxoyd")
+
+[node name="ZonaNivel1" type="Node3D" parent="DECORACION_3D" unique_id=1758185883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.181858, 0, 0)
+
+[node name="muro1" type="CSGBox3D" parent="DECORACION_3D/ZonaNivel1" unique_id=362478237]
+transform = Transform3D(-1.8326891e-06, 0, 0.2785581, 0, 6.4236584, 0, -41.92704, 0, -1.2176161e-08, 4.305667, 1.6402038, 2.7862864)
+size = Vector3(0.11869049, 0.54003906, 1)
+
+[node name="muro2" type="CSGBox3D" parent="DECORACION_3D/ZonaNivel1/muro1" unique_id=816017160]
+transform = Transform3D(-4.371139e-08, 0, -0.006643877, 0, 1, 0, 150.51453, 0, -4.371139e-08, 0.060774297, 0, -5.9261246)
+size = Vector3(0.073862076, 0.54003906, 1)
+
+[node name="muro3" type="CSGBox3D" parent="DECORACION_3D/ZonaNivel1/muro1" unique_id=1452675372]
+transform = Transform3D(-4.371139e-08, 0, -0.006643877, 0, 1, 0, 150.51453, 0, -4.371139e-08, -0.059377693, 0, -5.9261255)
+size = Vector3(0.073862076, 0.54003906, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DECORACION_3D/ZonaNivel1" unique_id=1323978623]
+transform = Transform3D(5.1141834, 0, 0, 0, 1, 0, 0, 0, 2.7898867, -0.07312584, 0, 2.598208)
+mesh = SubResource("PlaneMesh_ly0xk")
+
+[node name="Arbol_Base" parent="DECORACION_3D/ZonaNivel1" unique_id=1970146703 instance=ExtResource("11_qwn52")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.0821702, 0.46386552, 1.1235316)
+
+[node name="Arbol_Base2" parent="DECORACION_3D/ZonaNivel1/Arbol_Base" unique_id=434563161 instance=ExtResource("11_qwn52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2087493, 0, 6.5797563)
+
+[node name="Arbol_Base4" parent="DECORACION_3D/ZonaNivel1/Arbol_Base" unique_id=709557735 instance=ExtResource("11_qwn52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2087493, 0, 0.97313356)
+
+[node name="Arbol_Base3" parent="DECORACION_3D/ZonaNivel1/Arbol_Base" unique_id=1896694896 instance=ExtResource("11_qwn52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12698889, 0, 4.9679923)
+
+[node name="CamaraNivel1" type="Camera3D" parent="DECORACION_3D/ZonaNivel1" unique_id=1647489795]
+transform = Transform3D(0.085379064, 0.22496808, -0.97061825, -0.019712878, 0.9743662, 0.22410272, 0.99615353, -1.8554807e-09, 0.087625235, 0, 0.6993973, 2.8576488)
+
+[node name="SpotLight3D" type="OmniLight3D" parent="DECORACION_3D/ZonaNivel1" unique_id=1589854213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6507664, 2.6128116, 3.0030513)
+light_color = Color(0, 0.45868558, 0.47630185, 1)
+light_energy = 0.04
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 3.072
+light_specular = 16.0
+shadow_blur = 10.0
+distance_fade_shadow = 0.0
+omni_range = 3.956
+omni_attenuation = 0.155
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="DECORACION_3D/ZonaNivel1" unique_id=1506905036]
+transform = Transform3D(0.1439593, 0, 0, 0, 1, 0, 0, 0, 0.6330059, -2.9585705, -0.01478821, 3.153813)
+extra_cull_margin = 5.0
+mesh = SubResource("PlaneMesh_0qu60")
+surface_material_override/0 = SubResource("ShaderMaterial_hi5ua")
+
+[node name="ZonaOpciones" type="Node3D" parent="DECORACION_3D" unique_id=1299522915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.478859, 0, 0)
+
+[node name="muro8" type="CSGBox3D" parent="DECORACION_3D/ZonaOpciones" unique_id=1450251421]
+transform = Transform3D(-0.14345671, 8.742277e-08, -1.532583e-13, 0, -4.3711385e-08, -40.105583, -1.2541384e-08, -0.99999994, 1.7530707e-06, -3.671422, 1.8118117, 2.7347066)
+size = Vector3(1.4091797, 5.4063907, 0.09297973)
+material = SubResource("StandardMaterial3D_x128n")
+
+[node name="muro9" type="CSGBox3D" parent="DECORACION_3D/ZonaOpciones/muro8" unique_id=950418433]
+transform = Transform3D(1.3113416e-07, -6.970743, 1.2220206e-05, 0.14345673, 1.3113416e-07, 1.7530706e-06, -1.563546e-10, 1.0899076e-09, 1, -9.035324, -2.8113425, 3.7252903e-09)
+size = Vector3(1.4091797, 2.8140352, 0.09297973)
+material = SubResource("StandardMaterial3D_x128n")
+
+[node name="muro10" type="CSGBox3D" parent="DECORACION_3D/ZonaOpciones/muro8" unique_id=1658369645]
+transform = Transform3D(1.3113416e-07, -6.970743, 1.2220206e-05, 0.14345673, 1.3113416e-07, 1.7530706e-06, -1.563546e-10, 1.0899076e-09, 1, -9.03532, 2.686325, -3.7252903e-09)
+size = Vector3(1.4091797, 2.8140352, 0.09297973)
+material = SubResource("StandardMaterial3D_x128n")
+
+[node name="CamaraOpciones" type="Camera3D" parent="DECORACION_3D/ZonaOpciones" unique_id=414500530]
+transform = Transform3D(-0.014161116, 0.09982534, 0.9949042, -0.012318805, 0.9949111, -0.10000136, -0.99982387, -0.013672162, -0.012859322, -1.7142876, 1.3694787, 2.8576488)
+
+[node name="SpotLight3D" type="OmniLight3D" parent="DECORACION_3D/ZonaOpciones" unique_id=1855075241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8442421, 1.9165504, 2.6187053)
+light_color = Color(0.43798614, 0.70458925, 1, 1)
+light_energy = 9.014
+light_indirect_energy = 5.056
+light_volumetric_fog_energy = 7.887
+light_size = 1.0
+light_specular = 14.021
+shadow_blur = 10.0
+
+[node name="ZonaTienda" type="Node3D" parent="DECORACION_3D" unique_id=34593548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36.332886)
+
+[node name="muro9" type="CSGBox3D" parent="DECORACION_3D/ZonaTienda" unique_id=1672385287]
+transform = Transform3D(-0.1434567, -8.742274e-08, 0, 1.2980017e-10, -0.010349671, 40.103436, -1.2540707e-08, 0.9999462, 0.41507965, 2.138995, 1.8118117, 10.264209)
+size = Vector3(1.4091797, 2.8140352, 0.09297973)
+material = SubResource("StandardMaterial3D_gjjk8")
+
+[node name="muro10" type="CSGBox3D" parent="DECORACION_3D/ZonaTienda" unique_id=1309208031]
+transform = Transform3D(-0.14345671, -8.742276e-08, 1.364242e-12, 0, -4.3711392e-08, -40.105583, 1.2541381e-08, -0.9999998, 1.7530705e-06, -3.3961017, 1.8196629, 10.220384)
+size = Vector3(1.4091797, 2.8140352, 0.09297973)
+material = SubResource("StandardMaterial3D_55r26")
+
+[node name="muro8" type="CSGBox3D" parent="DECORACION_3D/ZonaTienda" unique_id=1464403669]
+transform = Transform3D(-6.2706915e-09, -0.9999999, 1.7530707e-06, 0, -4.3711385e-08, -40.105583, 0.1434567, -4.3711385e-08, 7.662915e-14, -0.6723473, 1.8118117, 11.560387)
+size = Vector3(1.4091797, 5.4063907, 0.09297973)
+material = SubResource("StandardMaterial3D_lc3m5")
+
+[node name="muro11" type="CSGBox3D" parent="DECORACION_3D/ZonaTienda" unique_id=583572405]
+transform = Transform3D(-6.2706915e-09, -0.9999999, 1.7530707e-06, 0, -4.3711385e-08, -40.105583, 0.1434567, -4.3711385e-08, 7.662915e-14, -1.8813674, 0.42837107, 13.048584)
+size = Vector3(1.4091797, 14.09411, 0.34440693)
+material = SubResource("StandardMaterial3D_kph0d")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="DECORACION_3D/ZonaTienda" unique_id=97637692]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0029346943, 1.783761, 11.932697)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_yvxa8")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.24958591
+
+[node name="CamaraTienda" type="Camera3D" parent="DECORACION_3D/ZonaTienda" unique_id=788306735]
+transform = Transform3D(-0.9994021, -0.015481781, -0.030915165, -0.018649181, 0.994303, 0.104946874, 0.029114274, 0.10546067, -0.9939972, 0.0921725, 2.2067766, 9.615211)
+
+[node name="SpotLight3D" type="OmniLight3D" parent="DECORACION_3D/ZonaTienda" unique_id=71512829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34521127, 1.9165504, 10.725502)
+light_color = Color(0.9406964, 0.55626744, 0.64823836, 1)
+light_energy = 2.704
+light_indirect_energy = 8.662
+light_volumetric_fog_energy = 6.986
+light_size = 0.789
+light_specular = 8.162
+shadow_blur = 10.0
+
+[node name="ZonaMuseum" type="Node3D" parent="DECORACION_3D" unique_id=2019489145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.211998, 0, -43.455357)
+
+[node name="muro9" type="CSGBox3D" parent="DECORACION_3D/ZonaMuseum" unique_id=907416518]
+transform = Transform3D(-6.2706906e-09, 0.9999999, -1.7530706e-06, 0, -4.371139e-08, -40.105583, -0.14345671, -4.371137e-08, 1.1368684e-13, -11.159065, 1.8118117, 10.102695)
+size = Vector3(1.4091797, 2.8140352, 0.09297973)
+material = SubResource("StandardMaterial3D_0qu60")
+
+[node name="muro10" type="CSGBox3D" parent="DECORACION_3D/ZonaMuseum" unique_id=705450050]
+transform = Transform3D(-6.2706906e-09, 0.9999999, -1.7530706e-06, 0, -4.371139e-08, -40.105583, -0.14345671, -4.371137e-08, 1.1368684e-13, -11.159065, 1.8118117, 4.605028)
+size = Vector3(1.4091797, 2.8140352, 0.09297973)
+material = SubResource("StandardMaterial3D_dpqr6")
+
+[node name="muro11" type="CSGBox3D" parent="DECORACION_3D/ZonaMuseum" unique_id=2030100042]
+transform = Transform3D(0.020579828, -1.2541233e-08, -3.5061412e-06, 4.196706e-09, 0.4780748, -40.102726, 5.029652e-07, 40.102726, 0.47800454, -11.447981, 2.0605583, 7.8874655)
+size = Vector3(1.4091797, 0.2453965, 0.09297973)
+material = SubResource("StandardMaterial3D_fwv8f")
+
+[node name="muro8" type="CSGBox3D" parent="DECORACION_3D/ZonaMuseum" unique_id=481137008]
+transform = Transform3D(-0.14345671, 8.742277e-08, -1.532583e-13, 0, -4.3711385e-08, -40.105583, -1.2541384e-08, -0.99999994, 1.7530707e-06, -12.455243, 1.8118117, 7.291353)
+size = Vector3(1.4091797, 5.4063907, 0.09297973)
+material = SubResource("StandardMaterial3D_hi5ua")
+
+[node name="CamaraMuseo" type="Camera3D" parent="DECORACION_3D/ZonaMuseum" unique_id=1823665588]
+transform = Transform3D(-0.014915829, 0.16289146, 0.98653126, -0.011393341, 0.9865493, -0.1630667, -0.99982387, -0.013672163, -0.012859321, -10.271633, 1.2387114, 7.3734274)
+
+[node name="muro12" type="CSGBox3D" parent="DECORACION_3D/ZonaMuseum" unique_id=309597127]
+transform = Transform3D(0.020579828, -1.2541229e-08, -3.5061414e-06, -3.6042458e-10, -0.17219388, 40.105206, -5.029826e-07, -40.105206, -0.17212364, -12.083428, 2.0808673, 7.4068685)
+size = Vector3(1.4091797, 0.07965308, 0.063772276)
+material = SubResource("StandardMaterial3D_uvtxh")
+
+[node name="SpotLight3D" type="OmniLight3D" parent="DECORACION_3D/ZonaMuseum" unique_id=286099970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.874516, 4.667947, 7.072212)
+light_color = Color(0.9969954, 0.54079103, 0.44772923, 1)
+light_energy = 9.014
+light_indirect_energy = 5.056
+light_volumetric_fog_energy = 7.887
+light_size = 1.0
+light_specular = 14.021
+shadow_enabled = true
+shadow_blur = 10.0
+
+[node name="SonidoTrueno" type="AudioStreamPlayer" parent="." unique_id=612784759]
+stream = ExtResource("4_cxoyd")
+volume_db = -16.691
+bus = &"Efectos"
+
+[node name="SonidoHover" type="AudioStreamPlayer" parent="." unique_id=1262310690]
+stream = ExtResource("6_gtu58")
+bus = &"Efectos"
+
+[node name="SonidoSeleccion" type="AudioStreamPlayer" parent="." unique_id=2048602672]
+stream = ExtResource("7_ht1qv")
+volume_db = -15.427
+bus = &"Efectos"
+
+[node name="Luciernagas" type="CPUParticles2D" parent="." unique_id=94229301]
+position = Vector2(641, 390)
+amount = 12
+texture = ExtResource("12_032re")
+emission_shape = 3
+emission_rect_extents = Vector2(650, 400)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+color = Color(1, 1, 0.6431373, 1)
+hue_variation_min = 0.1
+hue_variation_max = 0.1
+
+[node name="PostProcessLayer" type="CanvasLayer" parent="." unique_id=567329776]
+layer = 100
+
+[node name="Tv" type="ColorRect" parent="PostProcessLayer" unique_id=2012405896]
+material = SubResource("ShaderMaterial_dpqr6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("24_0qu60")
+
+[node name="shader" type="ColorRect" parent="PostProcessLayer" unique_id=964514581]
+material = SubResource("ShaderMaterial_fwv8f")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("24_0qu60")

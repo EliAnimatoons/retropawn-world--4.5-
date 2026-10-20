@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://0m13agncmxkw"]
+
+[ext_resource type="PackedScene" uid="uid://3ji0jtal5c5l" path="res://models/rock wall.glb" id="1_k3m5l"]
+[ext_resource type="Script" uid="uid://ciinotjufylxg" path="res://kit de puzzle/puzzle_kit.gd" id="3_5rvpo"]
+[ext_resource type="Texture2D" uid="uid://cfm6t3caw0yip" path="res://kit de puzzle/lever1.png" id="4_w3n8r"]
+[ext_resource type="Texture2D" uid="uid://c5fsdw8qyfice" path="res://kit de puzzle/lever2.png" id="5_rdiow"]
+[ext_resource type="Script" uid="uid://cajwx1piy2tko" path="res://kit de puzzle/lever.gd" id="6_jdiej"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(1, 0.5821533, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqys"]
+albedo_color = Color(0.24996892, 0.28712788, 0.34884173, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+material = SubResource("StandardMaterial3D_riqys")
+size = Vector3(1, 1.2167969, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_riqys"]
+size = Vector3(5.405304, 6.7528687, 19.332169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppgkf"]
+atlas = ExtResource("4_w3n8r")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ybh"]
+atlas = ExtResource("5_rdiow")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpiy0"]
+atlas = ExtResource("5_rdiow")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gd1w"]
+atlas = ExtResource("5_rdiow")
+region = Rect2(0, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7cxe"]
+atlas = ExtResource("5_rdiow")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppgkf")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppgkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppgkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52ybh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpiy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gd1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7cxe")
+}],
+"loop": 0,
+"name": &"pressed",
+"speed": 20.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sn0t7"]
+size = Vector3(1.1728516, 0.9482422, 1)
+
+[node name="PuzzleKit" type="Node3D" unique_id=426306760 node_paths=PackedStringArray("rock_wall", "wall_collision", "pressure_plate", "plate_mesh", "lever", "lever_sprite")]
+script = ExtResource("3_5rvpo")
+rock_wall = NodePath("RockWall")
+wall_collision = NodePath("RockWall/CollisionShape3D")
+pressure_plate = NodePath("PressurePlate")
+plate_mesh = NodePath("PressurePlate/CSGBox3D")
+lever = NodePath("Lever")
+lever_sprite = NodePath("Lever/AnimatedSprite3D")
+
+[node name="PressurePlate" type="Area3D" parent="." unique_id=678362104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250.63205, 0.23433149, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PressurePlate" unique_id=46477841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14117432, 0)
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="CSGBox3D" type="MeshInstance3D" parent="PressurePlate" unique_id=1623968952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32983398, 0)
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="RockWall" type="StaticBody3D" parent="." unique_id=1106710996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 256.34146, 0, 0)
+
+[node name="rock wall" parent="RockWall" unique_id=1192741150 instance=ExtResource("1_k3m5l")]
+transform = Transform3D(-3, 0, -4.5298742e-07, 0, 2.2108667, 0, 4.5298742e-07, 0, -3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RockWall" unique_id=373502322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5726471, 2.8764343, -0.80239105)
+shape = SubResource("BoxShape3D_riqys")
+
+[node name="Lever" type="StaticBody3D" parent="." unique_id=74808215]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -8.09673, 0.19448054, -3.1708555)
+script = ExtResource("6_jdiej")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Lever" unique_id=1748452752]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0149822235, 0.61825466, 0)
+sprite_frames = SubResource("SpriteFrames_bhunq")
+animation = &"pressed"
+frame = 5
+frame_progress = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lever" unique_id=834396116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08642578, 0.36279297, 0)
+shape = SubResource("BoxShape3D_sn0t7")

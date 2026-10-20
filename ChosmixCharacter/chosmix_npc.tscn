@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://clco4tsmop677"]
+
+[ext_resource type="Texture2D" uid="uid://dlyluo4cus2f8" path="res://ChosmixCharacter/Chosmix rescatable.png" id="1_26saa"]
+[ext_resource type="Script" uid="uid://pogyl28jnpi7" path="res://ChosmixCharacter/chosmix_npc.gd" id="2_7x8hp"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="3_typ5w"]
+[ext_resource type="Script" uid="uid://cht6qt1v3vuns" path="res://scripts/cuerpo_nubbe.gd" id="4_wsm5e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmma3"]
+atlas = ExtResource("1_26saa")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2rf6"]
+atlas = ExtResource("1_26saa")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fjjg"]
+atlas = ExtResource("1_26saa")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qikjj"]
+atlas = ExtResource("1_26saa")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmma3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2rf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fjjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qikjj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 11.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ixm2b"]
+size = Vector3(0.5832443, 1, 0.222229)
+
+[node name="Chosmix_NPC" type="AnimatedSprite3D" unique_id=97192441 groups=["enemies"]]
+sprite_frames = SubResource("SpriteFrames_bhunq")
+animation = &"idle"
+script = ExtResource("2_7x8hp")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=782784036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6822677, 0)
+visible = false
+modulate = Color(0.16862746, 0.7764706, 0.4627451, 1)
+text = "hit!"
+font = ExtResource("3_typ5w")
+
+[node name="CuerpoChosmix" type="StaticBody3D" parent="." unique_id=1783391468]
+script = ExtResource("4_wsm5e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CuerpoChosmix" unique_id=69105306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019208491, 0, 0.011077881)
+shape = SubResource("BoxShape3D_ixm2b")
+disabled = true

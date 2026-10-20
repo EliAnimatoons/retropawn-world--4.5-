@@ -1,0 +1,270 @@
+[gd_scene format=3 uid="uid://c71f6f70mnp7x"]
+
+[ext_resource type="Script" uid="uid://d4ms3hh7tnddu" path="res://scripts/minigame1.gd" id="1_3hk7y"]
+[ext_resource type="Texture2D" uid="uid://belnb1pb12qm1" path="res://evoluciones minion/minion1.png" id="2_locqt"]
+[ext_resource type="Texture2D" uid="uid://bjkkh68g61nl3" path="res://evoluciones minion/minion2.png" id="3_7s50l"]
+[ext_resource type="Texture2D" uid="uid://bxt4umdapep3r" path="res://evoluciones minion/minion3.png" id="4_08ap3"]
+[ext_resource type="Texture2D" uid="uid://d12brx6uf2cec" path="res://evoluciones minion/minion4.png" id="5_flafy"]
+[ext_resource type="Texture2D" uid="uid://6kkoeh36tkji" path="res://evoluciones minion/minion5.png" id="6_6apws"]
+[ext_resource type="Texture2D" uid="uid://blgsyqetnvext" path="res://evoluciones minion/minion6.png" id="7_ky76k"]
+[ext_resource type="Texture2D" uid="uid://dval020f0gs47" path="res://evoluciones minion/minion7.png" id="8_iltng"]
+[ext_resource type="Texture2D" uid="uid://cjyleb5p0o757" path="res://evoluciones minion/minion8.png" id="9_k7vw5"]
+[ext_resource type="Texture2D" uid="uid://vlhpj7yil3bl" path="res://evoluciones minion/minion9.png" id="10_xpofv"]
+[ext_resource type="Texture2D" uid="uid://u58ssensbnv6" path="res://evoluciones minion/minion10.png" id="11_5l83u"]
+[ext_resource type="Shader" uid="uid://co0u2rbny0cuv" path="res://addons/retroanim.gdshader" id="12_7s50l"]
+[ext_resource type="Shader" uid="uid://b0nbfa88na1cm" path="res://addons/rainbowdash.gdshader" id="12_ky76k"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="12_locqt"]
+[ext_resource type="Texture2D" uid="uid://ki6rrk3uojp3" path="res://evoluciones minion/minion11.png" id="12_th51q"]
+[ext_resource type="Texture2D" uid="uid://c88jjt40hwevc" path="res://evoluciones minion/minion12.png" id="13_p6nwy"]
+[ext_resource type="AudioStream" uid="uid://dde18i27ic3wf" path="res://evoluciones minion/bonus 2.mp3" id="14_08ap3"]
+[ext_resource type="Texture2D" uid="uid://l16kum36gkpd" path="res://evoluciones minion/minion13.png" id="14_8jjw3"]
+[ext_resource type="Texture2D" uid="uid://bgt6svoyllaw5" path="res://evoluciones minion/minion14.png" id="15_4jd4j"]
+[ext_resource type="AudioStream" uid="uid://sdj76lwvgfns" path="res://sonidos/power.mp3" id="15_flafy"]
+[ext_resource type="Texture2D" uid="uid://bme12vcss7c7l" path="res://evoluciones minion/minion15.png" id="16_g37im"]
+[ext_resource type="Texture2D" uid="uid://dg8tbticcquqf" path="res://evoluciones minion/minion17.png" id="17_e2feo"]
+[ext_resource type="Texture2D" uid="uid://barj2h6t21g6d" path="res://evoluciones minion/minion18.png" id="18_5vgp8"]
+[ext_resource type="Texture2D" uid="uid://drdhdgc8vo373" path="res://evoluciones minion/minion19.png" id="19_7j6jm"]
+[ext_resource type="Texture2D" uid="uid://p03yb8v3nwlm" path="res://evoluciones minion/minion20.png" id="20_ybpsn"]
+[ext_resource type="Texture2D" uid="uid://lxckhrn13a26" path="res://evoluciones minion/412 sin título_20260213160654.png" id="21_akr0m"]
+[ext_resource type="Texture2D" uid="uid://eixef0brp4uk" path="res://evoluciones minion/413 sin título_20260213160848.png" id="22_kmdq3"]
+[ext_resource type="AudioStream" uid="uid://g34cun6frhkn" path="res://sonidos/prepucin super.mp3" id="23_4jd4j"]
+[ext_resource type="Texture2D" uid="uid://dnirjjhr0y2hg" path="res://evoluciones minion/418 sin título_20260213223120.png" id="23_cjarp"]
+[ext_resource type="Texture2D" uid="uid://djn7tlkejjs3o" path="res://evoluciones minion/418 sin título_20260213223809.png" id="24_ljkfh"]
+[ext_resource type="Texture2D" uid="uid://mlejmsjtvmt5" path="res://evoluciones minion/418 sin título_20260214003002.png" id="25_fw78n"]
+[ext_resource type="Texture2D" uid="uid://cccb60pko3ye2" path="res://evoluciones minion/418 sin título_20260214003457.png" id="26_jb8ol"]
+[ext_resource type="Texture2D" uid="uid://b70r3d286k1of" path="res://evoluciones minion/buttonminionfarmer.png" id="27_8jjw3"]
+[ext_resource type="Texture2D" uid="uid://co6k6pvp4ybsd" path="res://evoluciones minion/418 sin título_20260214004258.png" id="27_886u3"]
+[ext_resource type="Texture2D" uid="uid://cp2k8chh0ew0w" path="res://evoluciones minion/buttonshop.png" id="28_4jd4j"]
+[ext_resource type="Texture2D" uid="uid://bd85rbggdmghl" path="res://evoluciones minion/418 sin título_20260214012316.png" id="28_hirr2"]
+[ext_resource type="Texture2D" uid="uid://d0fk8gfimcqso" path="res://evoluciones minion/418 sin título_20260214013523.png" id="29_askoo"]
+[ext_resource type="Texture2D" uid="uid://rchja47vroju" path="res://evoluciones minion/418 sin título_20260214014747.png" id="30_1andh"]
+[ext_resource type="Texture2D" uid="uid://bxkxguqrf3vvf" path="res://evoluciones minion/418 sin título_20260214015235.png" id="31_c0h0t"]
+[ext_resource type="Texture2D" uid="uid://cxgg5cmsu5y00" path="res://evoluciones minion/418 sin título_20260214015842.png" id="32_p4avb"]
+[ext_resource type="Texture2D" uid="uid://dnnvalde6wrhx" path="res://evoluciones minion/418 sin título_20260218015408.png" id="33_g4f1f"]
+[ext_resource type="Texture2D" uid="uid://bchjwrclbnlal" path="res://evoluciones minion/427 sin título_20260217172636.png" id="34_1g82o"]
+[ext_resource type="Texture2D" uid="uid://djrfxtr3wwa8u" path="res://evoluciones minion/427 sin título_20260217173202.png" id="35_kncnp"]
+[ext_resource type="Texture2D" uid="uid://dw5lvu3tvdj6j" path="res://evoluciones minion/427 sin título_20260217173605.png" id="36_7yaga"]
+[ext_resource type="Texture2D" uid="uid://demmhwicl8cwt" path="res://evoluciones minion/427 sin título_20260217174151.png" id="37_ls4we"]
+[ext_resource type="Texture2D" uid="uid://bs2dfites3fyy" path="res://evoluciones minion/427 sin título_20260217174635.png" id="38_nvhf3"]
+[ext_resource type="Texture2D" uid="uid://bpppwkv2qvvut" path="res://evoluciones minion/427 sin título_20260217180619.png" id="39_l1vy2"]
+[ext_resource type="Texture2D" uid="uid://64pry0opboh3" path="res://evoluciones minion/427 sin título_20260217181439.png" id="40_hmdoi"]
+[ext_resource type="Texture2D" uid="uid://b4ljw1w5cb53n" path="res://evoluciones minion/427 sin título_20260217181918.png" id="41_xx0nk"]
+[ext_resource type="AudioStream" uid="uid://deiix22ts0iva" path="res://sonidos/buy.mp3" id="42_kmdq3"]
+[ext_resource type="Texture2D" uid="uid://bgdj6r0co6tqv" path="res://evoluciones minion/427 sin título_20260217184909.png" id="42_wvhxq"]
+[ext_resource type="Texture2D" uid="uid://d1bw70jomths7" path="res://evoluciones minion/427 sin título_20260217190923.png" id="43_mx7xo"]
+[ext_resource type="Texture2D" uid="uid://crlywed2u3osd" path="res://evoluciones minion/430 sin título_20260218020757.png" id="44_8e7pc"]
+[ext_resource type="Texture2D" uid="uid://dxxqxxaf56bbb" path="res://evoluciones minion/434 sin título_20260220002230.png" id="45_bqoua"]
+[ext_resource type="PackedScene" uid="uid://bek0jqxnh6v6x" path="res://scenes/MenuPausa.tscn" id="56_1g82o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4f1f"]
+shader = ExtResource("12_ky76k")
+shader_parameter/cell_size = 32.0
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed = 40.0
+shader_parameter/color_speed = 0.3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08ap3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flafy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6apws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky76k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iltng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k7vw5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpofv"]
+shader = ExtResource("12_7s50l")
+shader_parameter/jitter_strength = 2.0
+shader_parameter/jitter_speed = 8.0
+shader_parameter/jitter_frequency = 12.0
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 5.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/rotation_frequency = 4.0
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.1
+shader_parameter/scale_speed = 2.5
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(0.003921569, 0.03529412, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.5
+shader_parameter/enable_pixelation = true
+shader_parameter/pixel_size = 4.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5l83u"]
+shader = ExtResource("12_7s50l")
+shader_parameter/jitter_strength = 2.0
+shader_parameter/jitter_speed = 8.0
+shader_parameter/jitter_frequency = 12.0
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 5.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/rotation_frequency = 4.0
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.1
+shader_parameter/scale_speed = 2.5
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.5
+shader_parameter/enable_pixelation = true
+shader_parameter/pixel_size = 4.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[node name="MainClicker" type="Control" unique_id=1166121333]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3hk7y")
+minion_textures = Array[Texture2D]([ExtResource("2_locqt"), ExtResource("3_7s50l"), ExtResource("4_08ap3"), ExtResource("5_flafy"), ExtResource("6_6apws"), ExtResource("7_ky76k"), ExtResource("8_iltng"), ExtResource("9_k7vw5"), ExtResource("10_xpofv"), ExtResource("11_5l83u"), ExtResource("12_th51q"), ExtResource("13_p6nwy"), ExtResource("14_8jjw3"), ExtResource("15_4jd4j"), ExtResource("16_g37im"), ExtResource("17_e2feo"), ExtResource("18_5vgp8"), ExtResource("19_7j6jm"), ExtResource("20_ybpsn"), ExtResource("21_akr0m"), ExtResource("22_kmdq3"), ExtResource("23_cjarp"), ExtResource("24_ljkfh"), ExtResource("25_fw78n"), ExtResource("26_jb8ol"), ExtResource("27_886u3"), ExtResource("28_hirr2"), ExtResource("29_askoo"), ExtResource("30_1andh"), ExtResource("31_c0h0t"), ExtResource("32_p4avb"), ExtResource("33_g4f1f"), ExtResource("34_1g82o"), ExtResource("35_kncnp"), ExtResource("36_7yaga"), ExtResource("37_ls4we"), ExtResource("38_nvhf3"), ExtResource("39_l1vy2"), ExtResource("40_hmdoi"), ExtResource("41_xx0nk"), ExtResource("42_wvhxq"), ExtResource("43_mx7xo"), ExtResource("44_8e7pc"), ExtResource("45_bqoua")])
+
+[node name="fondito" type="ColorRect" parent="." unique_id=808349979]
+material = SubResource("ShaderMaterial_g4f1f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FetoLayer" type="Node2D" parent="." unique_id=702703588]
+
+[node name="theme" type="AudioStreamPlayer" parent="." unique_id=875967732]
+stream = ExtResource("14_08ap3")
+volume_db = -10.271
+pitch_scale = 1.05
+autoplay = true
+bus = &"Musica"
+
+[node name="SfxEvo" type="AudioStreamPlayer" parent="." unique_id=1035977031]
+stream = ExtResource("15_flafy")
+bus = &"Efectos"
+
+[node name="FlashLayer" type="ColorRect" parent="." unique_id=1149867183]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.41568628, 1, 1)
+
+[node name="BtnMult" type="Button" parent="." unique_id=5418426]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1113.0
+offset_top = 187.0
+offset_right = 1263.0
+offset_bottom = 337.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_locqt")
+theme_override_font_sizes/font_size = 16
+flat = true
+
+[node name="BtnFetito" type="Button" parent="." unique_id=1233546180]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 150.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("12_locqt")
+flat = true
+
+[node name="LabelTienda" type="Label" parent="." unique_id=1086628431]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 217.0
+offset_right = 43.0
+offset_bottom = 268.0
+theme_override_fonts/font = ExtResource("12_locqt")
+theme_override_font_sizes/font_size = 50
+
+[node name="buttonmultiplier" type="Sprite2D" parent="." unique_id=1212768430]
+position = Vector2(316, 624)
+texture = ExtResource("27_8jjw3")
+
+[node name="buttonfetus" type="Sprite2D" parent="." unique_id=1607096853]
+position = Vector2(1009, 622)
+texture = ExtResource("28_4jd4j")
+
+[node name="Button" type="Button" parent="." unique_id=606694374]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.5
+offset_top = -217.0
+offset_right = 215.5
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_08ap3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_flafy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6apws")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ky76k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iltng")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k7vw5")
+icon_alignment = 1
+
+[node name="LabelScore" type="Label" parent="." unique_id=1663063393]
+material = SubResource("ShaderMaterial_xpofv")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("12_locqt")
+theme_override_font_sizes/font_size = 50
+
+[node name="LabelStage" type="Label" parent="." unique_id=1458835253]
+material = SubResource("ShaderMaterial_5l83u")
+layout_mode = 0
+offset_top = 67.0
+offset_right = 40.0
+offset_bottom = 118.0
+theme_override_fonts/font = ExtResource("12_locqt")
+theme_override_font_sizes/font_size = 50
+
+[node name="SfxPop" type="AudioStreamPlayer" parent="." unique_id=1459191261]
+stream = ExtResource("23_4jd4j")
+bus = &"Efectos"
+
+[node name="SfxCoin" type="AudioStreamPlayer" parent="." unique_id=1241224940]
+stream = ExtResource("42_kmdq3")
+volume_db = 7.308
+bus = &"Efectos"
+
+[node name="MenuPausa" parent="." unique_id=839060914 instance=ExtResource("56_1g82o")]
+
+[connection signal="pressed" from="BtnMult" to="." method="_on_btn_mult_pressed"]
+[connection signal="pressed" from="BtnFetito" to="." method="_on_btn_fetito_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

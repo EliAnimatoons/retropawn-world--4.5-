@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://x5v0ejfhux2x"]
+
+[ext_resource type="Script" uid="uid://bylcl122hl0qi" path="res://LEVEL2/glitch_project.gd" id="1_qy0u8"]
+[ext_resource type="AudioStream" uid="uid://h863ax7ik0ty" path="res://sonidos/shootaquaeffect.mp3" id="2_u56ux"]
+[ext_resource type="AudioStream" uid="uid://btqy2opgm65vr" path="res://sonidos/impactaquashoot.mp3" id="3_6hyuv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lyfj2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0dxdo"]
+
+[node name="Area3D" type="Area3D" unique_id=1774174077]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.53785837, 0)
+script = ExtResource("1_qy0u8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=572616177]
+shape = SubResource("SphereShape3D_lyfj2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=738657387]
+mesh = SubResource("SphereMesh_0dxdo")
+
+[node name="WarningSound" type="AudioStreamPlayer3D" parent="." unique_id=1398878548]
+stream = ExtResource("2_u56ux")
+volume_db = 80.0
+
+[node name="ImpactSound" type="AudioStreamPlayer3D" parent="." unique_id=1037440238]
+stream = ExtResource("3_6hyuv")
+volume_db = 80.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

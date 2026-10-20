@@ -1,0 +1,1112 @@
+[gd_scene format=3 uid="uid://c3bs35kkrmxuu"]
+
+[ext_resource type="Script" uid="uid://csxr2x2y3hypb" path="res://scripts/fog.gd" id="1_4xo5w"]
+[ext_resource type="Texture2D" uid="uid://1cmtrkbfe1on" path="res://max character/suelo_fondo.png" id="2_q3xrs"]
+[ext_resource type="Script" uid="uid://b03b4vr18tmk7" path="res://scripts/camera_3d.gd" id="2_uj8nj"]
+[ext_resource type="PackedScene" uid="uid://be3i4mbxk0stn" path="res://scenes/minion.tscn" id="3_k30l8"]
+[ext_resource type="Shader" uid="uid://bprehwrqlhkt7" path="res://addons/realisticsky.gdshader" id="4_fwjwp"]
+[ext_resource type="PackedScene" uid="uid://d4ceewd5tnlc6" path="res://scenes/tacho.tscn" id="4_tpe2y"]
+[ext_resource type="PackedScene" uid="uid://dgk4dh3bfamao" path="res://scenes/hud.tscn" id="5_nco8l"]
+[ext_resource type="Script" uid="uid://cqigmv8pt6wui" path="res://scripts/spawn_player.gd" id="7_o1yol"]
+[ext_resource type="PackedScene" uid="uid://ddjndabmpsadi" path="res://scenes/minion_bomba.tscn" id="9_hqcf4"]
+[ext_resource type="PackedScene" uid="uid://fgob4ekkdn1t" path="res://scenes/Jane_Rescatable.tscn" id="10_2jnji"]
+[ext_resource type="PackedScene" uid="uid://dyd343mg1aayi" path="res://scenes/JaulaRescate.tscn" id="10_rdia8"]
+[ext_resource type="Shader" uid="uid://c06dlg3t4out2" path="res://addons/fire.gdshader" id="12_6kiof"]
+[ext_resource type="PackedScene" uid="uid://dswx18xck03yc" path="res://scenes/MinionAlacran.tscn" id="13_e2bp2"]
+[ext_resource type="AudioStream" uid="uid://bnfb82pg46fj8" path="res://sonidos/level1.mp3" id="13_q3xrs"]
+[ext_resource type="Texture2D" uid="uid://bfgo5obm85qlq" path="res://MaxLevelitems/edificios.png" id="15_3jjgl"]
+[ext_resource type="Texture2D" uid="uid://dbpgafdtrl3w" path="res://MaxLevelitems/vereda.png" id="15_abp0n"]
+[ext_resource type="PackedScene" uid="uid://bek0jqxnh6v6x" path="res://scenes/MenuPausa.tscn" id="16_4s13m"]
+[ext_resource type="Texture2D" uid="uid://df0etsdrp1sb1" path="res://MaxLevelitems/fondo2.png" id="17_bo2gi"]
+[ext_resource type="Texture2D" uid="uid://dn4b4t8b8feyj" path="res://MaxLevelitems/fondo.png" id="18_tpe2y"]
+[ext_resource type="Texture2D" uid="uid://jbamn3g0gfs6" path="res://MaxLevelitems/vereda2.png" id="19_nco8l"]
+[ext_resource type="Texture2D" uid="uid://2vh88ihgx4l2" path="res://MaxLevelitems/edificios fondo.png" id="20_bn0ex"]
+[ext_resource type="Texture2D" uid="uid://bfe86k5s06lqs" path="res://MaxLevelitems/edificios fondo fondo.png" id="21_o1yol"]
+[ext_resource type="Texture2D" uid="uid://brvmji0s08ltb" path="res://max character/suelo.png" id="22_nco8l"]
+[ext_resource type="Texture2D" uid="uid://7un4iwj1i5wr" path="res://max character/suelo2.png" id="23_bn0ex"]
+[ext_resource type="Texture2D" uid="uid://cx2j0c4cmlh2x" path="res://MaxLevelitems/final loop p1.png" id="24_a7gha"]
+[ext_resource type="Texture2D" uid="uid://bx40b1qjcrgid" path="res://MaxLevelitems/fondo detrás.png" id="25_rdia8"]
+[ext_resource type="Texture2D" uid="uid://j21aa71qyut1" path="res://MaxLevelitems/fondo mas fondo.png" id="26_8evg2"]
+[ext_resource type="Texture2D" uid="uid://b64dl4o1usaqn" path="res://sprites y dibujos/light.png" id="28_8evg2"]
+[ext_resource type="Script" uid="uid://cpquc5opplbsm" path="res://scripts/fightareawithminion.gd" id="30_g4ft6"]
+[ext_resource type="PackedScene" uid="uid://3ji0jtal5c5l" path="res://models/rock wall.glb" id="31_hy4xt"]
+[ext_resource type="PackedScene" uid="uid://0m13agncmxkw" path="res://kit de puzzle/PuzzleKit.tscn" id="31_xvdai"]
+
+[sub_resource type="GDScript" id="GDScript_abp0n"]
+script/source = "extends Node3D
+
+var cuadro_negro: ColorRect
+var lider_instanciado = false 
+var _terminado: bool = false
+
+var escena_lider = null
+var escena_minion = null
+
+var bajas_actuales = 0 
+@export var bajas_necesarias = 4
+
+@onready var punto_spawn = $PuntoSpawnJefe 
+
+func _ready():
+	# INYECCIÓN: Avisamos que este nivel requiere salto y gravedad
+	get_viewport().scaling_3d_scale = ProgresoJuego.escala_3d
+	# --- CARGA SEGURA DE ESCENAS ---
+	var r_lider = \"res://scenes/LiderMinion.tscn\"
+	var r_minion = \"res://scenes/minion.tscn\"
+	
+	if ResourceLoader.exists(r_lider): escena_lider = load(r_lider)
+	if ResourceLoader.exists(r_minion): escena_minion = load(r_minion)
+
+	# --- LÓGICA DE INTRO ---
+	var ruta_intro = \"res://scenes/IntroNivel.tscn\"
+	if ResourceLoader.exists(ruta_intro):
+		var intro = load(ruta_intro).instantiate()
+		add_child(intro)
+		if intro.has_method(\"configurar\"):
+			intro.configurar(\"Battered-tropolis\", \"Level1 by Nubbi\")
+	
+	var player = get_tree().get_first_node_in_group(\"player\")
+	if player:
+		player.set_physics_process(false)
+		await get_tree().create_timer(3.6).timeout
+		player.set_physics_process(true)
+	
+	# --- ARRANCA EL CRONÓMETRO DEL SCORE (después de la intro) ---
+	EstadisticasNivel.iniciar_nivel()
+	
+	cuadro_negro = find_child(\"ColorRect\", true, false)
+	if cuadro_negro:
+		cuadro_negro.modulate.a = 0.0
+
+	# --- PERSISTENCIA DE OBJETOS ---
+	# Usamos un pequeño delay para que la comprobación no falle en el primer frame
+	await get_tree().process_frame
+	if ProgresoJuego.max_desbloqueado:
+		var jaula = find_child(\"*Jaula*\", true, false)
+		if jaula: jaula.queue_free()
+		var max_npc = find_child(\"*Max_NPC*\", true, false)
+		if max_npc: max_npc.queue_free()
+
+func _process(_delta):
+	# --- INYECCIÓN DE SEGURIDAD ANTI-BUG (Vigilante de la Realidad) ---
+	var p = get_tree().get_first_node_in_group(\"player\")
+	if is_instance_valid(p):
+		# 1. Detectar infinitos (NaN o Inf) causados por colisiones rotas
+		if not is_finite(p.global_position.x) or not is_finite(p.global_position.y) or not is_finite(p.global_position.z):
+			print(\"VIGILANTE: Error de realidad detectado. Castigando...\")
+			Cargador.ir_a_escena(\"res://scenes/CapaCastigo.tscn\")
+			return # Detener ejecución inmediata
+		
+		# 2. Detectar caída al vacío extremo (Opcional, pero recomendado)
+		if p.global_position.y < -30.0:
+			Cargador.ir_a_escena(\"res://scenes/CapaCastigo.tscn\")
+			return
+
+	if not lider_instanciado and Time.get_ticks_msec() > 10000:
+		var enemigos = get_tree().get_nodes_in_group(\"enemies\")
+		if enemigos.size() == 0:
+			lider_instanciado = true
+			invocar_batalla_final()
+
+func registrar_muerte():
+	if lider_instanciado: return
+	bajas_actuales += 1
+	if bajas_actuales >= bajas_necesarias:
+		lider_instanciado = true
+		invocar_batalla_final()
+
+func invocar_batalla_final():
+	print(\"¡SPAWNEANDO AL LÍDER!\")
+	
+	# --- FIX SONIDO: Aseguramos la extensión .mp3 ---
+	var ruta_sonido = \"res://sonidos/boss_spawn.mp3\"
+	if ResourceLoader.exists(ruta_sonido):
+		var sonido_boss = AudioStreamPlayer.new()
+		add_child(sonido_boss)
+		sonido_boss.stream = load(ruta_sonido)
+		sonido_boss.volume_db = 5.0
+		sonido_boss.play()
+		sonido_boss.finished.connect(sonido_boss.queue_free)
+	
+	var spawn_pos = punto_spawn.global_position if punto_spawn else Vector3.ZERO
+	
+	if escena_lider:
+		var lider = escena_lider.instantiate()
+		add_child(lider)
+		lider.global_position = spawn_pos
+		lider.add_to_group(\"boss\") 
+		lider.add_to_group(\"enemies\")
+	
+	if escena_minion:
+		for i in range(5):
+			var escolta = escena_minion.instantiate()
+			add_child(escolta)
+			escolta.add_to_group(\"enemies\") 
+			var angulo = i * (PI * 2 / 5)
+			escolta.global_position = spawn_pos + Vector3(cos(angulo), 0, sin(angulo)) * 3.0
+
+# --- FINAL DEL NIVEL: ahora va al SCORE (el score desbloquea el siguiente nivel) ---
+func _on_trigger_final_body_entered(body):
+	if _terminado: return
+	if body.is_in_group(\"player\"):
+		_terminado = true
+		EstadisticasNivel.finalizar_nivel(1)          # índice 1 = mundo 1
+		ProgresoJuego.finalizar_nivel_exitosamente()  # monedas, rescates y logros (necesita este nivel cargado)
+		body.set_physics_process(false)
+		
+		if cuadro_negro:
+			var tween = create_tween()
+			tween.tween_property(cuadro_negro, \"modulate:a\", 1.0, 3.0)
+			await tween.finished
+		
+		EstadisticasNivel.ir_al_score()
+
+func _on_zona_instructor_body_entered(_body: Node3D) -> void: pass
+func _on_timer_letras_timeout() -> void: pass
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_riqys"]
+shader = ExtResource("4_fwjwp")
+shader_parameter/top_color = Color(0.70245945, 0, 0.12277647, 1)
+shader_parameter/bottom_color = Color(0.42352942, 0, 0, 1)
+shader_parameter/sun_color = Color(1, 0.95, 0.8, 1)
+shader_parameter/sun_size = 0.018000000855
+shader_parameter/sun_blur = 0.0110000005225
+shader_parameter/sun_intensity = 20.0
+shader_parameter/flare_color = Color(1, 0.7, 0.3, 1)
+shader_parameter/flare_intensity = 3.7070001760825
+shader_parameter/cloud_color = Color(0.83037126, 0.32088968, 1.92523e-07, 1)
+shader_parameter/cloud_shadow = Color(0.69689757, 0.3285469, 0.115734376, 1)
+shader_parameter/cloud_coverage = 1.0
+shader_parameter/cloud_speed = 0.0430000020425
+
+[sub_resource type="Sky" id="Sky_bhunq"]
+sky_material = SubResource("ShaderMaterial_riqys")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_8evg2"]
+background_mode = 2
+sky = SubResource("Sky_bhunq")
+sky_custom_fov = 123.0
+ambient_light_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+tonemap_mode = 2
+tonemap_exposure = 1.94
+tonemap_white = 16.0
+glow_enabled = true
+glow_intensity = 0.94
+glow_hdr_luminance_cap = 250.26
+fog_light_color = Color(0.6435107, 0.18455726, 0.14589423, 1)
+adjustment_enabled = true
+adjustment_brightness = 1.02
+adjustment_contrast = 0.885
+adjustment_saturation = 0.78
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpe2y"]
+size = Vector3(2.7876587, 0.037298337, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nco8l"]
+albedo_texture = ExtResource("2_q3xrs")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_bn0ex"]
+material = SubResource("StandardMaterial3D_nco8l")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nco8l"]
+size = Vector3(0.912117, 0.037298337, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bn0ex"]
+size = Vector3(0.11151171, 0.037298337, 0.6668701)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bn0ex"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("22_nco8l")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_o1yol"]
+material = SubResource("StandardMaterial3D_bn0ex")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1yol"]
+size = Vector3(1.846653, 0.037298337, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7gha"]
+albedo_texture = ExtResource("23_bn0ex")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rdia8"]
+material = SubResource("StandardMaterial3D_a7gha")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e2bp2"]
+render_priority = 0
+shader = ExtResource("12_6kiof")
+shader_parameter/fire_color = Color(1, 0.4, 0.1, 1)
+shader_parameter/speed = 2.895
+shader_parameter/fire_scale = 12.37
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q3xrs"]
+material = SubResource("ShaderMaterial_e2bp2")
+size = Vector2(10, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxyy5"]
+size = Vector3(1, 39.167633, 39.53751)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fwjwp"]
+load_path = "res://.godot/imported/vereda.png-57ac73f96811ca7942af34cf16e3e753.s3tc.ctex"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bo2gi"]
+size = Vector3(343.1619, 40.316467, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jedia"]
+size = Vector3(3.881836, 5.319214, 10.70459)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uj8nj"]
+size = Vector3(340.93115, 41.42224, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r2sxk"]
+size = Vector3(3.881836, 25.811005, 25.71521)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_rdia8"]
+vertices = PackedVector3Array(-0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_parsed_geometry_type = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rdia8"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_8evg2"]
+vertices = PackedVector3Array(-0.5, 0.5, -0.49999988, -0.5, 0.5, 0.5000001, 0.5, 0.5, 0.5000001, 0.5, 0.5, -0.49999988)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_parsed_geometry_type = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8evg2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xvdai"]
+size = Vector3(1, 2.7540283, 11.911133)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4s13m"]
+size = Vector3(2.1514893, 3.3292236, 9.347229)
+
+[node name="Mundo1" type="Node3D" unique_id=1457859568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.711403, 0)
+script = SubResource("GDScript_abp0n")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=391641233]
+environment = SubResource("Environment_8evg2")
+script = ExtResource("1_4xo5w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1942152223]
+transform = Transform3D(-0.8660255, -0.43301278, 0.2499999, -0.17238235, 0.72791797, 0.66364133, -0.46934465, 0.5316348, -0.70503914, 0, 6.931965, -9.159168)
+light_color = Color(0.7511733, 0.47026783, 0.44395283, 1)
+light_indirect_energy = 5.114
+light_volumetric_fog_energy = 14.867
+light_angular_distance = 59.15
+shadow_enabled = true
+shadow_bias = 10.0
+shadow_normal_bias = 10.0
+shadow_transmittance_bias = 16.0
+shadow_blur = 10.0
+
+[node name="floor1" type="StaticBody3D" parent="." unique_id=1747927289]
+transform = Transform3D(40.848755, 0, 0, 0, 10, 0, 0, 0, 19.769958, 13.93919, -0.054347992, 3.229373)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor1" unique_id=1628572951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01376605, 0)
+shape = SubResource("BoxShape3D_tpe2y")
+debug_color = Color(0.30980393, 0.627451, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor1" unique_id=525178892]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_bn0ex")
+
+[node name="floor5" type="StaticBody3D" parent="." unique_id=1425500907]
+transform = Transform3D(40.848755, 0, 0, 0, 10, 0, 0, 0, 19.769958, -26.695087, -0.054347992, 3.229373)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor5" unique_id=416500387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01376605, 0)
+shape = SubResource("BoxShape3D_tpe2y")
+debug_color = Color(0.30980393, 0.627451, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor5" unique_id=460391936]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_bn0ex")
+
+[node name="floor2" type="StaticBody3D" parent="." unique_id=106602299]
+transform = Transform3D(40.848755, 0, 0, 0, 10, 0, 0, 0, 19.769958, 54.59338, -0.054347992, 3.229373)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2" unique_id=1560801365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01376605, 0)
+shape = SubResource("BoxShape3D_tpe2y")
+debug_color = Color(0.30980393, 0.627451, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor2" unique_id=645180357]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_bn0ex")
+
+[node name="floor3" type="StaticBody3D" parent="." unique_id=1527460920]
+transform = Transform3D(40.848755, 0, 0, 0, 10, 0, 0, 0, 19.769958, 94.975784, -0.054347992, 3.229373)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor3" unique_id=1059172983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01376605, 0)
+shape = SubResource("BoxShape3D_tpe2y")
+debug_color = Color(0.30980393, 0.627451, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor3" unique_id=1311045673]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_bn0ex")
+
+[node name="floor4" type="StaticBody3D" parent="." unique_id=890241675]
+transform = Transform3D(40.848755, 0, 0, 0, 10, 0, 0, 0, 19.769958, 135.16074, -0.054347992, 3.229373)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor4" unique_id=2029619718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049590826, 0.01376605, 0)
+shape = SubResource("BoxShape3D_tpe2y")
+debug_color = Color(0.30980393, 0.627451, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor4" unique_id=264433618]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_bn0ex")
+
+[node name="nofloor" type="StaticBody3D" parent="." unique_id=1357155419]
+transform = Transform3D(40.848755, 0, 0, 0, 10, 0, 0, 0, 19.769958, 176.36081, -0.054347992, 3.229373)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="nofloor" unique_id=585639590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08105087, 0.01376605, 0)
+shape = SubResource("BoxShape3D_nco8l")
+debug_color = Color(0.30980393, 0.627451, 0, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="nofloor" unique_id=1245243814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38734436, 0.01376605, -0.16656494)
+shape = SubResource("BoxShape3D_bn0ex")
+debug_color = Color(0.30980393, 0.627451, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="nofloor" unique_id=719442896]
+transform = Transform3D(1.071006, 0, 0, 0, -4.3711392e-08, 1, 0, -1, -4.371138e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_o1yol")
+
+[node name="ground1" type="StaticBody3D" parent="." unique_id=940735326]
+transform = Transform3D(133.99919, 0, 0, 0, 10, 0, 0, 0, 82.72325, 256.904, -23.52315, 3.229373)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground1" unique_id=1498093371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40932703, 0.013766289, 0)
+shape = SubResource("BoxShape3D_o1yol")
+debug_color = Color(0.30980393, 0.627451, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground1" unique_id=1714404804]
+transform = Transform3D(1.8467718, 0, 0, 0, -4.3711392e-08, 1, 0, -1, -4.371138e-08, 0.41793156, 0, 0)
+mesh = SubResource("QuadMesh_rdia8")
+
+[node name="ground2" type="StaticBody3D" parent="." unique_id=1625991323]
+transform = Transform3D(133.99919, 0, 0, 0, 10, 0, 0, 0, 82.72325, 11.174858, -0.41996765, -12.427794)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground2" unique_id=1304750483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40932703, 0.013766289, 0)
+shape = SubResource("BoxShape3D_o1yol")
+debug_color = Color(0.30980393, 0.627451, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground2" unique_id=638993233]
+transform = Transform3D(1.8467718, 0, 0, 0, -4.3711392e-08, 1, 0, -1, -4.371138e-08, 0.41793156, 0, 0)
+mesh = SubResource("QuadMesh_rdia8")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=349262591]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 1.9057617, 7.5637035)
+fov = 50.0
+script = ExtResource("2_uj8nj")
+fov_glory_kill = 40.0
+fov_grab = 35.0
+max_shake_glory_kill = 0.0
+
+[node name="InterfazFinal" type="CanvasLayer" parent="Camera3D" unique_id=168683476]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/InterfazFinal" unique_id=658195283]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SpawnPlayer" type="Marker3D" parent="." unique_id=1606564587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56155515, 0.13700104, 0.529)
+script = ExtResource("7_o1yol")
+
+[node name="HUD" parent="." unique_id=741058023 instance=ExtResource("5_nco8l")]
+
+[node name="MenuPausa" parent="." unique_id=1012051677 instance=ExtResource("16_4s13m")]
+
+[node name="musicafondo" type="AudioStreamPlayer" parent="." unique_id=1093916534]
+stream = ExtResource("13_q3xrs")
+volume_db = -17.975
+autoplay = true
+bus = &"Musica"
+
+[node name="Tacho" parent="." unique_id=1978975161 groups=["pushable"] instance=ExtResource("4_tpe2y")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 1.014761, 0.44395447, 0.44196522)
+
+[node name="jaula" parent="." unique_id=1775391080 instance=ExtResource("10_rdia8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325.444, -22.5, -2.5274367)
+metadata/_edit_group_ = true
+
+[node name="CharacterBody3D" parent="jaula" unique_id=1016861334 instance=ExtResource("10_2jnji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65218323, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=756766913]
+transform = Transform3D(4.764162, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, 18.961834, 6.5647316, -6.083933)
+mesh = SubResource("PlaneMesh_q3xrs")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=972554451]
+transform = Transform3D(4.764162, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, -28.663778, 6.5647316, -6.083933)
+mesh = SubResource("PlaneMesh_q3xrs")
+
+[node name="PuntoSpawnJefe" type="Marker3D" parent="." unique_id=1506985306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.84664, 0.16712189, 0)
+
+[node name="TriggerFinal" type="Area3D" parent="." unique_id=1275003561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.255775, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerFinal" unique_id=1751490272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 282.7149, -17.75293, -0.1624546)
+shape = SubResource("BoxShape3D_kxyy5")
+
+[node name="Background1" type="Sprite3D" parent="." unique_id=853610455]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 19.597794, 0.72200775, -3.1804247)
+texture = ExtResource("15_abp0n")
+
+[node name="Background2" type="Sprite3D" parent="Background1" unique_id=1022849414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8886137, -0.8638725, -4.580868)
+texture = ExtResource("15_3jjgl")
+
+[node name="Background5" type="Sprite3D" parent="." unique_id=920555024]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -26.066467, 0.72200775, -3.1804247)
+flip_h = true
+texture = SubResource("CompressedTexture2D_fwjwp")
+
+[node name="Background2" type="Sprite3D" parent="Background5" unique_id=2146324999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8886137, -0.8638725, -4.580868)
+texture = ExtResource("15_3jjgl")
+
+[node name="Background2" type="Sprite3D" parent="." unique_id=1294303005]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 67.49922, -0.5978775, -3.1804247)
+texture = ExtResource("17_bo2gi")
+
+[node name="Background3" type="Sprite3D" parent="." unique_id=698567439]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 115.23122, -0.5978775, -3.1804247)
+texture = ExtResource("18_tpe2y")
+
+[node name="Background4" type="Sprite3D" parent="." unique_id=2056849469]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 163.03345, -0.6408119, -3.1804247)
+texture = ExtResource("19_nco8l")
+
+[node name="Background2" type="Sprite3D" parent="Background4" unique_id=959815055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("20_bn0ex")
+
+[node name="Background3" type="Sprite3D" parent="Background4" unique_id=1193912462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6957855, -1.6056747, -12.946206)
+texture = ExtResource("21_o1yol")
+
+[node name="invisiblewall1" type="StaticBody3D" parent="." unique_id=369480776]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="invisiblewall1" unique_id=1900173959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.44283, -15.55069, -2.835641)
+shape = SubResource("BoxShape3D_bo2gi")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="invisiblewall2" type="StaticBody3D" parent="." unique_id=1382716048]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="invisiblewall2" unique_id=1013952078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5096931, 2.159607, 2.3776855)
+shape = SubResource("BoxShape3D_jedia")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="invisiblewall3" type="StaticBody3D" parent="." unique_id=2048641097]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="invisiblewall3" unique_id=1729754713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.21167, -15.214294, 5.789034)
+shape = SubResource("BoxShape3D_uj8nj")
+debug_color = Color(0.9885637, 0.9976693, 0.9999997, 1)
+
+[node name="nobugs" type="StaticBody3D" parent="." unique_id=101142389]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 197.65125, -4.9041176, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="nobugs" unique_id=1012766071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5096893, -8.086294, 4.565979)
+shape = SubResource("BoxShape3D_r2sxk")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="Backgroundfinal1" type="Sprite3D" parent="." unique_id=1601409157]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 217.84993, -22.853895, -4.5852013)
+texture = ExtResource("24_a7gha")
+
+[node name="Background2" type="Sprite3D" parent="Backgroundfinal1" unique_id=283862406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("25_rdia8")
+
+[node name="Background3" type="Sprite3D" parent="Backgroundfinal1" unique_id=270965007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.280838, -4.731271, -16.462313)
+texture = ExtResource("26_8evg2")
+
+[node name="Backgroundfinal2" type="Sprite3D" parent="Backgroundfinal1" unique_id=1525271955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.967606, 0, 0)
+texture = ExtResource("24_a7gha")
+
+[node name="Background2" type="Sprite3D" parent="Backgroundfinal1/Backgroundfinal2" unique_id=522058517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("25_rdia8")
+
+[node name="Background3" type="Sprite3D" parent="Backgroundfinal1/Backgroundfinal2" unique_id=1468432535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.280838, -4.731271, -16.462313)
+texture = ExtResource("26_8evg2")
+
+[node name="Backgroundfinal3" type="Sprite3D" parent="Backgroundfinal1" unique_id=1461010830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.82985, 0, 0)
+texture = ExtResource("24_a7gha")
+
+[node name="Background2" type="Sprite3D" parent="Backgroundfinal1/Backgroundfinal3" unique_id=534819120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("25_rdia8")
+
+[node name="Background3" type="Sprite3D" parent="Backgroundfinal1/Backgroundfinal3" unique_id=1295909004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.280838, -4.731271, -16.462313)
+texture = ExtResource("26_8evg2")
+
+[node name="Backgroundfinal4" type="Sprite3D" parent="Backgroundfinal1" unique_id=2044543719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4704, 0, 0)
+texture = ExtResource("24_a7gha")
+
+[node name="Background2" type="Sprite3D" parent="Backgroundfinal1/Backgroundfinal4" unique_id=1574934041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("25_rdia8")
+
+[node name="Background3" type="Sprite3D" parent="Backgroundfinal1/Backgroundfinal4" unique_id=1727320662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.280838, -4.731271, -16.462313)
+texture = ExtResource("26_8evg2")
+
+[node name="Backgroundfinal5" type="Sprite3D" parent="Backgroundfinal1" unique_id=846477353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.364, 0, 0)
+texture = ExtResource("24_a7gha")
+
+[node name="Background2" type="Sprite3D" parent="Backgroundfinal1/Backgroundfinal5" unique_id=1293927211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("25_rdia8")
+
+[node name="Background3" type="Sprite3D" parent="Backgroundfinal1/Backgroundfinal5" unique_id=855784744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.280838, -4.731271, -16.462313)
+texture = ExtResource("26_8evg2")
+
+[node name="Backgroundfinal2" type="Sprite3D" parent="." unique_id=1499045077]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 217.84993, -22.853895, -4.5852013)
+texture = ExtResource("24_a7gha")
+
+[node name="Background2" type="Sprite3D" parent="Backgroundfinal2" unique_id=272864680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("25_rdia8")
+
+[node name="Background3" type="Sprite3D" parent="Backgroundfinal2" unique_id=880179354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.280838, -4.731271, -16.462313)
+texture = ExtResource("26_8evg2")
+
+[node name="Backgroundfinal2" type="Sprite3D" parent="Backgroundfinal2" unique_id=439652602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.967606, 0, 0)
+texture = ExtResource("24_a7gha")
+
+[node name="Background2" type="Sprite3D" parent="Backgroundfinal2/Backgroundfinal2" unique_id=755734018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("25_rdia8")
+
+[node name="Background3" type="Sprite3D" parent="Backgroundfinal2/Backgroundfinal2" unique_id=358404938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.280838, -4.731271, -16.462313)
+texture = ExtResource("26_8evg2")
+
+[node name="Backgroundfinal3" type="Sprite3D" parent="Backgroundfinal2" unique_id=2132792593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.82985, 0, 0)
+texture = ExtResource("24_a7gha")
+
+[node name="Background2" type="Sprite3D" parent="Backgroundfinal2/Backgroundfinal3" unique_id=2050748869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("25_rdia8")
+
+[node name="Background3" type="Sprite3D" parent="Backgroundfinal2/Backgroundfinal3" unique_id=1972319221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.280838, -4.731271, -16.462313)
+texture = ExtResource("26_8evg2")
+
+[node name="Backgroundfinal4" type="Sprite3D" parent="Backgroundfinal2" unique_id=923086571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4704, 0, 0)
+texture = ExtResource("24_a7gha")
+
+[node name="Background2" type="Sprite3D" parent="Backgroundfinal2/Backgroundfinal4" unique_id=525251615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("25_rdia8")
+
+[node name="Background3" type="Sprite3D" parent="Backgroundfinal2/Backgroundfinal4" unique_id=1021404463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.280838, -4.731271, -16.462313)
+texture = ExtResource("26_8evg2")
+
+[node name="Backgroundfinal5" type="Sprite3D" parent="Backgroundfinal2" unique_id=1772536143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.364, 0, 0)
+texture = ExtResource("24_a7gha")
+
+[node name="Background2" type="Sprite3D" parent="Backgroundfinal2/Backgroundfinal5" unique_id=171723282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3073425, -1.3466625, -5.1735897)
+texture = ExtResource("25_rdia8")
+
+[node name="Background3" type="Sprite3D" parent="Backgroundfinal2/Backgroundfinal5" unique_id=1228139561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.280838, -4.731271, -16.462313)
+texture = ExtResource("26_8evg2")
+
+[node name="NavigationLink3D" type="NavigationRegion3D" parent="." unique_id=1734360745]
+transform = Transform3D(99.10551, 0, 0, 0, 1, 0, 0, 0, 3.1853893, 96.88452, 0, 1.4645846)
+navigation_mesh = SubResource("NavigationMesh_rdia8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationLink3D" unique_id=2120514295]
+transform = Transform3D(0.9208619, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_rdia8")
+skeleton = NodePath("../..")
+
+[node name="NavigationRegion3D2" type="NavigationRegion3D" parent="." unique_id=1472771018]
+transform = Transform3D(62.894478, 0, 0, 0, 1, 0, 0, 0, 3.5092738, 259.42307, -23.396744, 1.3693421)
+navigation_mesh = SubResource("NavigationMesh_8evg2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D2" unique_id=450530859]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_8evg2")
+skeleton = NodePath("")
+
+[node name="Luciernagas" type="CPUParticles2D" parent="." unique_id=603425191]
+position = Vector2(637, 359)
+amount = 30
+texture = ExtResource("28_8evg2")
+emission_shape = 3
+emission_rect_extents = Vector2(650, 400)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+color = Color(1, 0.6666667, 0, 1)
+hue_variation_min = 0.1
+hue_variation_max = 0.1
+
+[node name="PuertaCuotaSector" type="Area3D" parent="." unique_id=1353561090 node_paths=PackedStringArray("pared_bloqueo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 279.83368, -24.362135, 1.6250186)
+script = ExtResource("30_g4ft6")
+pared_bloqueo = NodePath("ParedBloqueo")
+bajas_necesarias = 107
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuertaCuotaSector" unique_id=1284141782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87701416, -1.2993164)
+shape = SubResource("BoxShape3D_xvdai")
+debug_color = Color(0.9529412, 0, 0.5647059, 1)
+
+[node name="ParedBloqueo" type="StaticBody3D" parent="PuertaCuotaSector" unique_id=52994553]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PuertaCuotaSector/ParedBloqueo" unique_id=1039405004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5757446, 1.1646118, -0.38101196)
+shape = SubResource("BoxShape3D_4s13m")
+debug_color = Color(0, 0.6431373, 0.30588236, 1)
+
+[node name="rock wall" parent="PuertaCuotaSector/ParedBloqueo" unique_id=1192741150 instance=ExtResource("31_hy4xt")]
+transform = Transform3D(-1.3785549, 0, 1.5845221e-07, 0, 1.8464832, 0, -1.205171e-07, 0, -1.8124821, 1.245575, -0.095396996, -0.13917327)
+
+[node name="minions" type="Node3D" parent="." unique_id=1750801987]
+
+[node name="MinionAlacran" parent="minions" unique_id=1264621671 instance=ExtResource("13_e2bp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.544857, 0.64099884, 0)
+
+[node name="MinionAlacran2" parent="minions" unique_id=330107199 instance=ExtResource("13_e2bp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.693245, 0.64099884, 1.3103629)
+
+[node name="Minion3" parent="minions" unique_id=414226249 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.194742, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion4" parent="minions" unique_id=1774184762 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.09573, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion5" parent="minions" unique_id=2139904452 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.405506, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion6" parent="minions" unique_id=1025052457 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.083519, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion7" parent="minions" unique_id=1613832607 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.078028, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion8" parent="minions" unique_id=179151762 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.954453, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion9" parent="minions" unique_id=514272903 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.17469, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion10" parent="minions" unique_id=1876660593 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.087896, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion11" parent="minions" unique_id=1566217571 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.441645, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion12" parent="minions" unique_id=1966460284 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.436249, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion13" parent="minions" unique_id=2138081206 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.934904, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion14" parent="minions" unique_id=85914827 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.035057, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion15" parent="minions" unique_id=281127271 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.972515, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion16" parent="minions" unique_id=1522763358 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.437622, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion17" parent="minions" unique_id=2006497411 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.836636, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion18" parent="minions" unique_id=1575287100 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.33144, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion19" parent="minions" unique_id=1118489266 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.949024, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion20" parent="minions" unique_id=256325885 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.65116, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion21" parent="minions" unique_id=161084730 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.214993, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion22" parent="minions" unique_id=189910573 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.215904, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion23" parent="minions" unique_id=678978968 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.491203, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion24" parent="minions" unique_id=997440868 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.055428, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion25" parent="minions" unique_id=100263555 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.448154, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion26" parent="minions" unique_id=1881616823 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.682777, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion27" parent="minions" unique_id=1723183186 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.899624, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion28" parent="minions" unique_id=260591278 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.1658, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion29" parent="minions" unique_id=121958835 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.79988, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion30" parent="minions" unique_id=640939939 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.65317, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion31" parent="minions" unique_id=1201152104 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.057236, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion32" parent="minions" unique_id=1940200834 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.59667, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion33" parent="minions" unique_id=180717212 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.86139, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion34" parent="minions" unique_id=923245586 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.3034, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion35" parent="minions" unique_id=568549062 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.25891, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion36" parent="minions" unique_id=1764306414 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.86429, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion37" parent="minions" unique_id=552707427 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.11956, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion38" parent="minions" unique_id=1326401109 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.35593, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion39" parent="minions" unique_id=240121854 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.12833, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion40" parent="minions" unique_id=899211229 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.89287, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion41" parent="minions" unique_id=94614374 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.65174, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion42" parent="minions" unique_id=1004273052 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.870476, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion43" parent="minions" unique_id=1595786098 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.534424, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion44" parent="minions" unique_id=1389743372 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.12472, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion45" parent="minions" unique_id=1895757915 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.71256, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion46" parent="minions" unique_id=508634589 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.921585, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion47" parent="minions" unique_id=1545353399 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.59813, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion48" parent="minions" unique_id=1544614724 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.2261, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion49" parent="minions" unique_id=1430249404 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.30415, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion50" parent="minions" unique_id=2058910791 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.62225, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion51" parent="minions" unique_id=724401586 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.0664, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion52" parent="minions" unique_id=1723390932 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.41121, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion53" parent="minions" unique_id=469227727 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.23363, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion54" parent="minions" unique_id=1360087125 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.95305, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion56" parent="minions" unique_id=17269026 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.67126, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion57" parent="minions" unique_id=591712716 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.91626, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion58" parent="minions" unique_id=653796894 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.82246, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion59" parent="minions" unique_id=1488855045 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.62491, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion60" parent="minions" unique_id=1980814936 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.64307, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion61" parent="minions" unique_id=194034946 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.2208, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion62" parent="minions" unique_id=1784561083 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.11832, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion63" parent="minions" unique_id=570944363 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.1285, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion64" parent="minions" unique_id=969955438 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.29874, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion65" parent="minions" unique_id=1715903756 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.8536, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion66" parent="minions" unique_id=1448082916 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.67166, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion67" parent="minions" unique_id=1131185422 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180.29982, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion68" parent="minions" unique_id=1691541196 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 184.08109, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion69" parent="minions" unique_id=780621859 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.65814, 0.2748909, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion70" parent="minions" unique_id=2144746795 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.3299, 0.2748909, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion71" parent="minions" unique_id=717274994 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.42049, 0.2748909, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion72" parent="minions" unique_id=351553980 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.66069, 0.2748909, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion73" parent="minions" unique_id=1478116617 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.96913, -23.201065, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion75" parent="minions" unique_id=1497593148 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.50058, -23.201065, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion76" parent="minions" unique_id=584355563 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 208.36662, -23.201065, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion77" parent="minions" unique_id=831741826 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.95215, -23.201065, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion80" parent="minions" unique_id=203259095 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.11671, -23.201065, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion81" parent="minions" unique_id=701602652 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.86858, -23.201065, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion82" parent="minions" unique_id=772767346 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.6543, -23.201065, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion83" parent="minions" unique_id=1885914321 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.11183, -23.201065, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion84" parent="minions" unique_id=1869769050 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.55832, -23.201065, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion85" parent="minions" unique_id=1982691060 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.26308, -23.201065, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion86" parent="minions" unique_id=1333883547 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.47078, -23.201065, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion87" parent="minions" unique_id=1695889333 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 224.84253, -23.201065, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion88" parent="minions" unique_id=441200602 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.07146, -23.201065, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion89" parent="minions" unique_id=295589466 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 259.5248, -23.201065, -1.079596)
+probabilidad_agarre = 0.25
+
+[node name="Minion90" parent="minions" unique_id=1413605117 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 261.98724, -23.201065, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="Minion91" parent="minions" unique_id=612442444 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260.41888, -23.201065, 2.2802253)
+probabilidad_agarre = 0.25
+
+[node name="Minion92" parent="minions" unique_id=1606098339 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 263.25067, -23.201065, 4.433133)
+probabilidad_agarre = 0.25
+
+[node name="Minion94" parent="minions" unique_id=63439423 instance=ExtResource("3_k30l8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 268.29858, -23.201065, 0.6742091)
+probabilidad_agarre = 0.25
+
+[node name="MinionBomba" parent="minions" unique_id=1125666379 instance=ExtResource("9_hqcf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.01654, 0.35034943, 0)
+
+[node name="MinionAlacran3" parent="minions" unique_id=318198772 instance=ExtResource("13_e2bp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.4832, -22.83818, 0)
+
+[node name="MinionAlacran4" parent="minions" unique_id=1581002835 instance=ExtResource("13_e2bp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.2405, -22.83818, 2.1771715)
+
+[node name="MinionAlacran5" parent="minions" unique_id=2074472053 instance=ExtResource("13_e2bp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 223.46037, -22.83818, 3.763109)
+
+[node name="MinionAlacran6" parent="minions" unique_id=963804469 instance=ExtResource("13_e2bp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239.06425, -22.83818, 3.763109)
+
+[node name="MinionAlacran7" parent="minions" unique_id=250731311 instance=ExtResource("13_e2bp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.26663, -22.83818, -0.3522346)
+
+[node name="MinionAlacran8" parent="minions" unique_id=1449446552 instance=ExtResource("13_e2bp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.77817, -22.83818, 2.8615963)
+
+[node name="MinionBomba2" parent="minions" unique_id=230339697 instance=ExtResource("9_hqcf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.425766, 0.34082794, 0)
+
+[node name="MinionBomba3" parent="minions" unique_id=1068014592 instance=ExtResource("9_hqcf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 213.50879, -23.217163, 1.820663)
+
+[node name="MinionBomba4" parent="minions" unique_id=763845634 instance=ExtResource("9_hqcf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 265.28375, -23.217163, 1.820663)
+
+[node name="PuzzleKit" parent="." unique_id=426306760 instance=ExtResource("31_xvdai")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 12.445925, 0, 1.1265302)
+
+[connection signal="body_entered" from="TriggerFinal" to="." method="_on_trigger_final_body_entered"]
+
+[editable path="jaula"]

@@ -1,0 +1,310 @@
+[gd_scene format=3 uid="uid://subtufy5q3kg"]
+
+[ext_resource type="Script" uid="uid://becheyfs2lk0f" path="res://COOP LOCAL MOD/cooplocalmode.gd" id="1_2r8hl"]
+[ext_resource type="PackedScene" uid="uid://dimvc7be5kuhb" path="res://scenes/arbol_base.tscn" id="2_xjqm4"]
+[ext_resource type="Shader" uid="uid://ce6n4xhufr4da" path="res://addons/water.gdshader" id="3_50tem"]
+[ext_resource type="Texture2D" uid="uid://os30aj2dp43l" path="res://COOP LOCAL MOD/maidsketch sexy hurt.png" id="4_3hyu0"]
+[ext_resource type="Texture2D" uid="uid://b0ugnmhvnowne" path="res://COOP LOCAL MOD/maidsketch sexy idle.png" id="5_5c0wv"]
+[ext_resource type="Texture2D" uid="uid://ckfc06pos6cto" path="res://COOP LOCAL MOD/maidsketch sexy win.png" id="6_68ylo"]
+[ext_resource type="PackedScene" uid="uid://b8n6h76ma2ec6" path="res://scenes/ComboUI.tscn" id="7_50tem"]
+[ext_resource type="PackedScene" uid="uid://bek0jqxnh6v6x" path="res://scenes/MenuPausa.tscn" id="8_3hyu0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b3mtx"]
+sky_top_color = Color(0.7277769, 0.06450298, 0.7073124, 1)
+sky_horizon_color = Color(0.45600492, 0.3143688, 0, 1)
+sky_curve = 4.5085813e-05
+ground_curve = 0.0008838818
+
+[sub_resource type="Sky" id="Sky_fthn2"]
+sky_material = SubResource("ProceduralSkyMaterial_b3mtx")
+
+[sub_resource type="Environment" id="Environment_jcgni"]
+background_mode = 2
+background_energy_multiplier = 0.76
+sky = SubResource("Sky_fthn2")
+ambient_light_source = 3
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.3459278, 0.56807417, 0.78662354, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcwxx"]
+albedo_color = Color(0.2509804, 0.44313726, 0.45490196, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_scxcp"]
+material = SubResource("StandardMaterial3D_rcwxx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2r8hl"]
+size = Vector3(2.281128, 0.5073242, 2.2390137)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_avrpg"]
+size = Vector2(60, 20)
+center_offset = Vector3(0, 0.1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uh4py"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rcwxx"]
+noise = SubResource("FastNoiseLite_uh4py")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hqaid"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3y8jo"]
+noise = SubResource("FastNoiseLite_hqaid")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcjgl"]
+render_priority = 0
+shader = ExtResource("3_50tem")
+shader_parameter/surfaceNoise = SubResource("NoiseTexture2D_3y8jo")
+shader_parameter/distortNoise = SubResource("NoiseTexture2D_rcwxx")
+shader_parameter/beer_factor = 5.0
+shader_parameter/foam_max_distance = 0.4
+shader_parameter/foam_min_distance = 0.04
+shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader_parameter/surface_noise_tiling = Vector2(1, 4)
+shader_parameter/surface_noise_scroll = Vector3(0.03, 0.03, 0)
+shader_parameter/surface_noise_cutoff = 0.777
+shader_parameter/surface_distortion_amount = 0.27
+shader_parameter/_DepthGradientShallow = Color(0.325, 0.807, 0.971, 0.725)
+shader_parameter/_DepthGradientDeep = Color(0.086, 0.407, 1, 0.749)
+shader_parameter/_DepthMaxDistance = 1.0
+shader_parameter/_DepthFactor = 1.0
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_amplitude = 0.1
+shader_parameter/edge_fade = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7xcd"]
+atlas = ExtResource("4_3hyu0")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5avab"]
+atlas = ExtResource("4_3hyu0")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cneir"]
+atlas = ExtResource("4_3hyu0")
+region = Rect2(0, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir5sx"]
+atlas = ExtResource("5_5c0wv")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6oaf"]
+atlas = ExtResource("5_5c0wv")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiq02"]
+atlas = ExtResource("5_5c0wv")
+region = Rect2(0, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp2m3"]
+atlas = ExtResource("5_5c0wv")
+region = Rect2(150, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fuwd"]
+atlas = ExtResource("5_5c0wv")
+region = Rect2(0, 300, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6fpr"]
+atlas = ExtResource("6_68ylo")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovlmt"]
+atlas = ExtResource("6_68ylo")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe8nc"]
+atlas = ExtResource("6_68ylo")
+region = Rect2(0, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0a4r"]
+atlas = ExtResource("6_68ylo")
+region = Rect2(150, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05awi"]
+atlas = ExtResource("6_68ylo")
+region = Rect2(0, 300, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yq71"]
+atlas = ExtResource("6_68ylo")
+region = Rect2(150, 300, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njc36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7xcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5avab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cneir")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir5sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6oaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiq02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp2m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fuwd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6fpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovlmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe8nc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0a4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05awi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yq71")
+}],
+"loop": true,
+"name": &"win",
+"speed": 12.0
+}]
+
+[node name="MundoMisionChica" type="Node3D" unique_id=1969815357]
+script = ExtResource("1_2r8hl")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=405659582]
+environment = SubResource("Environment_jcgni")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1277731034]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 3.6606836, 4.49154, -3.6051219)
+light_color = Color(0.6039216, 0.5294118, 1, 1)
+light_volumetric_fog_energy = 2.577
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_blur = 2.831
+
+[node name="Fondo3D" type="Node3D" parent="." unique_id=700649234]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.1285508, -0.017024517, 0)
+
+[node name="muro2" type="CSGBox3D" parent="Fondo3D" unique_id=1254516969]
+transform = Transform3D(41.92704, 0, -8.881784e-16, 0, 6.4236593, 0, 3.410605e-13, 0, 0.2785581, 1.7503821, 3.2576847, -3.089526)
+size = Vector3(0.11700916, 1.0436401, 1)
+
+[node name="muro3" type="CSGBox3D" parent="Fondo3D" unique_id=456834062]
+transform = Transform3D(41.92704, 0, -8.881784e-16, 0, 6.4236593, 0, 3.410605e-13, 0, 0.2785581, 1.8117979, 3.2661142, 9.429128)
+size = Vector3(0.114079475, 1.0462646, 1)
+
+[node name="muro1" type="CSGBox3D" parent="Fondo3D" unique_id=1224703447]
+transform = Transform3D(-1.8326891e-06, 0, 0.2785581, 0, 6.4236584, 0, -41.92704, 0, -1.2176161e-08, 4.305667, 3.2347484, 3.0957286)
+size = Vector3(0.29969215, 1.036499, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fondo3D" unique_id=601191198]
+transform = Transform3D(1.9329048, 0, 0, 0, 1, 0, 0, 0, 6.758207, 2.9062972, 0, 2.598208)
+mesh = SubResource("PlaneMesh_scxcp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Fondo3D/MeshInstance3D" unique_id=777834628]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fondo3D/MeshInstance3D/StaticBody3D" unique_id=1804111967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -3.5527137e-15, 0, 1, -0.3399055, -0.24633789, 0.04504393)
+shape = SubResource("BoxShape3D_2r8hl")
+debug_color = Color(0.67146707, 0.5089391, 1.92523e-07, 0.41960785)
+
+[node name="Arbol_Base" parent="Fondo3D" unique_id=1970146703 instance=ExtResource("2_xjqm4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.0821702, 0.46386552, 0.6918446)
+
+[node name="Arbol_Base2" parent="Fondo3D/Arbol_Base" unique_id=2066162681 instance=ExtResource("2_xjqm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2087495, 0, 11.482496)
+
+[node name="Arbol_Base4" parent="Fondo3D/Arbol_Base" unique_id=98612039 instance=ExtResource("2_xjqm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.208749, 0, -3.948032)
+
+[node name="Arbol_Base3" parent="Fondo3D/Arbol_Base" unique_id=1492438598 instance=ExtResource("2_xjqm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12698841, 0, 8.381409)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Fondo3D" unique_id=1301785329]
+transform = Transform3D(-0.053512707, 0, 0, 0, 1, 0, 2.220446e-16, 0, 0.6630699, -0.46443173, 0.025110602, 2.8707912)
+extra_cull_margin = 5.0
+mesh = SubResource("PlaneMesh_avrpg")
+surface_material_override/0 = SubResource("ShaderMaterial_pcjgl")
+
+[node name="Chica" type="CharacterBody3D" parent="." unique_id=614838154]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.05, 0.3176412, 0.022663057, -3.589492)
+
+[node name="SpriteChica" type="AnimatedSprite3D" parent="Chica" unique_id=97414421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4056667, 0.6810907, -4.0063305)
+sprite_frames = SubResource("SpriteFrames_njc36")
+animation = &"win"
+autoplay = "idle"
+frame_progress = 0.9666445
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=830280147]
+
+[node name="Spawn_Izquierda" type="Marker3D" parent="SpawnPoints" unique_id=1578692936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6448164, 0.052220583, -2.5110552)
+
+[node name="Spawn_Derecha" type="Marker3D" parent="SpawnPoints" unique_id=1459552093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.453098, 0.052220583, -2.5110552)
+
+[node name="TimerHorda" type="Timer" parent="." unique_id=754513420]
+wait_time = 60.0
+one_shot = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=114791745]
+
+[node name="VidaChicaBarra" type="ProgressBar" parent="UI" unique_id=1969937764]
+offset_left = 105.0
+offset_top = 4.0
+offset_right = 399.0
+offset_bottom = 31.0
+
+[node name="TiempoLabel" type="Label" parent="UI" unique_id=1226058005]
+anchors_preset = -1
+anchor_right = 0.031000001
+offset_left = 970.0
+offset_top = 2.0
+offset_right = 970.32
+offset_bottom = 44.0
+
+[node name="AnuncioLabel" type="Label" parent="UI" unique_id=772097673]
+offset_left = 271.0
+offset_top = 191.0
+offset_right = 963.0
+offset_bottom = 429.0
+
+[node name="CanvasLayer" parent="." unique_id=1734408748 instance=ExtResource("7_50tem")]
+
+[node name="MenuPausa" parent="." unique_id=1806076068 instance=ExtResource("8_3hyu0")]
+
+[node name="PosicionesInicio" type="Node3D" parent="." unique_id=533255013]
+
+[node name="Pos_Jugador1" type="Marker3D" parent="PosicionesInicio" unique_id=1970055131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0975235, -3.027697)
+
+[node name="Pos_Jugador2" type="Marker3D" parent="PosicionesInicio" unique_id=1586621940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0372103, 0.11935949, -3.082018)
+
+[node name="Pos_Chica" type="Marker3D" parent="PosicionesInicio" unique_id=835664427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48305023, 0.051795244, -3.8417914)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=991232325]
+transform = Transform3D(1, 0, 0, 0, 0.94425577, 0.32921275, 0, -0.32921275, 0.94425577, 0.44996214, 1.1623785, -0.18296432)

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b8n6h76ma2ec6"]
+
+[ext_resource type="Script" uid="uid://bipscrax1thcu" path="res://scripts/combo_ui.gd" id="1_3kl32"]
+[ext_resource type="Shader" uid="uid://co0u2rbny0cuv" path="res://addons/retroanim.gdshader" id="2_4y7f1"]
+[ext_resource type="FontFile" uid="uid://3o7lgx4o7twd" path="res://addons/PeaberryMono.ttf" id="3_pvirs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iju6h"]
+shader = ExtResource("2_4y7f1")
+shader_parameter/jitter_strength = 20.0
+shader_parameter/jitter_speed = 20.0
+shader_parameter/jitter_frequency = 50.0
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 1.3110000622725
+shader_parameter/rotation_speed = 3.0
+shader_parameter/rotation_frequency = 4.0
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.018000000855
+shader_parameter/scale_speed = 0.5520000229601201
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(1, 0.5176471, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.2050000097375
+shader_parameter/enable_pixelation = true
+shader_parameter/pixel_size = 1.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 0.918000019855
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1734408748]
+script = ExtResource("1_3kl32")
+
+[node name="ComboControl" type="Control" parent="." unique_id=1413285282]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 614.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="ComboControl" unique_id=1674394066]
+modulate = Color(0.9098039, 0.54509807, 1, 1)
+self_modulate = Color(1, 0.7607843, 1, 1)
+material = SubResource("ShaderMaterial_iju6h")
+layout_mode = 0
+offset_left = 431.0
+offset_top = 346.0
+offset_right = 978.0
+offset_bottom = 446.0
+theme_override_colors/font_color = Color(1, 0.4627451, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.9098039, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("3_pvirs")
+theme_override_font_sizes/font_size = 35
+text = "RETROKILL"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ComboControl" unique_id=935217515]
+volume_db = 3.0
+bus = &"Efectos"

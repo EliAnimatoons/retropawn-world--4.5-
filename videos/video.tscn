@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://mbnecohxww3y"]
+
+[ext_resource type="Script" uid="uid://8qs4wsmkojvc" path="res://scripts/cinematics.gd" id="1_eyyy8"]
+[ext_resource type="VideoStream" uid="uid://bffn5rl3l6lbx" path="res://videos/Cinematic1.ogv" id="2_npvtx"]
+
+[node name="Control" type="Control" unique_id=153784059]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eyyy8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1815660116]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1989264123]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_npvtx")
+expand = true
+
+[node name="Label" type="Label" parent="." unique_id=2057707771]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

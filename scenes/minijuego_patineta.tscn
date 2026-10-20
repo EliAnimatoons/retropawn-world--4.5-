@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://d2s11xgvgbofs"]
+
+[ext_resource type="Script" uid="uid://bpw0fd1grdnot" path="res://scripts/minijuego_patineta.gd" id="1_yy7bo"]
+[ext_resource type="Shader" uid="uid://b0nbfa88na1cm" path="res://addons/rainbowdash.gdshader" id="2_o0htq"]
+[ext_resource type="Texture2D" uid="uid://qwoowu4wffc" path="res://evoluciones minion/sketchskateboard.png" id="3_o55ks"]
+[ext_resource type="Shader" uid="uid://co0u2rbny0cuv" path="res://addons/retroanim.gdshader" id="3_wbl1q"]
+[ext_resource type="Script" uid="uid://cac1k8bvp5efx" path="res://scripts/playerskateboard.gd" id="4_m4xsj"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="4_rkwwq"]
+[ext_resource type="AudioStream" uid="uid://cxmcfws4o2bfk" path="res://sonidos/Bonus.mp3" id="7_eursm"]
+[ext_resource type="AudioStream" uid="uid://b2ll5sk1wcqe7" path="res://sonidos/prepucin damage.mp3" id="9_bfdv2"]
+[ext_resource type="AudioStream" uid="uid://g6f0e5icufjc" path="res://sonidos/parry jane.mp3" id="10_8redr"]
+[ext_resource type="AudioStream" uid="uid://deiix22ts0iva" path="res://sonidos/buy.mp3" id="11_bfdv2"]
+[ext_resource type="PackedScene" uid="uid://bek0jqxnh6v6x" path="res://scenes/MenuPausa.tscn" id="12_56u3f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bfdv2"]
+shader = ExtResource("2_o0htq")
+shader_parameter/cell_size = 32.0
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed = 40.0
+shader_parameter/color_speed = 0.3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vfq1"]
+atlas = ExtResource("3_o55ks")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1o6n"]
+atlas = ExtResource("3_o55ks")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_58n7g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vfq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1o6n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o55ks"]
+shader = ExtResource("3_wbl1q")
+shader_parameter/jitter_strength = 2.0
+shader_parameter/jitter_speed = 8.0
+shader_parameter/jitter_frequency = 12.0
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 5.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/rotation_frequency = 4.0
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.1
+shader_parameter/scale_speed = 2.5
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(0.003921569, 0.03529412, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.5
+shader_parameter/enable_pixelation = true
+shader_parameter/pixel_size = 4.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4xsj"]
+shader = ExtResource("3_wbl1q")
+shader_parameter/jitter_strength = 2.0
+shader_parameter/jitter_speed = 8.0
+shader_parameter/jitter_frequency = 12.0
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 5.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/rotation_frequency = 4.0
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.1
+shader_parameter/scale_speed = 2.5
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.5
+shader_parameter/enable_pixelation = true
+shader_parameter/pixel_size = 4.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[node name="MinijuegoPatineta" type="Control" unique_id=973694229]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yy7bo")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1508657565]
+material = SubResource("ShaderMaterial_bfdv2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Suelo" type="ColorRect" parent="." unique_id=423486403]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -659.0
+offset_top = -115.0
+offset_right = 659.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.3242795, 0.32136542, 0.60820746, 1)
+
+[node name="Jugador" type="AnimatedSprite2D" parent="." unique_id=2146402371]
+texture_filter = 1
+position = Vector2(167, 511)
+sprite_frames = SubResource("SpriteFrames_58n7g")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.9111836
+script = ExtResource("4_m4xsj")
+
+[node name="Labels" type="CanvasLayer" parent="." unique_id=962502054]
+
+[node name="PuntosLabel" type="Label" parent="Labels" unique_id=1180983544]
+material = SubResource("ShaderMaterial_o55ks")
+offset_right = 142.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("4_rkwwq")
+theme_override_font_sizes/font_size = 50
+text = "adsad"
+
+[node name="BestScoreLabel" type="Label" parent="Labels" unique_id=1914429837]
+material = SubResource("ShaderMaterial_m4xsj")
+offset_top = 67.0
+offset_right = 184.0
+offset_bottom = 118.0
+theme_override_fonts/font = ExtResource("4_rkwwq")
+theme_override_font_sizes/font_size = 50
+text = "sadas"
+
+[node name="TimerSpawn" type="Timer" parent="." unique_id=1286307559]
+autostart = true
+
+[node name="ContenedorObstaculos" type="Node2D" parent="." unique_id=2121193325]
+position = Vector2(931, 521)
+
+[node name="MusicaFondo" type="AudioStreamPlayer" parent="." unique_id=1771458820]
+stream = ExtResource("7_eursm")
+volume_db = -5.136
+autoplay = true
+bus = &"Musica"
+
+[node name="SonidoMuerte" type="AudioStreamPlayer" parent="." unique_id=510524973]
+stream = ExtResource("9_bfdv2")
+volume_db = -5.136
+bus = &"Efectos"
+
+[node name="SonidoPuntos" type="AudioStreamPlayer" parent="." unique_id=51585760]
+stream = ExtResource("10_8redr")
+volume_db = 24.0
+pitch_scale = 1.15
+bus = &"Efectos"
+
+[node name="SfxCoin" type="AudioStreamPlayer" parent="." unique_id=1865896952]
+stream = ExtResource("11_bfdv2")
+volume_db = 7.308
+bus = &"Efectos"
+
+[node name="MenuPausa" parent="." unique_id=1230652996 instance=ExtResource("12_56u3f")]
+visible = false
+
+[connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]

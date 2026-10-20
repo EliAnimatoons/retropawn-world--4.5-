@@ -1,0 +1,293 @@
+[gd_scene format=3 uid="uid://by6app7031iqd"]
+
+[ext_resource type="Script" uid="uid://btjkkfv6pk6x6" path="res://Mapa sprites/shop_2.gd" id="1_cngi8"]
+[ext_resource type="Texture2D" uid="uid://cckg6f37uglin" path="res://Mapa sprites/background cabana.png" id="2_2iiuy"]
+[ext_resource type="Texture2D" uid="uid://c4p225etmvlcs" path="res://Mapa sprites/sketchvendedor idle.png" id="3_k5ybc"]
+[ext_resource type="Texture2D" uid="uid://b11votypjcnkd" path="res://Mapa sprites/sketchwomanidle.png" id="4_qd12f"]
+[ext_resource type="Texture2D" uid="uid://dkcn3vh023vmb" path="res://Mapa sprites/meowexevendedor.png" id="5_r1k8e"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="5_r56mt"]
+[ext_resource type="AudioStream" uid="uid://osi3qxq76ry4" path="res://voices/batzvoice.wav" id="6_wos3s"]
+[ext_resource type="AudioStream" uid="uid://deiix22ts0iva" path="res://sonidos/buy.mp3" id="7_r1k8e"]
+[ext_resource type="FontFile" uid="uid://3o7lgx4o7twd" path="res://addons/PeaberryMono.ttf" id="8_0cuw5"]
+[ext_resource type="AudioStream" uid="uid://bkcqjdvj1auf0" path="res://sonidos/shop song.mp3" id="9_1y253"]
+[ext_resource type="Texture2D" uid="uid://dqqb7ody0yewg" path="res://LEVEL1/arrow.png" id="11_0cuw5"]
+[ext_resource type="Texture2D" uid="uid://d5h65cm8gvxn" path="res://Mapa sprites/minigame1.png" id="12_kr3pu"]
+[ext_resource type="Texture2D" uid="uid://d21bvhe85n2a5" path="res://Mapa sprites/minigame3.png" id="13_kr3pu"]
+[ext_resource type="Texture2D" uid="uid://bjkycysjss4ws" path="res://Mapa sprites/minigame2.png" id="14_n6cfn"]
+[ext_resource type="Texture2D" uid="uid://c58onux5vrbby" path="res://Mapa sprites/minigame4.png" id="15_vp8st"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awpm3"]
+atlas = ExtResource("3_k5ybc")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygt8q"]
+atlas = ExtResource("3_k5ybc")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ihee"]
+atlas = ExtResource("3_k5ybc")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7fey"]
+atlas = ExtResource("3_k5ybc")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk3fc"]
+atlas = ExtResource("4_qd12f")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru0ko"]
+atlas = ExtResource("4_qd12f")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gp2u"]
+atlas = ExtResource("4_qd12f")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utdj8"]
+atlas = ExtResource("4_qd12f")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgjdx"]
+atlas = ExtResource("5_r1k8e")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o46eu"]
+atlas = ExtResource("5_r1k8e")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y253"]
+atlas = ExtResource("5_r1k8e")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr3pu"]
+atlas = ExtResource("5_r1k8e")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_465ey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awpm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygt8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ihee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7fey")
+}],
+"loop": 1,
+"name": &"idle1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk3fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru0ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gp2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utdj8")
+}],
+"loop": 1,
+"name": &"idle2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgjdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o46eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y253")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr3pu")
+}],
+"loop": 1,
+"name": &"idle3",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rgjdx"]
+
+[node name="shop2" type="Control" unique_id=1005579542]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cngi8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2141148469]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="background" type="TextureRect" parent="." unique_id=98019719]
+layout_mode = 1
+offset_right = 2570.0
+offset_bottom = 1450.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2iiuy")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=949060068]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 377.0
+offset_right = 138.0
+offset_bottom = 423.0
+color = Color(0, 0, 0, 1)
+
+[node name="VendedorSprite" type="AnimatedSprite2D" parent="." unique_id=2080485178]
+texture_filter = 1
+position = Vector2(300, 425)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_465ey")
+animation = &"idle3"
+autoplay = "idle1"
+frame_progress = 0.759819
+
+[node name="LabelMonedas" type="Label" parent="." unique_id=2045617468]
+layout_mode = 0
+offset_left = 835.0
+offset_right = 1060.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 0.18431373, 1)
+theme_override_fonts/font = ExtResource("5_r56mt")
+theme_override_font_sizes/font_size = 30
+text = "Retrorbes: 0"
+
+[node name="TimerTexto" type="Timer" parent="." unique_id=51627483]
+wait_time = 0.05
+autostart = true
+
+[node name="SonidoVoz" type="AudioStreamPlayer" parent="." unique_id=1078754641]
+stream = ExtResource("6_wos3s")
+volume_db = -11.117
+pitch_scale = 0.94
+bus = &"Efectos"
+
+[node name="SonidoCompra" type="AudioStreamPlayer" parent="." unique_id=2076458391]
+stream = ExtResource("7_r1k8e")
+bus = &"Efectos"
+
+[node name="MusicaTienda" type="AudioStreamPlayer" parent="." unique_id=1930357844]
+stream = ExtResource("9_1y253")
+pitch_scale = 1.11
+autoplay = true
+bus = &"Musica"
+
+[node name="BotonVolver" type="Button" parent="." unique_id=1058838378]
+layout_mode = 0
+offset_left = 153.0
+offset_right = 511.0
+offset_bottom = 478.0
+rotation = 1.5707964
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rgjdx")
+icon = ExtResource("11_0cuw5")
+flat = true
+
+[node name="BtnMinigame1" type="TextureButton" parent="." unique_id=1384992519]
+texture_filter = 1
+layout_mode = 0
+offset_left = 965.0
+offset_top = 328.0
+offset_right = 4512.0
+offset_bottom = 3875.0
+scale = Vector2(0.04, 0.04)
+texture_normal = ExtResource("12_kr3pu")
+texture_pressed = ExtResource("12_kr3pu")
+texture_hover = ExtResource("12_kr3pu")
+texture_disabled = ExtResource("12_kr3pu")
+texture_focused = ExtResource("12_kr3pu")
+
+[node name="BtnMinigame2" type="TextureButton" parent="." unique_id=1589778269]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 459.0
+offset_right = 4296.0
+offset_bottom = 4006.0
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("14_n6cfn")
+texture_pressed = ExtResource("14_n6cfn")
+texture_hover = ExtResource("14_n6cfn")
+texture_disabled = ExtResource("14_n6cfn")
+texture_focused = ExtResource("14_n6cfn")
+
+[node name="BtnMinigame3" type="TextureButton" parent="." unique_id=167578218]
+layout_mode = 0
+offset_left = 957.0
+offset_top = 522.0
+offset_right = 5053.0
+offset_bottom = 4618.0
+scale = Vector2(0.04, 0.04)
+texture_normal = ExtResource("13_kr3pu")
+texture_pressed = ExtResource("13_kr3pu")
+texture_hover = ExtResource("13_kr3pu")
+texture_disabled = ExtResource("13_kr3pu")
+texture_focused = ExtResource("13_kr3pu")
+
+[node name="BtnMinigame4" type="TextureButton" parent="." unique_id=991219857]
+layout_mode = 0
+offset_left = 1119.0
+offset_top = 380.0
+offset_right = 5215.0
+offset_bottom = 4476.0
+scale = Vector2(0.04, 0.04)
+texture_normal = ExtResource("15_vp8st")
+texture_pressed = ExtResource("15_vp8st")
+texture_hover = ExtResource("15_vp8st")
+texture_disabled = ExtResource("15_vp8st")
+texture_focused = ExtResource("15_vp8st")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=645802007]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 14.0
+offset_right = 816.0
+offset_bottom = 279.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("5_r56mt")
+theme_override_fonts/bold_font = ExtResource("8_0cuw5")
+theme_override_fonts/bold_italics_font = ExtResource("5_r56mt")
+theme_override_fonts/italics_font = ExtResource("5_r56mt")
+theme_override_fonts/mono_font = ExtResource("5_r56mt")
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+text = "takagirho hiraishi"
+
+[connection signal="timeout" from="TimerTexto" to="." method="_on_timer_texto_timeout"]
+[connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]
+[connection signal="mouse_entered" from="BtnMinigame1" to="." method="_on_btn_minigame_1_mouse_entered"]
+[connection signal="pressed" from="BtnMinigame1" to="." method="_on_btn_minigame_1_pressed"]
+[connection signal="mouse_entered" from="BtnMinigame2" to="." method="_on_btn_minigame_2_mouse_entered"]
+[connection signal="pressed" from="BtnMinigame2" to="." method="_on_btn_minigame_2_pressed"]
+[connection signal="mouse_entered" from="BtnMinigame3" to="." method="_on_btn_minigame_3_mouse_entered"]
+[connection signal="pressed" from="BtnMinigame3" to="." method="_on_btn_minigame_3_pressed"]
+[connection signal="mouse_entered" from="BtnMinigame4" to="." method="_on_btn_minigame_4_mouse_entered"]
+[connection signal="pressed" from="BtnMinigame4" to="." method="_on_btn_minigame_4_pressed"]

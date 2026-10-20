@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://ddprkorr5nprv"]
+
+[ext_resource type="Script" uid="uid://c3lnymv2e11xn" path="res://scripts/intro_nivel.gd" id="1_i31nr"]
+[ext_resource type="Texture2D" uid="uid://bssxceqpysdii" path="res://sprites y dibujos/disc.png" id="2_cxiej"]
+[ext_resource type="FontFile" uid="uid://dn1apt5akavrk" path="res://addons/KiriFont.ttf" id="3_i31nr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voc7h"]
+atlas = ExtResource("2_cxiej")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5iyr"]
+atlas = ExtResource("2_cxiej")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_426en"]
+atlas = ExtResource("2_cxiej")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liseo"]
+atlas = ExtResource("2_cxiej")
+region = Rect2(50, 50, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2vxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voc7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5iyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_426en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liseo")
+}],
+"loop": true,
+"name": &"anim",
+"speed": 12.0
+}]
+
+[node name="IntroNivel" type="CanvasLayer" unique_id=1930761429]
+script = ExtResource("1_i31nr")
+
+[node name="Control" type="Control" parent="." unique_id=2040502930]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=857915758]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -133.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.78826576, 0.7852748, 0.9618375, 0.41568628)
+
+[node name="DiscoAnimado" type="AnimatedSprite2D" parent="Control" unique_id=1432083058]
+position = Vector2(59, 474)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_d2vxl")
+animation = &"anim"
+autoplay = "anim"
+frame_progress = 0.3528742
+
+[node name="LabelNombre2" type="Label" parent="Control" unique_id=2067123254]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 289.0
+offset_right = 1318.0
+offset_bottom = 390.0
+theme_override_colors/font_color = Color(0.5058824, 0.43529412, 1, 1)
+theme_override_fonts/font = ExtResource("3_i31nr")
+theme_override_font_sizes/font_size = 90
+text = "CORRUPT TUTORIAL"
+
+[node name="LabelNombre" type="Label" parent="Control" unique_id=471747275]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 290.0
+offset_right = 1326.0
+offset_bottom = 391.0
+theme_override_fonts/font = ExtResource("3_i31nr")
+theme_override_font_sizes/font_size = 90
+text = "CORRUPT TUTORIAL"
+
+[node name="LabelMusica" type="Label" parent="Control" unique_id=484275952]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -240.0
+offset_right = 568.0
+offset_bottom = -209.0
+grow_vertical = 0
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("3_i31nr")
+theme_override_font_sizes/font_size = 30
+text = "Tutorial by EliAnimatoons"

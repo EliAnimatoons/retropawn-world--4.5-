@@ -1,0 +1,347 @@
+[gd_scene format=3 uid="uid://c277tbt73agp0"]
+
+[ext_resource type="Script" uid="uid://dxelacprgbswl" path="res://scripts/game_over.gd" id="1_4noiy"]
+[ext_resource type="Texture2D" uid="uid://djioobwdvfsrp" path="res://sprites y dibujos/game over1.png" id="2_gijjb"]
+[ext_resource type="AudioStream" uid="uid://cg25117s27fn5" path="res://sonidos/goodbye world.mp3" id="3_88ekj"]
+[ext_resource type="AudioStream" uid="uid://cay6le8ifu6hv" path="res://sonidos/okay gameover.mp3" id="4_0winm"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="5_88ekj"]
+[ext_resource type="Shader" uid="uid://co0u2rbny0cuv" path="res://addons/retroanim.gdshader" id="5_skdqa"]
+[ext_resource type="AudioStream" uid="uid://5tjh3xa0ixft" path="res://sonidos/wind-blowing-sfx-05-423681.mp3" id="7_0winm"]
+[ext_resource type="AudioStream" uid="uid://cw4j7ijmry5ov" path="res://voices/finalexevoice.wav" id="7_skdqa"]
+[ext_resource type="Shader" uid="uid://c7livdoxdi0ah" path="res://addons/lofiretro.gdshader" id="8_8dkuh"]
+[ext_resource type="Texture2D" uid="uid://bbq6gmnwsvqdc" path="res://sprites y dibujos/gameover.png" id="8_j3qfp"]
+[ext_resource type="Script" uid="uid://u4q3uqouo1pw" path="res://scripts/shaderscript.gd" id="11_0icj0"]
+[ext_resource type="Shader" uid="uid://ft6ts15o4w1g" path="res://addons/shader2.gdshader" id="12_5fq7v"]
+
+[sub_resource type="Sky" id="Sky_4noiy"]
+
+[sub_resource type="Environment" id="Environment_gijjb"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_4noiy")
+tonemap_mode = 2
+fog_light_color = Color(0.40392157, 1, 1, 1)
+fog_light_energy = 8.23
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j3qfp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skdqa"]
+atlas = ExtResource("2_gijjb")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dkuh"]
+atlas = ExtResource("2_gijjb")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0icj0"]
+atlas = ExtResource("2_gijjb")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fq7v"]
+atlas = ExtResource("2_gijjb")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ye5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skdqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dkuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0icj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fq7v")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_j3qfp"]
+script/source = "extends Control
+
+signal terminado
+
+@onready var texto_label = $RichTextLabel
+@onready var timer_letras = $Timer
+@onready var voz = $VozSonido
+
+var frases = []
+var indice = 0
+var tiempo_lectura = 2.5 # Segundos que se queda el texto antes de irse solo
+
+func _ready():
+	self.hide()
+	timer_letras.wait_time = 0.05
+	if not timer_letras.timeout.is_connected(_on_timer_timeout):
+		timer_letras.timeout.connect(_on_timer_timeout)
+
+func iniciar_charla(lista):
+	frases = lista
+	indice = 0
+	self.show()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	escribir_frase()
+
+func escribir_frase():
+	if indice < frases.size():
+		texto_label.text = frases[indice]
+		texto_label.visible_characters = 0
+		timer_letras.start()
+	else:
+		finalizar()
+
+func _on_timer_timeout():
+	if texto_label.visible_characters < texto_label.text.length():
+		texto_label.visible_characters += 1
+		
+		# --- LÓGICA DE VOZ ESTILO UNDERTALE ---
+		if voz:
+			# Obtenemos el carácter actual
+			var car = texto_label.text[texto_label.visible_characters - 1]
+			# Solo suena si no es un espacio o signo de puntuación común
+			if car != \" \" and car != \".\" and car != \",\" and car != \"!\" and car != \"?\":
+				# Variamos el tono ligeramente para cada letra
+				voz.pitch_scale = randf_range(0.95, 1.25)
+				voz.play()
+		# --------------------------------------
+		
+	else:
+		timer_letras.stop()
+		# --- ESPERA AUTOMÁTICA ---
+		# Espera un momento para que el jugador lea y pasa solo
+		await get_tree().create_timer(tiempo_lectura).timeout
+		
+		# Verificamos que sigamos en este mismo diálogo antes de avanzar
+		if self.visible:
+			indice += 1
+			escribir_frase()
+
+# Se eliminó la función _input para que el jugador no pueda saltarlo
+
+func finalizar():
+	self.hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	emit_signal(\"terminado\")
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_skdqa"]
+shader = ExtResource("5_skdqa")
+shader_parameter/jitter_strength = 0.0
+shader_parameter/jitter_speed = 0.10000000149012
+shader_parameter/jitter_frequency = 0.10000000149012
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = false
+shader_parameter/rotation_strength = 0.050000002375
+shader_parameter/rotation_speed = 0.10000000149012
+shader_parameter/rotation_frequency = 0.10000000149012
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.026000001235
+shader_parameter/scale_speed = 2.5
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.0
+shader_parameter/enable_pixelation = false
+shader_parameter/pixel_size = 4.0
+shader_parameter/adaptive_pixels = false
+shader_parameter/enable_outline = false
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_88ekj"]
+emission_shape_scale = Vector3(20, 1, 20)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, -1, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqwrv"]
+emission_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_0winm"]
+material = SubResource("StandardMaterial3D_aqwrv")
+size = Vector2(0.02, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ye5n"]
+atlas = ExtResource("8_j3qfp")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dsns"]
+atlas = ExtResource("8_j3qfp")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xlh57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ye5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dsns")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5fq7v"]
+shader = ExtResource("8_8dkuh")
+shader_parameter/strength = 0.01
+shader_parameter/edge_falloff = true
+shader_parameter/distortion_amount = -0.261999964945
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ye5n"]
+shader = ExtResource("12_5fq7v")
+shader_parameter/rain_amount = 0.246000011685
+shader_parameter/blue_amount = 1.0
+shader_parameter/blur_amount = 0.0
+shader_parameter/low_pc_mode = true
+
+[node name="GameOver" type="Node3D" unique_id=1676314741]
+script = ExtResource("1_4noiy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=693121293]
+environment = SubResource("Environment_gijjb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1957057518]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.68235296, 1, 1, 1)
+light_energy = 1.222
+light_volumetric_fog_energy = 3.994
+shadow_enabled = true
+sky_mode = 2
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=400876093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.043013)
+
+[node name="FondoBlanco" type="MeshInstance3D" parent="." unique_id=2127873620]
+transform = Transform3D(3.840961, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_j3qfp")
+
+[node name="AngelRevividor" type="AnimatedSprite3D" parent="." unique_id=795553748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6201143, 0.33331263)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_1ye5n")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.3739296
+
+[node name="OmniLight3D" type="OmniLight3D" parent="AngelRevividor" unique_id=83972229]
+light_color = Color(0.19215687, 0, 1, 1)
+light_energy = 0.778
+
+[node name="MusicaGameOver" type="AudioStreamPlayer" parent="." unique_id=211063200]
+stream = ExtResource("3_88ekj")
+bus = &"Musica"
+
+[node name="SonidoOkay" type="AudioStreamPlayer" parent="." unique_id=1123942149]
+stream = ExtResource("4_0winm")
+bus = &"Efectos"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=249765519]
+
+[node name="CuadroDialogo" type="Control" parent="CanvasLayer" unique_id=1246252508]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_j3qfp")
+
+[node name="Fondo" type="ColorRect" parent="CanvasLayer/CuadroDialogo" unique_id=1153470097]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -299.0
+offset_right = 55.950005
+offset_bottom = -92.0
+grow_vertical = 0
+scale = Vector2(20, 1)
+color = Color(0, 0, 0, 0.6784314)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/CuadroDialogo" unique_id=1693068063]
+material = SubResource("ShaderMaterial_skdqa")
+layout_mode = 0
+offset_left = 229.0
+offset_top = 448.0
+offset_right = 1015.0
+offset_bottom = 621.0
+theme_override_fonts/normal_font = ExtResource("5_88ekj")
+theme_override_fonts/bold_font = ExtResource("5_88ekj")
+theme_override_fonts/bold_italics_font = ExtResource("5_88ekj")
+theme_override_fonts/italics_font = ExtResource("5_88ekj")
+theme_override_fonts/mono_font = ExtResource("5_88ekj")
+theme_override_font_sizes/normal_font_size = 35
+
+[node name="Timer" type="Timer" parent="CanvasLayer/CuadroDialogo" unique_id=1418018001]
+wait_time = 0.05
+
+[node name="VozSonido" type="AudioStreamPlayer" parent="CanvasLayer/CuadroDialogo" unique_id=24448175]
+stream = ExtResource("7_skdqa")
+pitch_scale = 0.31
+bus = &"Efectos"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2065390416]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=564106101]
+transform = Transform3D(0.33319205, -0.09560896, 0, 0.26228103, 0.121458046, 0, 0, 0, 0.35798383, -1.6053354, 0.8239405, 0.6715921)
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_88ekj")
+draw_pass_1 = SubResource("QuadMesh_0winm")
+
+[node name="SonidoViento" type="AudioStreamPlayer" parent="." unique_id=1359408267]
+stream = ExtResource("7_0winm")
+bus = &"Efectos"
+
+[node name="LetreroRetry" type="AnimatedSprite3D" parent="." unique_id=1166438063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.8278399, -1.0135157)
+offset = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_xlh57")
+autoplay = "default"
+
+[node name="LuzRetry" type="OmniLight3D" parent="LetreroRetry" unique_id=1550113283]
+light_color = Color(0.14117648, 0.6627451, 1, 1)
+light_energy = 2.84
+
+[node name="PostProcessLayer" type="CanvasLayer" parent="." unique_id=1173171005]
+layer = 100
+
+[node name="Tv" type="ColorRect" parent="PostProcessLayer" unique_id=1173185737]
+material = SubResource("ShaderMaterial_5fq7v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("11_0icj0")
+
+[node name="shader" type="ColorRect" parent="PostProcessLayer" unique_id=655895813]
+material = SubResource("ShaderMaterial_1ye5n")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("11_0icj0")

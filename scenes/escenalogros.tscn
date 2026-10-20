@@ -1,0 +1,777 @@
+[gd_scene format=3 uid="uid://25j5t5vu6ful"]
+
+[ext_resource type="Script" uid="uid://whdoi30dr5e6" path="res://scripts/escenalogros.gd" id="1_122na"]
+[ext_resource type="AudioStream" uid="uid://b58dxk037a0jw" path="res://sonidos/TROFEOS.yupi.mp3" id="1_x7u4a"]
+[ext_resource type="Texture2D" uid="uid://i4wllmg601bw" path="res://iconostienda/26 sin título_20260505180339.png" id="3_3berq"]
+[ext_resource type="Texture2D" uid="uid://cmy5y6snaio3g" path="res://iconostienda/book1.png" id="3_wwuxs"]
+[ext_resource type="Texture2D" uid="uid://dqqb7ody0yewg" path="res://LEVEL1/arrow.png" id="4_4d724"]
+[ext_resource type="Shader" uid="uid://bw6mtbnkusm2l" path="res://addons/frutigeraqua.gdshader" id="4_jlv82"]
+[ext_resource type="Texture2D" uid="uid://b60gwou6s8rs0" path="res://iconostienda/insignia16.png" id="5_mej5m"]
+[ext_resource type="Texture2D" uid="uid://84t8oqrnlqh" path="res://iconostienda/insignia13.png" id="6_idlue"]
+[ext_resource type="Texture2D" uid="uid://8m3gm6somnpb" path="res://iconostienda/insignia14.png" id="7_idlue"]
+[ext_resource type="Texture2D" uid="uid://drbc5gyvj0bup" path="res://iconostienda/insigniaforerat.png" id="8_76xxc"]
+[ext_resource type="Texture2D" uid="uid://bm3w5mqxje6e8" path="res://iconostienda/insignia11.png" id="8_nybq1"]
+[ext_resource type="Texture2D" uid="uid://wq8c424wavw0" path="res://iconostienda/insignia5.png" id="9_l3h7c"]
+[ext_resource type="Texture2D" uid="uid://djynmtjwkwc82" path="res://iconostienda/insignia4.png" id="10_l3h7c"]
+[ext_resource type="Texture2D" uid="uid://dhhnobmavef4n" path="res://iconostienda/insignia12.png" id="11_ac86c"]
+[ext_resource type="Texture2D" uid="uid://qh322ficf7sr" path="res://iconostienda/insignia3.png" id="12_wlwcx"]
+[ext_resource type="Texture2D" uid="uid://dfisi36e4svcn" path="res://iconostienda/insignia17.png" id="13_s5tqe"]
+[ext_resource type="Texture2D" uid="uid://cdmfq27sfhjpm" path="res://iconostienda/insignia.png" id="14_1g57y"]
+[ext_resource type="Texture2D" uid="uid://bkig281fa5fl5" path="res://iconostienda/insignia2.png" id="15_nj3av"]
+[ext_resource type="Texture2D" uid="uid://dj75d8gxstboq" path="res://iconostienda/insignia15.png" id="16_y06uc"]
+[ext_resource type="Texture2D" uid="uid://doss76ei3ij3k" path="res://iconostienda/insignia10.png" id="17_0unoa"]
+[ext_resource type="Texture2D" uid="uid://c5m2kokhao2q0" path="res://iconostienda/insignia9.png" id="18_1sls3"]
+[ext_resource type="Texture2D" uid="uid://cpmvj7pqh6icn" path="res://iconostienda/insignia7.png" id="19_jrj46"]
+[ext_resource type="Texture2D" uid="uid://cil13xue2i1mm" path="res://iconostienda/insignia6.png" id="20_eels0"]
+[ext_resource type="Texture2D" uid="uid://cgsct6s1vm0kb" path="res://iconostienda/insignia18.png" id="21_42y4u"]
+[ext_resource type="Texture2D" uid="uid://31g4x5mdhp6q" path="res://LEVEL1/Chestclosed.png" id="21_gtpuj"]
+[ext_resource type="Texture2D" uid="uid://d4hc1hydi24wh" path="res://iconostienda/book2.png" id="21_wbsne"]
+[ext_resource type="Texture2D" uid="uid://c00ayjoe0ao" path="res://LEVEL1/Chestopened.png" id="22_0m652"]
+[ext_resource type="Texture2D" uid="uid://b5fan6mxvud42" path="res://iconostienda/insignia19.png" id="22_k53nl"]
+[ext_resource type="Shader" uid="uid://co0u2rbny0cuv" path="res://addons/retroanim.gdshader" id="23_2hetk"]
+[ext_resource type="Texture2D" uid="uid://48dix6nwv0we" path="res://evoluciones minion/coin.png" id="23_3wtx5"]
+[ext_resource type="AudioStream" uid="uid://deiix22ts0iva" path="res://sonidos/buy.mp3" id="23_fvwke"]
+[ext_resource type="Texture2D" uid="uid://bjftcmuf3hg6j" path="res://iconostienda/Insignia20.png" id="23_y42js"]
+[ext_resource type="Texture2D" uid="uid://cy4eu4salvwvh" path="res://iconostienda/Insignia21.png" id="24_2yj1n"]
+[ext_resource type="Texture2D" uid="uid://b64dl4o1usaqn" path="res://sprites y dibujos/light.png" id="25_w11dw"]
+[ext_resource type="AudioStream" uid="uid://djwbhmq5vh26n" path="res://sonidos/parry.mp3" id="26_wwuxs"]
+[ext_resource type="Texture2D" uid="uid://qwpkliwfui2r" path="res://LEVEL1/Finalkey.png" id="28_3wtx5"]
+[ext_resource type="Texture2D" uid="uid://05sp5qom1oro" path="res://iconostienda/book3.png" id="28_wbsne"]
+[ext_resource type="FontFile" uid="uid://dn1apt5akavrk" path="res://addons/KiriFont.ttf" id="30_wbsne"]
+[ext_resource type="AudioStream" uid="uid://ccw02tf2icali" path="res://sonidos/papper book.mp3" id="32_mp3hf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6nesi"]
+shader = ExtResource("4_jlv82")
+shader_parameter/intensity = 1.0
+shader_parameter/base_water_color = Color(0.21440959, 5.390644e-06, 0.16606998, 1)
+shader_parameter/highlight_scale = 3.0
+shader_parameter/clarity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0m652"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvwke"]
+atlas = ExtResource("21_gtpuj")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wtx5"]
+atlas = ExtResource("22_0m652")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w11dw"]
+atlas = ExtResource("22_0m652")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwuxs"]
+atlas = ExtResource("22_0m652")
+region = Rect2(600, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbsne"]
+atlas = ExtResource("22_0m652")
+region = Rect2(0, 300, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp3hf"]
+atlas = ExtResource("22_0m652")
+region = Rect2(300, 300, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06a5k"]
+atlas = ExtResource("22_0m652")
+region = Rect2(600, 300, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42y4u"]
+atlas = ExtResource("22_0m652")
+region = Rect2(0, 600, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k53nl"]
+atlas = ExtResource("22_0m652")
+region = Rect2(300, 600, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y42js"]
+atlas = ExtResource("22_0m652")
+region = Rect2(600, 600, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yj1n"]
+atlas = ExtResource("22_0m652")
+region = Rect2(0, 900, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3berq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvwke")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wtx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w11dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwuxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbsne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp3hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06a5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42y4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k53nl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y42js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yj1n")
+}],
+"loop": 0,
+"name": &"opened",
+"speed": 10.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gtpuj"]
+shader = ExtResource("23_2hetk")
+shader_parameter/jitter_strength = 0.0
+shader_parameter/jitter_speed = 0.10000000149012
+shader_parameter/jitter_frequency = 0.10000000149012
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 0.0
+shader_parameter/rotation_speed = 0.10000000149012
+shader_parameter/rotation_frequency = 2.04300009378262
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.026000001235
+shader_parameter/scale_speed = 10.0
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.0
+shader_parameter/enable_pixelation = false
+shader_parameter/pixel_size = 4.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mej5m"]
+
+[node name="EscenaLogros" type="Control" unique_id=1060835934]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_122na")
+
+[node name="Themelogros" type="AudioStreamPlayer" parent="." unique_id=713240403]
+stream = ExtResource("1_x7u4a")
+volume_db = -9.455
+autoplay = true
+bus = &"Musica"
+
+[node name="ShopStant" type="Sprite2D" parent="." unique_id=1972312197]
+position = Vector2(639.99994, 362.49997)
+scale = Vector2(0.5093749, 0.5243056)
+texture = ExtResource("3_3berq")
+
+[node name="fondocolor2" type="ColorRect" parent="." unique_id=1793946074]
+material = SubResource("ShaderMaterial_6nesi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95405203, 0.9641101, 0.99999994, 1)
+
+[node name="Pagina1" type="Control" parent="." unique_id=1185373]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="book1" type="TextureRect" parent="Pagina1" unique_id=527626786]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 2578.0
+offset_bottom = 1456.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("3_wwuxs")
+
+[node name="ContenedorLogros" type="GridContainer" parent="Pagina1" unique_id=746007542]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Insignia1" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=1148020511]
+material = SubResource("ShaderMaterial_0m652")
+position = Vector2(719.00006, 153)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("13_s5tqe")
+
+[node name="Insignia2" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=349397866]
+texture_filter = 1
+position = Vector2(340, 298)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_idlue")
+
+[node name="Insignia3" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=1470137594]
+texture_filter = 1
+position = Vector2(447, 298)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_idlue")
+
+[node name="Insignia4" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=1430713331]
+texture_filter = 1
+position = Vector2(339, 423)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_nybq1")
+
+[node name="Insignia5" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=361621131]
+texture_filter = 1
+position = Vector2(448, 422.99997)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("9_l3h7c")
+
+[node name="Insignia6" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=2135161058]
+position = Vector2(231, 423.00003)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("10_l3h7c")
+
+[node name="Insignia7" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=238805056]
+position = Vector2(939.99994, 425)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("11_ac86c")
+
+[node name="Insignia8" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=192456898]
+position = Vector2(552, 297)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("12_wlwcx")
+
+[node name="Insignia9" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=1751086711]
+texture_filter = 1
+position = Vector2(234, 300)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_mej5m")
+
+[node name="Insignia10" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=1657432366]
+position = Vector2(825, 156)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("14_1g57y")
+
+[node name="Insignia11" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=257150090]
+position = Vector2(347, 558)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("15_nj3av")
+
+[node name="Insignia12" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=2005704094]
+position = Vector2(233, 558)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("16_y06uc")
+
+[node name="Insignia13" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=1335461540]
+position = Vector2(726, 290.99997)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("17_0unoa")
+
+[node name="Insignia14" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=1639657791]
+position = Vector2(830, 293.99997)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("18_1sls3")
+
+[node name="Insignia15" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=128512031]
+position = Vector2(936, 297.99997)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("19_jrj46")
+
+[node name="Insignia16" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=1125535283]
+position = Vector2(1038, 295.99997)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("20_eels0")
+
+[node name="Insignia17" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=2095837599]
+position = Vector2(554, 422)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_76xxc")
+
+[node name="Insignia18" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=923221148]
+position = Vector2(835, 424)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("21_42y4u")
+
+[node name="Insignia19" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=78261229]
+position = Vector2(728.00006, 425.99997)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("22_k53nl")
+
+[node name="Insignia20" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=203660951]
+position = Vector2(1045, 423)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("23_y42js")
+
+[node name="Insignia21" type="Sprite2D" parent="Pagina1/ContenedorLogros" unique_id=421781899]
+position = Vector2(726.00006, 557)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("24_2yj1n")
+
+[node name="Pagina2" type="Control" parent="." unique_id=2025749718]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="book2" type="TextureRect" parent="Pagina2" unique_id=1542714481]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 2578.0
+offset_bottom = 1456.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("21_wbsne")
+
+[node name="CofreAnimado" type="AnimatedSprite2D" parent="Pagina2" unique_id=1813185782]
+position = Vector2(879.99994, 308.5)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_3berq")
+animation = &"closed"
+
+[node name="ParticulasMonedas" type="CPUParticles2D" parent="Pagina2" unique_id=795064937]
+position = Vector2(857.99994, 354.5)
+emitting = false
+amount = 30
+texture = ExtResource("23_3wtx5")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(1, 500)
+spread = 60.0
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+
+[node name="LuzVictoria" type="Sprite2D" parent="Pagina2" unique_id=971897716]
+modulate = Color(1, 1, 1, 0.08627451)
+position = Vector2(882, 359.5)
+scale = Vector2(8.04, 7.41)
+texture = ExtResource("25_w11dw")
+
+[node name="SonidoMonedas" type="AudioStreamPlayer" parent="Pagina2" unique_id=1296008353]
+stream = ExtResource("23_fvwke")
+bus = &"Efectos"
+
+[node name="SonidoVictoria" type="AudioStreamPlayer" parent="Pagina2" unique_id=624029471]
+stream = ExtResource("26_wwuxs")
+pitch_scale = 0.9
+bus = &"Efectos"
+
+[node name="Pagina3" type="Control" parent="." unique_id=1254678044]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="book3" type="TextureRect" parent="Pagina3" unique_id=6151876]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 2578.0
+offset_bottom = 1456.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("28_wbsne")
+
+[node name="LabelInfo" type="Label" parent="Pagina3" unique_id=296116790]
+material = SubResource("ShaderMaterial_gtpuj")
+layout_mode = 0
+offset_left = 660.0
+offset_top = 278.0
+offset_right = 951.0
+offset_bottom = 476.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_wbsne")
+theme_override_font_sizes/font_size = 25
+
+[node name="ins1" type="TextureRect" parent="Pagina3" unique_id=77998947]
+layout_mode = 0
+offset_left = 159.99998
+offset_top = 64.0
+offset_right = 4256.0
+offset_bottom = 4160.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("6_idlue")
+
+[node name="ins2" type="TextureRect" parent="Pagina3" unique_id=2123566544]
+layout_mode = 0
+offset_left = 225.99998
+offset_top = 66.0
+offset_right = 4322.0
+offset_bottom = 4162.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("7_idlue")
+
+[node name="ins3" type="TextureRect" parent="Pagina3" unique_id=1023490108]
+layout_mode = 0
+offset_left = 427.99997
+offset_top = 68.0
+offset_right = 4524.0
+offset_bottom = 4164.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("8_nybq1")
+
+[node name="ins4" type="TextureRect" parent="Pagina3" unique_id=48006863]
+layout_mode = 0
+offset_left = 497.99994
+offset_top = 69.00002
+offset_right = 4594.0
+offset_bottom = 4165.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("9_l3h7c")
+
+[node name="ins5" type="TextureRect" parent="Pagina3" unique_id=1361047451]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 67.0
+offset_right = 4458.0
+offset_bottom = 4163.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("10_l3h7c")
+
+[node name="ins6" type="TextureRect" parent="Pagina3" unique_id=788567763]
+layout_mode = 0
+offset_left = 294.00003
+offset_top = 66.0
+offset_right = 4390.0
+offset_bottom = 4162.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("12_wlwcx")
+
+[node name="ins9" type="TextureRect" parent="Pagina3" unique_id=593385036]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 185.0
+offset_right = 4259.0
+offset_bottom = 4281.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("5_mej5m")
+
+[node name="ins7" type="TextureRect" parent="Pagina3" unique_id=1761425782]
+layout_mode = 0
+offset_left = 505.99997
+offset_top = 187.00002
+offset_right = 4602.001
+offset_bottom = 4283.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("11_ac86c")
+
+[node name="ins10" type="TextureRect" parent="Pagina3" unique_id=1387019495]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 61.000004
+offset_right = 4740.0
+offset_bottom = 4157.0
+scale = Vector2(0.05, 0.05)
+mouse_filter = 0
+texture = ExtResource("14_1g57y")
+
+[node name="ins11" type="TextureRect" parent="Pagina3" unique_id=1682510132]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 186.00002
+offset_right = 4398.0
+offset_bottom = 4282.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("15_nj3av")
+
+[node name="ins12" type="TextureRect" parent="Pagina3" unique_id=548462669]
+layout_mode = 0
+offset_left = 233.00002
+offset_top = 187.0
+offset_right = 4329.0
+offset_bottom = 4283.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("16_y06uc")
+
+[node name="ins13" type="TextureRect" parent="Pagina3" unique_id=221455157]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 439.0
+offset_right = 4268.0
+offset_bottom = 4535.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("17_0unoa")
+
+[node name="ins14" type="TextureRect" parent="Pagina3" unique_id=3903124]
+layout_mode = 0
+offset_left = 239.00003
+offset_top = 439.0
+offset_right = 4335.0
+offset_bottom = 4535.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("18_1sls3")
+
+[node name="ins15" type="TextureRect" parent="Pagina3" unique_id=1757682069]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 439.0
+offset_right = 4401.0
+offset_bottom = 4535.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("19_jrj46")
+
+[node name="ins16" type="TextureRect" parent="Pagina3" unique_id=1485218461]
+layout_mode = 0
+offset_left = 377.00006
+offset_top = 433.0
+offset_right = 4473.0
+offset_bottom = 4529.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("20_eels0")
+
+[node name="ins17" type="TextureRect" parent="Pagina3" unique_id=1628461156]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 186.0
+offset_right = 4465.0
+offset_bottom = 4282.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("8_76xxc")
+
+[node name="ins18" type="TextureRect" parent="Pagina3" unique_id=1432800259]
+layout_mode = 0
+offset_left = 221.00006
+offset_top = 319.0
+offset_right = 4317.0
+offset_bottom = 4415.0
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("21_42y4u")
+
+[node name="isn19" type="TextureRect" parent="Pagina3" unique_id=1595502259]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 318.0
+offset_right = 4250.0
+offset_bottom = 4414.0
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("22_k53nl")
+
+[node name="Insignia20" type="TextureRect" parent="Pagina3" unique_id=240977020]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 319.0
+offset_right = 4382.0
+offset_bottom = 4415.0
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("23_y42js")
+
+[node name="Insignia21" type="TextureRect" parent="Pagina3" unique_id=1320401261]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 319.0
+offset_right = 4445.0
+offset_bottom = 4415.0
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("24_2yj1n")
+
+[node name="Insign" type="TextureRect" parent="Pagina3" unique_id=1746462283]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 185.0
+offset_right = 4534.0
+offset_bottom = 4281.0
+scale = Vector2(0.03, 0.03)
+mouse_filter = 0
+texture = ExtResource("13_s5tqe")
+
+[node name="ContenedorSensores" type="Control" parent="Pagina3" unique_id=1783833837]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sensor1" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=740303183]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 91.0
+offset_right = 594.0
+offset_bottom = 169.0
+
+[node name="Sensor2" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=1964834508]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 210.0
+offset_right = 599.0
+offset_bottom = 287.0
+
+[node name="Sensor3" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=17845759]
+layout_mode = 0
+offset_left = 683.0
+offset_top = 95.0
+offset_right = 817.0
+offset_bottom = 229.0
+
+[node name="Sensor4" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=457572188]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 211.0
+offset_right = 393.0
+offset_bottom = 285.0
+
+[node name="Sensor5" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=931133486]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 209.0
+offset_right = 529.0
+offset_bottom = 286.0
+
+[node name="Sensor6" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=1481284228]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 463.0
+offset_right = 489.0
+offset_bottom = 540.0
+
+[node name="Sensor7" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=1876881192]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 208.0
+offset_right = 468.0
+offset_bottom = 287.0
+
+[node name="Sensor8" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=564799805]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 210.0
+offset_right = 256.0
+offset_bottom = 286.0
+
+[node name="Sensor9" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=288607884]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 339.0
+offset_right = 247.0
+offset_bottom = 415.0
+
+[node name="Sensor10" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=282992684]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 340.0
+offset_right = 314.0
+offset_bottom = 416.0
+
+[node name="Sensor11" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=1457271692]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 343.0
+offset_right = 378.0
+offset_bottom = 419.0
+
+[node name="Sensor12" type="ReferenceRect" parent="Pagina3/ContenedorSensores" unique_id=1735815916]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 343.0
+offset_right = 445.0
+offset_bottom = 419.0
+
+[node name="BotonVolver" type="Button" parent="." unique_id=1574230477]
+modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 0
+offset_left = 136.0
+offset_top = 290.0
+offset_right = 536.0
+offset_bottom = 770.0
+rotation = 1.5707964
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mej5m")
+icon = ExtResource("4_4d724")
+flat = true
+
+[node name="Pasar" type="Button" parent="." unique_id=402865457]
+modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 0
+offset_left = 1146.0
+offset_top = 430.0
+offset_right = 1512.0
+offset_bottom = 916.0
+rotation = -1.5707964
+scale = Vector2(0.4, 0.4)
+icon = ExtResource("4_4d724")
+flat = true
+
+[node name="SonidoPagina" type="AudioStreamPlayer" parent="." unique_id=2095608980]
+stream = ExtResource("32_mp3hf")
+bus = &"Efectos"
+
+[node name="AnimacionLlave" type="Sprite2D" parent="." unique_id=1154568301]
+visible = false
+position = Vector2(604, 365)
+scale = Vector2(2, 2)
+texture = ExtResource("28_3wtx5")
+
+[connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]
+[connection signal="pressed" from="Pasar" to="." method="_on_pasar_pressed"]

@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dimvc7be5kuhb"]
+
+[ext_resource type="Shader" uid="uid://cxticgenanm7q" path="res://addons/tree.gdshader" id="1_jqyw7"]
+[ext_resource type="Texture2D" uid="uid://beib3nk5em2t1" path="res://sprites y dibujos/ARBOL TEXTURA.png" id="1_kuylv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jqyw7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1enl"]
+albedo_texture = ExtResource("1_kuylv")
+uv1_triplanar = true
+uv1_triplanar_sharpness = 2.732082
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o1enl"]
+material = SubResource("StandardMaterial3D_o1enl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kuylv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_jqyw7"]
+material = SubResource("StandardMaterial3D_kuylv")
+
+[sub_resource type="Gradient" id="Gradient_kuylv"]
+offsets = PackedFloat32Array(0, 0.04054054)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_o1enl"]
+frequency = 0.05
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5wjxo"]
+noise = SubResource("FastNoiseLite_o1enl")
+color_ramp = SubResource("Gradient_kuylv")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bn2rb"]
+render_priority = 0
+shader = ExtResource("1_jqyw7")
+shader_parameter/foliage_texture = SubResource("NoiseTexture2D_5wjxo")
+shader_parameter/texture_scale = Vector2(1, 1)
+shader_parameter/alpha_threshold = 0.0
+shader_parameter/foliage_colour = Color(0.27392897, 0.47360235, 0.5168253, 1)
+shader_parameter/color_strength = 1.0000000475
+shader_parameter/fresnel_colour = Color(0.39801744, 0.3223197, 0.22906372, 1)
+shader_parameter/fresnel_strength = 0.12800000608
+shader_parameter/fresnel_power = 1.1940000534551198
+shader_parameter/billboard_strength = 0.0
+shader_parameter/vertex_offset_scale = Vector2(1, 1)
+shader_parameter/flip_normal = true
+shader_parameter/use_wind = true
+shader_parameter/wind_strength = 0.1
+shader_parameter/wind_speed = 1.0
+shader_parameter/wind_direction = Vector3(1, 0, 0)
+
+[node name="Arbol_Base" type="Node3D" unique_id=1970146703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94805527, 0)
+
+[node name="tronco" type="StaticBody3D" parent="." unique_id=1603511056]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tronco" unique_id=1114311980]
+shape = SubResource("CylinderShape3D_jqyw7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tronco" unique_id=1572301715]
+mesh = SubResource("CylinderMesh_o1enl")
+
+[node name="hojas" type="MeshInstance3D" parent="." unique_id=1583769018]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1.9491663, 0.13556659)
+mesh = SubResource("SphereMesh_jqyw7")
+skeleton = NodePath("../tronco")
+surface_material_override/0 = SubResource("ShaderMaterial_bn2rb")
+
+[node name="hojas2" type="MeshInstance3D" parent="hojas" unique_id=107422291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32653198, -0.21469438, 0)
+mesh = SubResource("SphereMesh_jqyw7")
+skeleton = NodePath("../../tronco")
+surface_material_override/0 = SubResource("ShaderMaterial_bn2rb")
+
+[node name="hojas3" type="MeshInstance3D" parent="hojas" unique_id=1449264765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29995927, -0.21469438, 0)
+mesh = SubResource("SphereMesh_jqyw7")
+skeleton = NodePath("../../tronco")
+surface_material_override/0 = SubResource("ShaderMaterial_bn2rb")
+
+[node name="hojas5" type="MeshInstance3D" parent="hojas" unique_id=1347301346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.053772092, -0.21469438, -0.32492495)
+mesh = SubResource("SphereMesh_jqyw7")
+skeleton = NodePath("../../tronco")
+surface_material_override/0 = SubResource("ShaderMaterial_bn2rb")
+
+[node name="hojas4" type="MeshInstance3D" parent="hojas" unique_id=1156501167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.053772092, -0.21469438, 0.2207623)
+mesh = SubResource("SphereMesh_jqyw7")
+skeleton = NodePath("../../tronco")
+surface_material_override/0 = SubResource("ShaderMaterial_bn2rb")

@@ -1,0 +1,226 @@
+[gd_scene format=3 uid="uid://ctu4ghx0hfta6"]
+
+[ext_resource type="Script" uid="uid://1jr282oymee5" path="res://scripts/lider_minion.gd" id="1_p4rbp"]
+[ext_resource type="Texture2D" uid="uid://cfguhxq43lcin" path="res://LEVEL1/Kingminion calling.png" id="1_voe05"]
+[ext_resource type="Texture2D" uid="uid://ct3du43o1iqyr" path="res://LEVEL1/Kingminion hurt.png" id="2_p4rbp"]
+[ext_resource type="PackedScene" uid="uid://be3i4mbxk0stn" path="res://scenes/minion.tscn" id="2_weun3"]
+[ext_resource type="Texture2D" uid="uid://37l5qev160j5" path="res://LEVEL1/Kingminion.png" id="3_ljg3w"]
+[ext_resource type="AudioStream" uid="uid://c8tyuhwvvaja5" path="res://sonidos/start.mp3" id="4_weun3"]
+[ext_resource type="Texture2D" uid="uid://cb6v7t5ffey20" path="res://LEVEL1/Kingminionwalk.png" id="5_ljg3w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weun3"]
+atlas = ExtResource("1_voe05")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2efph"]
+atlas = ExtResource("1_voe05")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ymwf"]
+atlas = ExtResource("1_voe05")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stinp"]
+atlas = ExtResource("1_voe05")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi63f"]
+atlas = ExtResource("2_p4rbp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhthj"]
+atlas = ExtResource("2_p4rbp")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ettcx"]
+atlas = ExtResource("2_p4rbp")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlttn"]
+atlas = ExtResource("2_p4rbp")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jooa"]
+atlas = ExtResource("3_ljg3w")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlvtv"]
+atlas = ExtResource("3_ljg3w")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks0io"]
+atlas = ExtResource("3_ljg3w")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bjus"]
+atlas = ExtResource("3_ljg3w")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2b4n"]
+atlas = ExtResource("3_ljg3w")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtyl3"]
+atlas = ExtResource("3_ljg3w")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17bh4"]
+atlas = ExtResource("5_ljg3w")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wt71"]
+atlas = ExtResource("5_ljg3w")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp8qp"]
+atlas = ExtResource("5_ljg3w")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nbfv"]
+atlas = ExtResource("5_ljg3w")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wt71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weun3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2efph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ymwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stinp")
+}],
+"loop": false,
+"name": &"calling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi63f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhthj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ettcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlttn")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jooa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlvtv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks0io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bjus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2b4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtyl3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17bh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wt71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp8qp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nbfv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ljg3w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4rbp"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hp8qp"]
+viewport_path = NodePath("BarraVisual/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nbfv"]
+resource_local_to_scene = true
+bg_color = Color(0.21176471, 0.7176471, 0.45490196, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p4rbp"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1956448099 groups=["boss", "enemies"]]
+script = ExtResource("1_p4rbp")
+escena_minion = ExtResource("2_weun3")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=2048770402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6658284, 0)
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_0wt71")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.09447426
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=241033619]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.5821578, 0)
+shape = SubResource("BoxShape3D_ljg3w")
+
+[node name="HurtBox" type="Area3D" parent="." unique_id=1857313259]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox" unique_id=1020905344]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.5791156, 0)
+shape = SubResource("BoxShape3D_p4rbp")
+
+[node name="callingminions" type="AudioStreamPlayer" parent="." unique_id=214662113]
+stream = ExtResource("4_weun3")
+bus = &"Efectos"
+
+[node name="BarraVisual" type="Sprite3D" parent="." unique_id=209653366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1094592, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_hp8qp")
+
+[node name="SubViewport" type="SubViewport" parent="BarraVisual" unique_id=1144723334]
+transparent_bg = true
+size = Vector2i(50, 5)
+render_target_update_mode = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="BarraVisual/SubViewport" unique_id=1814941658]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_0nbfv")
+max_value = 30.0
+value = 30.0
+show_percentage = false
+
+[node name="AuraCuracion" type="Area3D" parent="." unique_id=870064548]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AuraCuracion" unique_id=1397437191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43325093, 0)
+shape = SubResource("SphereShape3D_p4rbp")
+debug_color = Color(0.48196697, 0.5872891, 0, 0.41960785)

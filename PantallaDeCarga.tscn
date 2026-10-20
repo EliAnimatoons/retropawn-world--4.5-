@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://b0gdes7v2n6y6"]
+
+[ext_resource type="Script" uid="uid://ce0s0u65qu6b5" path="res://scripts/pantalla_de_carga.gd" id="1_xqr81"]
+[ext_resource type="Texture2D" uid="uid://d0d6hxybjcpsn" path="res://loading screens/loadingscene1.png" id="2_m6qw5"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="2_w5qey"]
+[ext_resource type="Texture2D" uid="uid://xy7hwwu6s8h0" path="res://loading screens/loadingscene2.png" id="3_mglqt"]
+[ext_resource type="Texture2D" uid="uid://2ckrofgt15e" path="res://loading screens/loadingscene3.png" id="4_hr6g5"]
+[ext_resource type="Texture2D" uid="uid://j41gl205bfgy" path="res://loading screens/loadingscene4.png" id="5_w2lgb"]
+[ext_resource type="Texture2D" uid="uid://cxy8csrsb6u6j" path="res://loading screens/loading screen 5.png" id="6_w2lgb"]
+[ext_resource type="Texture2D" uid="uid://dmlrjbfckbqw2" path="res://loading screens/loadingscreen7.png" id="7_sgqkm"]
+[ext_resource type="Texture2D" uid="uid://c8ery0krhr66l" path="res://loading screens/loadingscreen8.png" id="8_vfk0e"]
+[ext_resource type="Texture2D" uid="uid://cuwjc1codekcx" path="res://loading screens/loadingscreen9.png" id="9_xxls3"]
+[ext_resource type="Texture2D" uid="uid://cueoje1iggmdy" path="res://loading screens/fondoexe1.png" id="10_kl5he"]
+[ext_resource type="Texture2D" uid="uid://cmlxygd44ipq7" path="res://loading screens/fondoexe2.png" id="11_mxmdw"]
+[ext_resource type="Texture2D" uid="uid://drby6kq7m1doe" path="res://loading screens/fondoexe3.png" id="12_x8hhk"]
+[ext_resource type="Texture2D" uid="uid://butnup0d76okm" path="res://loading screens/fondoexe4.png" id="13_l6joo"]
+[ext_resource type="Texture2D" uid="uid://dm0hvb2x0hixl" path="res://loading screens/loadingscreen10.png" id="14_x8hhk"]
+[ext_resource type="Texture2D" uid="uid://dahgcoob8tjag" path="res://loading screens/loadingscreen11.png" id="15_l6joo"]
+[ext_resource type="Texture2D" uid="uid://dsqfch632l1ym" path="res://loading screens/loadingscreen12.png" id="16_470rd"]
+[ext_resource type="Texture2D" uid="uid://gq4e0y6w1dqe" path="res://loading screens/loadingscreen13.png" id="17_13mja"]
+[ext_resource type="Texture2D" uid="uid://b2si1n0ha0hhm" path="res://loading screens/loadingscreen14.jpg" id="18_yk7jy"]
+[ext_resource type="Texture2D" uid="uid://cyox1wduq7rgj" path="res://loading screens/loadingscreen15.jpg" id="19_a7a7h"]
+[ext_resource type="Texture2D" uid="uid://ddrelx5eecqj3" path="res://loading screens/loadingscreen16.jpg" id="20_qafbk"]
+[ext_resource type="Texture2D" uid="uid://81wc2h37oq0d" path="res://loading screens/loadingscreen17.jpg" id="21_6tslp"]
+[ext_resource type="Texture2D" uid="uid://oqxaqdg0tifv" path="res://loading screens/loadingscreen18.jpg" id="22_aejxv"]
+[ext_resource type="Texture2D" uid="uid://dkcxy728r53pl" path="res://loading screens/loadingscreen19.jpg" id="23_oxa74"]
+[ext_resource type="Texture2D" uid="uid://cq3icwge4ha1o" path="res://loading screens/loadingscreen20.jpg" id="24_kh1uv"]
+[ext_resource type="Texture2D" uid="uid://vq111po18vdw" path="res://loading screens/loadingscreen21.jpg" id="25_mjkfp"]
+[ext_resource type="Texture2D" uid="uid://beyyqkx3qdqj5" path="res://loading screens/loadingscreen22.png" id="26_dfm45"]
+[ext_resource type="Texture2D" uid="uid://2di6o4rafc6d" path="res://loading screens/loadingscreen23.png" id="27_0wrss"]
+[ext_resource type="Texture2D" uid="uid://bp7uxl2k66vxf" path="res://loading screens/loadingscreen24.png" id="28_yk7jy"]
+[ext_resource type="Texture2D" uid="uid://drlwaxk248p56" path="res://loading screens/loadingscreen25.png" id="29_a7a7h"]
+[ext_resource type="Shader" uid="uid://c7livdoxdi0ah" path="res://addons/lofiretro.gdshader" id="31_a7a7h"]
+[ext_resource type="Script" uid="uid://u4q3uqouo1pw" path="res://scripts/shaderscript.gd" id="32_qafbk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wi3b1"]
+bg_color = Color(0.5176471, 0.18039216, 0.6431373, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6tslp"]
+shader = ExtResource("31_a7a7h")
+shader_parameter/strength = 0.01
+shader_parameter/edge_falloff = true
+shader_parameter/distortion_amount = 4.7499999933364734e-08
+
+[node name="Control" type="Control" unique_id=793661667]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xqr81")
+imagenes_fondo = Array[Texture2D]([ExtResource("2_m6qw5"), ExtResource("3_mglqt"), ExtResource("4_hr6g5"), ExtResource("5_w2lgb"), ExtResource("6_w2lgb"), ExtResource("7_sgqkm"), ExtResource("8_vfk0e"), ExtResource("9_xxls3"), ExtResource("10_kl5he"), ExtResource("11_mxmdw"), ExtResource("12_x8hhk"), ExtResource("13_l6joo"), ExtResource("14_x8hhk"), ExtResource("15_l6joo"), ExtResource("16_470rd"), ExtResource("17_13mja"), ExtResource("18_yk7jy"), ExtResource("19_a7a7h"), ExtResource("20_qafbk"), ExtResource("21_6tslp"), ExtResource("22_aejxv"), ExtResource("23_oxa74"), ExtResource("24_kh1uv"), ExtResource("25_mjkfp"), ExtResource("26_dfm45"), ExtResource("27_0wrss"), ExtResource("27_0wrss"), ExtResource("28_yk7jy"), ExtResource("29_a7a7h")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2101376666]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25882354, 0.2, 0.54901963, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1324844043]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1576553541]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -62.0
+offset_right = 252.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_wi3b1")
+show_percentage = false
+
+[node name="Label" type="Label" parent="." unique_id=1188583494]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = 255.0
+offset_right = 132.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_w5qey")
+theme_override_font_sizes/font_size = 30
+text = "RetroPawnWORLD"
+
+[node name="PostProcessLayer" type="CanvasLayer" parent="." unique_id=1015325424]
+layer = 100
+
+[node name="Tv" type="ColorRect" parent="PostProcessLayer" unique_id=1539866235]
+material = SubResource("ShaderMaterial_6tslp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("32_qafbk")

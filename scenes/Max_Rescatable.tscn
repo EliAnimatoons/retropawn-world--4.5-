@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://woimyyw24qry"]
+
+[ext_resource type="Texture2D" uid="uid://b88ualdcbt6ac" path="res://max character/Max remake.png" id="1_s8w6a"]
+[ext_resource type="Script" uid="uid://cguhsxu1dx6g4" path="res://scripts/max_npc.gd" id="2_4mpjo"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="3_btkqw"]
+[ext_resource type="Script" uid="uid://gamp1ewmk8go" path="res://scripts/cuerpo_max.gd" id="4_isy2n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mpjo"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(0, 0, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btkqw"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(1360, 0, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isy2n"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(2720, 0, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riyhl"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(4080, 0, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3s0t"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(0, 1360, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vyfj"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(1360, 1360, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mixd5"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(2720, 1360, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kskg"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(4080, 1360, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktk0k"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(0, 2720, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw1rg"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(1360, 2720, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxivq"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(2720, 2720, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym0o1"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(4080, 2720, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxpiq"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(0, 4080, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4y6x"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(1360, 4080, 1360, 1360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqt7w"]
+atlas = ExtResource("1_s8w6a")
+region = Rect2(2720, 4080, 1360, 1360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2mgd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mpjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btkqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isy2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riyhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3s0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vyfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mixd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kskg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktk0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw1rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxivq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym0o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxpiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4y6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqt7w")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkt00"]
+size = Vector3(0.43113708, 1, 0.222229)
+
+[node name="Max_NPC" type="AnimatedSprite3D" unique_id=721669094 groups=["enemies"]]
+pixel_size = 0.0007
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_c2mgd")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.56608355
+script = ExtResource("2_4mpjo")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1220101482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6822677, 0)
+visible = false
+modulate = Color(0.16862746, 0.7764706, 0.4627451, 1)
+text = "hit!"
+font = ExtResource("3_btkqw")
+
+[node name="CuerpoMax" type="StaticBody3D" parent="." unique_id=1412070994]
+script = ExtResource("4_isy2n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CuerpoMax" unique_id=1725241836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07797447, 0, 0.011077881)
+shape = SubResource("BoxShape3D_mkt00")
+disabled = true

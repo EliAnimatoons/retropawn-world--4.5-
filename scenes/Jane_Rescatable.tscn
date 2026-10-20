@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://fgob4ekkdn1t"]
+
+[ext_resource type="Script" uid="uid://cj0xnv71tw80c" path="res://scripts/Janejaula.gd" id="1_sg4qu"]
+[ext_resource type="Texture2D" uid="uid://blur53jisbv0d" path="res://Jane anims/jane idle.png" id="2_kl4od"]
+[ext_resource type="Script" uid="uid://cwmfqy3oxl8f5" path="res://scripts/cuerpo_jane.gd" id="3_kl3ag"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl4od"]
+atlas = ExtResource("2_kl4od")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl3ag"]
+atlas = ExtResource("2_kl4od")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h8gm"]
+atlas = ExtResource("2_kl4od")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skkk4"]
+atlas = ExtResource("2_kl4od")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss6ut"]
+atlas = ExtResource("2_kl4od")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty2pl"]
+atlas = ExtResource("2_kl4od")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3pqp"]
+atlas = ExtResource("2_kl4od")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roop4"]
+atlas = ExtResource("2_kl4od")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7x8u5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl4od")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl3ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h8gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skkk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss6ut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty2pl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3pqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roop4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swtn8"]
+size = Vector3(0.50494385, 0.5839844, 0.34545898)
+
+[node name="Jane_NPC" type="AnimatedSprite3D" unique_id=2111531376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32518873, 0)
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_7x8u5")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("1_sg4qu")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1075254586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.064891994, 0.36966255, 0)
+visible = false
+
+[node name="CuerpoJane" type="StaticBody3D" parent="." unique_id=1335575428]
+script = ExtResource("3_kl3ag")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CuerpoJane" unique_id=1394711967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04336548, 0.045898438, 0.080444336)
+shape = SubResource("BoxShape3D_swtn8")

@@ -1,0 +1,551 @@
+[gd_scene format=3 uid="uid://b58o8c1g84k7n"]
+
+[ext_resource type="Script" uid="uid://budjmop08kfl6" path="res://minijuego escondidas/game_manager.gd" id="1_wgmsu"]
+[ext_resource type="AudioStream" uid="uid://br2i2dah8bc87" path="res://minijuego escondidas/Where is NUBBE phase 3.mp3" id="2_l3cr3"]
+[ext_resource type="Texture2D" uid="uid://cdh0uk83gac7a" path="res://minijuego escondidas/house.png" id="3_a0jgi"]
+[ext_resource type="AudioStream" uid="uid://qx8ds5olf8ly" path="res://minijuego escondidas/where is NUBBE&Sketch phase 2.mp3" id="3_q2hnn"]
+[ext_resource type="PackedScene" uid="uid://dimvc7be5kuhb" path="res://scenes/arbol_base.tscn" id="4_0njwp"]
+[ext_resource type="AudioStream" uid="uid://0rhy4w15xgrd" path="res://minijuego escondidas/Where is Sketch phase 1.mp3" id="4_ng3if"]
+[ext_resource type="Texture2D" uid="uid://difdxrl1p0i10" path="res://minijuego escondidas/SketchChibi.png" id="4_pv7os"]
+[ext_resource type="Texture2D" uid="uid://dnpt0788dqu3b" path="res://minijuego escondidas/JaneChibi.png" id="5_vfmls"]
+[ext_resource type="Texture2D" uid="uid://b1uq7aa2y0dni" path="res://minijuego escondidas/MaxChibi.png" id="6_86hij"]
+[ext_resource type="Texture2D" uid="uid://dlaeak0yyoxcq" path="res://minijuego escondidas/DoodleChibi.png" id="7_kh5hc"]
+[ext_resource type="Texture2D" uid="uid://plu1sjg0qgcq" path="res://minijuego escondidas/LETS_FIND_NUBBE_1.png" id="9_6gneh"]
+[ext_resource type="Texture2D" uid="uid://cwjxh1td2sjrm" path="res://minijuego escondidas/MinionChibi.png" id="9_e6nm3"]
+[ext_resource type="Texture2D" uid="uid://c46ex6wrig3as" path="res://minijuego escondidas/ChosmixChibi.png" id="10_46v1j"]
+[ext_resource type="Texture2D" uid="uid://da148unw4jryd" path="res://minijuego escondidas/NubbeChibi.png" id="12_cgumf"]
+[ext_resource type="Texture2D" uid="uid://cfncbv7eow6kt" path="res://minijuego escondidas/StyleChibi.png" id="12_pv7os"]
+[ext_resource type="Texture2D" uid="uid://byg71srayy728" path="res://minijuego escondidas/New_Piskel11111111_2.png" id="12_q2hnn"]
+[ext_resource type="Script" uid="uid://bde7ln5blhido" path="res://minijuego escondidas/pivot.gd" id="13_pv7os"]
+[ext_resource type="FontFile" uid="uid://c56r6bctctbt6" path="res://addons/Peaberry-Mono.otf" id="15_1s8dy"]
+[ext_resource type="AudioStream" uid="uid://bhks4d0q6algs" path="res://minijuego escondidas/WINNER.mp3" id="16_ikkar"]
+[ext_resource type="AudioStream" uid="uid://cchrw14mpgkj3" path="res://minijuego escondidas/LOOSER.mp3" id="17_6gneh"]
+[ext_resource type="Texture2D" uid="uid://bbqvn0rntobae" path="res://minijuego escondidas/lupa.png" id="17_pv7os"]
+[ext_resource type="Texture2D" uid="uid://cnjjhfkslargw" path="res://minijuego escondidas/foto0.png" id="19_ng3if"]
+[ext_resource type="Texture2D" uid="uid://v163xvwmai7y" path="res://minijuego escondidas/foto9.png" id="20_pv7os"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dma41"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_1s8dy"]
+sky_material = SubResource("ProceduralSkyMaterial_dma41")
+
+[sub_resource type="Environment" id="Environment_bcrm7"]
+background_mode = 2
+sky = SubResource("Sky_1s8dy")
+ambient_light_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 1.18
+tonemap_white = 1.67
+fog_enabled = true
+fog_light_color = Color(0.33258694, 0.6136825, 0.5242997, 1)
+fog_density = 0.0548
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgmsu"]
+albedo_color = Color(0.003921569, 1, 0.2509804, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a0jgi"]
+material = SubResource("StandardMaterial3D_wgmsu")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuuot"]
+atlas = ExtResource("4_pv7os")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luxre"]
+atlas = ExtResource("5_vfmls")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwgtj"]
+atlas = ExtResource("6_86hij")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgpk4"]
+atlas = ExtResource("7_kh5hc")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46v1j"]
+atlas = ExtResource("9_6gneh")
+region = Rect2(0, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcam7"]
+atlas = ExtResource("9_e6nm3")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyaky"]
+atlas = ExtResource("10_46v1j")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3w7b"]
+atlas = ExtResource("12_q2hnn")
+region = Rect2(0, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfmls"]
+atlas = ExtResource("12_pv7os")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8igc1"]
+atlas = ExtResource("12_cgumf")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1brb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuuot")
+}],
+"loop": 0,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luxre")
+}],
+"loop": 0,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwgtj")
+}],
+"loop": 0,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgpk4")
+}],
+"loop": 0,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46v1j")
+}],
+"loop": 0,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcam7")
+}],
+"loop": 0,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyaky")
+}],
+"loop": 0,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3w7b")
+}],
+"loop": 0,
+"name": &"7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfmls")
+}],
+"loop": 0,
+"name": &"8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8igc1")
+}],
+"loop": 0,
+"name": &"9",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dma41"]
+radius = 0.66845703
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1brb"]
+atlas = ExtResource("17_pv7os")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2csux"]
+atlas = ExtResource("17_pv7os")
+region = Rect2(0, 300, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gcam7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1brb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2csux")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="EscenaPrincipal" type="Node3D" unique_id=2018318384]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=938186122]
+environment = SubResource("Environment_bcrm7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1093344125]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 1.7694302, 0)
+shadow_enabled = true
+
+[node name="MundoPivot" type="Node3D" parent="." unique_id=1519748054]
+script = ExtResource("13_pv7os")
+
+[node name="houses" type="Sprite3D" parent="MundoPivot" unique_id=390004216]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.73807764, 0.97149444, -0.47874713)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("3_a0jgi")
+
+[node name="houses2" type="Sprite3D" parent="MundoPivot/houses" unique_id=757221554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1071236, 0, -1.5148487)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses4" type="Sprite3D" parent="MundoPivot/houses" unique_id=34457414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4481905, 0, -0.56731975)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses6" type="Sprite3D" parent="MundoPivot/houses" unique_id=1103685333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4789497, 0, 3.5919619)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses7" type="Sprite3D" parent="MundoPivot/houses" unique_id=1323028326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.194227, 0, 2.1679077)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses8" type="Sprite3D" parent="MundoPivot/houses" unique_id=1747553674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2720356, 0, 2.1679077)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses9" type="Sprite3D" parent="MundoPivot/houses" unique_id=175675235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0226603, 0, 4.295257)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses10" type="Sprite3D" parent="MundoPivot/houses" unique_id=441359391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0226603, 0, -2.2102637)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses11" type="Sprite3D" parent="MundoPivot/houses" unique_id=1098855224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6203575, 0, -3.6004148)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses12" type="Sprite3D" parent="MundoPivot/houses" unique_id=154709684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3283825, 0, -3.6004148)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses13" type="Sprite3D" parent="MundoPivot/houses" unique_id=1367905535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.542883, 0, -3.6004148)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses14" type="Sprite3D" parent="MundoPivot/houses" unique_id=1169477515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.542883, 0, 0.09214795)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses3" type="Sprite3D" parent="MundoPivot/houses" unique_id=1197760554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.062019, 0, -0.25086474)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="houses5" type="Sprite3D" parent="MundoPivot/houses" unique_id=793826795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1355077, 0, 2.0355978)
+billboard = 2
+texture = ExtResource("3_a0jgi")
+
+[node name="PuntosDeAparicion" type="Node3D" parent="MundoPivot" unique_id=34326813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2613194, 0)
+
+[node name="Marker3D" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1598174786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8070309, 0, -0.87503445)
+
+[node name="Marker3D2" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1159890159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8253238, 0, -2.0426154)
+
+[node name="Marker3D3" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1881747092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2898285, 0, 1.9792793)
+
+[node name="Marker3D4" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=110162005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2319717, 0, 1.9792793)
+
+[node name="Marker3D5" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=743471625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0332909, 0, -2.8632977)
+
+[node name="Marker3D6" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=496661559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82852, 0, -4.472212)
+
+[node name="Marker3D7" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1265999395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82852, 0, 1.6898947)
+
+[node name="Marker3D8" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=955556022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.661928, 0, -4.766308)
+
+[node name="Marker3D9" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1842440057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.889496, 0, -0.94010544)
+
+[node name="Marker3D10" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=2095931028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8697162, 0, 4.22707)
+
+[node name="Marker3D15" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1380951792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0337124, 0, 4.710877)
+
+[node name="Marker3D16" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=2061977380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7312348, 0, 4.2854686)
+
+[node name="Marker3D17" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=620047722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5758657, 0, 4.7830305)
+
+[node name="Marker3D18" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1427970471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5758657, 0, 0.27320814)
+
+[node name="Marker3D27" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1739416496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5758657, 0, -3.4975495)
+
+[node name="Marker3D28" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1116768006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5758657, 0, 2.7973375)
+
+[node name="Marker3D19" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=901559198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0194097, 0, -1.9152422)
+
+[node name="Marker3D20" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1708630764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0912163, 0, -4.7587786)
+
+[node name="Marker3D21" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=272130119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65694547, 0, -4.7587786)
+
+[node name="Marker3D22" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1011806447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8002832, 0, -3.6754901)
+
+[node name="Marker3D23" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=260999536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5943851, 0, 2.943824)
+
+[node name="Marker3D24" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=32268905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.636039, 0, -0.03442359)
+
+[node name="Marker3D25" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1341063972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6264641, 0, -0.03442359)
+
+[node name="Marker3D26" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1642863394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6264641, 0, -2.6799946)
+
+[node name="Marker3D11" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=817315582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8697162, 0, 1.1627758)
+
+[node name="Marker3D12" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=1920680486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8598413, 0, -1.1109259)
+
+[node name="Marker3D13" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=471383554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8598413, 0, -4.0946665)
+
+[node name="Marker3D14" type="Marker3D" parent="MundoPivot/PuntosDeAparicion" unique_id=102275972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.419487, 0, -2.5409856)
+
+[node name="Arbol_Base" parent="MundoPivot" unique_id=991380952 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6535108, 0.94805527, 3.550048)
+
+[node name="Arbol_Base2" parent="MundoPivot/Arbol_Base" unique_id=1522965073 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.291099, 0, -3.802845)
+
+[node name="Arbol_Base7" parent="MundoPivot/Arbol_Base" unique_id=117713663 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7387476, 0, 0.35618877)
+
+[node name="Arbol_Base4" parent="MundoPivot/Arbol_Base" unique_id=1565045742 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.012979, 0, -7.770858)
+
+[node name="Arbol_Base5" parent="MundoPivot/Arbol_Base" unique_id=1165127382 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15184, 0, -7.770858)
+
+[node name="Arbol_Base6" parent="MundoPivot/Arbol_Base" unique_id=338525205 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8504524, 0, 2.9085271)
+
+[node name="Arbol_Base8" parent="MundoPivot/Arbol_Base" unique_id=1970146703 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.992025, 0, 2.9085271)
+
+[node name="Arbol_Base9" parent="MundoPivot/Arbol_Base" unique_id=2142556317 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0845554, 0, 2.9085271)
+
+[node name="Arbol_Base10" parent="MundoPivot/Arbol_Base" unique_id=1964532856 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0845554, 0, -9.162132)
+
+[node name="Arbol_Base11" parent="MundoPivot/Arbol_Base" unique_id=1038230382 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5569944, 0, -2.8743975)
+
+[node name="Arbol_Base12" parent="MundoPivot/Arbol_Base" unique_id=1014414500 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.649804, 0, -1.3752978)
+
+[node name="Arbol_Base13" parent="MundoPivot/Arbol_Base" unique_id=607392227 instance=ExtResource("4_0njwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.235812, 0, -11.391684)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MundoPivot" unique_id=721681696]
+transform = Transform3D(11.732897, 0, 0, 0, 5, 0, 0, 0, 9.026527, 0, 0, 0)
+mesh = SubResource("PlaneMesh_a0jgi")
+skeleton = NodePath("../..")
+
+[node name="PersonajePrototipo" type="Area3D" parent="MundoPivot" unique_id=2137835655]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -456.26862, 21.832485)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="MundoPivot/PersonajePrototipo" unique_id=2124499788]
+cast_shadow = 2
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_w1brb")
+animation = &"9"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MundoPivot/PersonajePrototipo" unique_id=1293424925]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.3495194, 0, 0)
+shape = SubResource("CapsuleShape3D_dma41")
+debug_color = Color(0.98039216, 0, 0.4, 1)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1481003477]
+layer = 10
+
+[node name="PantallaVictoria" type="ColorRect" parent="UI" unique_id=2025058012]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.53333336, 0.4745098, 1, 1)
+
+[node name="BotonContinuar" type="Button" parent="UI/PantallaVictoria" unique_id=2061398026]
+texture_filter = 1
+layout_mode = 0
+offset_left = 361.99997
+offset_top = 561.99994
+offset_right = 464.99997
+offset_bottom = 592.99994
+scale = Vector2(5, 5)
+theme_override_fonts/font = ExtResource("15_1s8dy")
+flat = true
+
+[node name="PantallaDerrota" type="ColorRect" parent="UI" unique_id=1935748477]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.41568628, 0.4627451, 1)
+
+[node name="BotonReintentar" type="Button" parent="UI/PantallaDerrota" unique_id=278534882]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+theme_override_fonts/font = ExtResource("15_1s8dy")
+flat = true
+
+[node name="Label" type="Label" parent="UI" unique_id=2077599694]
+offset_left = 414.0
+offset_top = 117.0
+offset_right = 967.0
+offset_bottom = 185.0
+theme_override_font_sizes/font_size = 49
+
+[node name="HBoxCaras" type="HBoxContainer" parent="UI" unique_id=1865944832]
+offset_right = 404.0
+offset_bottom = 200.0
+
+[node name="Foto0" type="TextureRect" parent="UI/HBoxCaras" unique_id=338251328]
+modulate = Color(1, 1, 1, 0.49019608)
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("19_ng3if")
+
+[node name="Foto9" type="TextureRect" parent="UI/HBoxCaras" unique_id=1021046821]
+modulate = Color(1, 1, 1, 0.49019608)
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("20_pv7os")
+
+[node name="LabelRonda" type="Label" parent="UI" unique_id=874230554]
+offset_left = 475.0
+offset_right = 1287.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("15_1s8dy")
+theme_override_font_sizes/font_size = 50
+
+[node name="LupaUI" type="AnimatedSprite2D" parent="UI" unique_id=1060722257]
+visible = false
+texture_filter = 1
+position = Vector2(800, 463.00003)
+scale = Vector2(3.4433331, 3.1250002)
+sprite_frames = SubResource("SpriteFrames_gcam7")
+autoplay = "default"
+frame_progress = 0.11270692
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=430923711]
+transform = Transform3D(-0.9996033, 0, -0.02816594, 0, 1, 0, 0.02816594, 0, -0.9996033, 0.2535174, 0.8673625, -10.888561)
+fov = 51.9
+metadata/_edit_group_ = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D" unique_id=51929972]
+light_color = Color(0.6164431, 0.9999996, 0.99676853, 1)
+light_energy = 16.0
+spot_range = 20.0
+spot_attenuation = 0.44
+spot_angle = 4.86
+
+[node name="GameManager" type="Node" parent="." unique_id=1391179657 node_paths=PackedStringArray("personaje_base", "marcador_puntos", "mundo_pivot", "camara_principal", "pantalla_victoria", "pantalla_derrota", "label_resultado", "boton_accion", "label_tiempo", "label_ronda", "lupa_animada", "foto_0", "foto_9", "linterna", "sol", "world_env")]
+script = ExtResource("1_wgmsu")
+personaje_base = NodePath("../MundoPivot/PersonajePrototipo")
+marcador_puntos = NodePath("../MundoPivot/PuntosDeAparicion")
+mundo_pivot = NodePath("../MundoPivot")
+camara_principal = NodePath("../Camera3D")
+lista_musica_ambiente = Array[AudioStream]([ExtResource("2_l3cr3"), ExtResource("3_q2hnn"), ExtResource("4_ng3if")])
+pantalla_victoria = NodePath("../UI/PantallaVictoria")
+pantalla_derrota = NodePath("../UI/PantallaDerrota")
+label_resultado = NodePath("../UI/Label")
+boton_accion = NodePath("../UI/PantallaVictoria/BotonContinuar")
+label_tiempo = NodePath("../UI/Label")
+label_ronda = NodePath("../UI/LabelRonda")
+lupa_animada = NodePath("../UI/LupaUI")
+foto_0 = NodePath("../UI/HBoxCaras/Foto0")
+foto_9 = NodePath("../UI/HBoxCaras/Foto9")
+linterna = NodePath("../Camera3D/SpotLight3D")
+sol = NodePath("../DirectionalLight3D")
+world_env = NodePath("../WorldEnvironment")
+
+[node name="win_player" type="AudioStreamPlayer" parent="GameManager" unique_id=1290511076]
+stream = ExtResource("16_ikkar")
+pitch_scale = 1.05
+
+[node name="loss_player" type="AudioStreamPlayer" parent="GameManager" unique_id=751089392]
+stream = ExtResource("17_6gneh")
+pitch_scale = 0.95
+
+[connection signal="pressed" from="UI/PantallaVictoria/BotonContinuar" to="GameManager" method="_on_boton_continuar_pressed"]
+[connection signal="pressed" from="UI/PantallaDerrota/BotonReintentar" to="GameManager" method="_on_boton_reintentar_pressed"]

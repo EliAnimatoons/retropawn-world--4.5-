@@ -1,0 +1,413 @@
+~ max_grito_es
+MAX: ¡SKETCH!
+=> END
+
+~ max_grito_en
+MAX: SKETCH!
+=> END
+
+~ max_grito_ja
+MAX: スケッチ！
+=> END
+
+~ max_que_haces_es
+MAX: ¡¿Qué hacés?!
+=> END
+
+~ max_que_haces_en
+MAX: What are you doing?!
+=> END
+
+~ max_que_haces_ja
+MAX: なにしてるの？！
+=> END
+
+~ max_pregunta_torta_es
+MAX: ¿Un pastel?
+=> END
+
+~ max_pregunta_torta_en
+MAX: A cake?
+=> END
+
+~ max_pregunta_torta_ja
+MAX: ケーキ？
+=> END
+
+~ max_sabia_es
+MAX: Sabía que ibas a hacer algo así.
+=> END
+
+~ max_sabia_en
+MAX: I knew you were gonna do something like that.
+=> END
+
+~ max_sabia_ja
+MAX: そうすると思ってたよ。
+=> END
+
+~ max_jaja_es
+MAX: ¡JAJAJA! ¡Bueno, bueno!
+=> END
+
+~ max_jaja_en
+MAX: HAHAHA! Alright, alright!
+=> END
+
+~ max_jaja_ja
+MAX: ハハハ！わかった、わかった！
+=> END
+
+
+# ========================================================
+# ESCENA PLAZA: JANE Y LA NOTICIA
+# ========================================================
+~ jane_gente_es
+JANE: ¡GENTE! ¡GENTE! ¡GENTEEEE!
+=> END
+
+~ jane_gente_en
+JANE: PEOPLE! PEOPLE! PEOPLLLEEE!
+=> END
+
+~ jane_gente_ja
+JANE: みんな！みんな！みんなーーー！
+=> END
+
+~ jane_noticia_es
+JANE: ¡Tengo una noticia importantísima!
+=> END
+
+~ jane_noticia_en
+JANE: I have huge news!
+=> END
+
+~ jane_noticia_ja
+JANE: 超重大ニュースがあるの！
+=> END
+
+~ jane_olvide_es
+JANE: ...Me olvidé.
+=> END
+
+~ jane_olvide_en
+JANE: ...I forgot.
+=> END
+
+~ jane_olvide_ja
+JANE: ...忘れた。
+=> END
+
+~ batz_brillante_es
+BATZ: Brillante.
+=> END
+
+~ batz_brillante_en
+BATZ: Brilliant.
+=> END
+
+~ batz_brillante_ja
+BATZ: 天才的だな。
+=> END
+
+~ jane_acorde_es
+JANE: ¡AH! ¡Ya me acordé!
+=> END
+
+~ jane_acorde_en
+JANE: AH! I remembered!
+=> END
+
+~ jane_acorde_ja
+JANE: あ！思い出した！
+=> END
+
+~ michael_no_es
+MICHAEL: No.
+=> END
+
+~ michael_no_en
+MICHAEL: No.
+=> END
+
+~ michael_no_ja
+MICHAEL: いやだ。
+=> END
+
+~ jane_que_era_es
+JANE: Ni siquiera te dije qué era.
+=> END
+
+~ jane_que_era_en
+JANE: I didn't even tell you what it was.
+=> END
+
+~ jane_que_era_ja
+JANE: まだ何かも言ってないでしょ。
+=> END
+
+# ========================================================
+# ESCENA PLAZA: NUBBE, BREAD Y LA PIEDRA PATATA
+# ========================================================
+~ nubbe_bread_es
+NUBBE: ¡¡¡BREAD!!!
+=> END
+
+~ nubbe_bread_en
+NUBBE: BREAD!!!
+=> END
+
+~ nubbe_bread_ja
+NUBBE: ブレッド！！！
+=> END
+
+~ bread_si_es
+BREAD: ¿Sí?
+=> END
+
+~ bread_si_en
+BREAD: Yeah?
+=> END
+
+~ bread_si_ja
+BREAD: なに？
+=> END
+
+~ nubbe_encontre_es
+NUBBE: ¡Mirá lo que encontré!
+=> END
+
+~ nubbe_encontre_en
+NUBBE: Look what I found!
+=> END
+
+~ nubbe_encontre_ja
+NUBBE: これ見てよ！
+=> END
+
+~ bread_ah_es
+BREAD: Ah...
+=> END
+
+~ bread_ah_en
+BREAD: Ah...
+=> END
+
+~ bread_ah_ja
+BREAD: ああ...
+=> END
+
+~ nubbe_patata_es
+NUBBE: ¡ES UNA PIEDRA CON FORMA DE PATATA!
+=> END
+
+~ nubbe_patata_en
+NUBBE: IT'S A POTATO-SHAPED ROCK!
+=> END
+
+~ nubbe_patata_ja
+NUBBE: ジャガイモの形をした石だよ！
+=> END
+
+~ bread_linda_es
+BREAD: Está linda.
+=> END
+
+~ bread_linda_en
+BREAD: It's nice.
+=> END
+
+~ bread_linda_ja
+BREAD: かわいいね。
+=> END
+
+~ nubbe_miras_es
+NUBBE: ¿Qué mirás?
+=> END
+
+~ nubbe_miras_en
+NUBBE: What are you lookin' at?
+=> END
+
+~ nubbe_miras_ja
+NUBBE: 何見てんだよ？
+=> END
+
+~ michael_nada_es
+MICHAEL: Nada.
+=> END
+
+~ michael_nada_en
+MICHAEL: Nothing.
+=> END
+
+~ michael_nada_ja
+MICHAEL: 別に。
+=> END
+
+~ nubbe_deja_es
+NUBBE: ¡Entonces dejá de mirar!
+=> END
+
+~ nubbe_deja_en
+NUBBE: Then stop looking!
+=> END
+
+~ nubbe_deja_ja
+NUBBE: じゃあ見るなよ！
+=> END
+
+
+
+
+# ========================================================
+# ESCENA PLAZA:
+# ========================================================
+~ chosmix_jugar_es
+CHOSMIX: ¿Quién quiere jugar?
+=> END
+
+~ chosmix_jugar_en
+CHOSMIX: Who wants to play?
+=> END
+
+~ chosmix_jugar_ja
+CHOSMIX: 誰か遊ぶ？
+=> END
+
+~ max_despues_es
+MAX: Después.
+=> END
+
+~ max_despues_en
+MAX: Later.
+=> END
+
+~ max_despues_ja
+MAX: あとで。
+=> END
+
+~ jane_yo_es
+JANE: Yo.
+=> END
+
+~ jane_yo_en
+JANE: Me!
+=> END
+
+~ jane_yo_ja
+JANE: アタシ！
+=> END
+
+~ batz_paso_es
+BATZ: Paso.
+=> END
+
+~ batz_paso_en
+BATZ: Pass.
+=> END
+
+~ batz_paso_ja
+BATZ: スルーで。
+=> END
+
+~ nubbe_yo_es
+NUBBE: ¡YO!
+=> END
+
+~ nubbe_yo_en
+NUBBE: ME!
+=> END
+
+~ nubbe_yo_ja
+NUBBE: 俺！
+=> END
+
+~ chosmix_vos_es
+CHOSMIX: ¿Vos?
+=> END
+
+~ chosmix_vos_en
+CHOSMIX: You?
+=> END
+
+~ chosmix_vos_ja
+CHOSMIX: あんたは？
+=> END
+
+~ michael_bueno_es
+MICHAEL: ...Bueno.
+=> END
+
+~ michael_bueno_en
+MICHAEL: ...Fine.
+=> END
+
+~ michael_bueno_ja
+MICHAEL: ...いいよ。
+=> END
+
+
+
+# ========================================================
+# ESCENA TIENDA: BATZ Y SKETCH
+# ========================================================
+~ batz_otra_vez_es
+BATZ: ¿Otra vez vos?
+=> END
+
+~ batz_otra_vez_en
+BATZ: You again?
+=> END
+
+~ batz_otra_vez_ja
+BATZ: またお前か？
+=> END
+
+~ batz_eso_es
+BATZ: ¿Eso?
+=> END
+
+~ batz_eso_en
+BATZ: That?
+=> END
+
+~ batz_eso_ja
+BATZ: それか？
+=> END
+
+~ batz_faltan_dos_es
+BATZ: Te faltan dos.
+=> END
+
+~ batz_faltan_dos_en
+BATZ: You're short by two.
+=> END
+
+~ batz_faltan_dos_ja
+BATZ: 2枚足りないぞ。
+=> END
+
+~ batz_llevatelo_es
+BATZ: Llevátelo.
+=> END
+
+~ batz_llevatelo_en
+BATZ: Take it.
+=> END
+
+~ batz_llevatelo_ja
+BATZ: 持っていけ。
+=> END
+
+~ batz_despues_pagas_es
+BATZ: Después me pagás.
+=> END
+
+~ batz_despues_pagas_en
+BATZ: Pay me later.
+=> END
+
+~ batz_despues_pagas_ja
+BATZ: 払いはあとでいい。
+=> END
